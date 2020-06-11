@@ -23,15 +23,6 @@
   // Hook the widget initiation and run our function
   add_action( 'widgets_init', 'add_Widget_Support' );
 
-  // function wp_custom_menu() {
-  //   register_nav_menus(
-  //     array(
-  //       'nav-menu' => __( 'Nav Menu' )
-  //     )
-  //   );
-  // }
-  // add_action( 'init', 'wp_custom_menu' );
-
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'custom-logo' );
   add_theme_support("custom-fields");
@@ -342,7 +333,7 @@ add_action( 'init', 'disable_emojis' );
   add_action('wp_ajax_nopriv_load_esport', 'load_esport');
 
   function reg_featured_video_meta() {
-    add_meta_box( 'fvideo', "Video Destacado", 'fvideo_display_callback', 'post' );
+    add_meta_box( 'fvideo', "Video Destacado", 'fvideo_display_callback', 'post', 'side' );
   }
   add_action( 'add_meta_boxes', 'reg_featured_video_meta' );
 
@@ -367,7 +358,7 @@ add_action( 'init', 'disable_emojis' );
     add_action( 'save_post', 'fvideo_save_meta' );
 
 function reg_featured_podcast_mp3_thumb_meta() {
-    add_meta_box( 'podcast_mp3_thumb', "Podcast Mp3 SRC", 'podcast_mp3_thumb_display_callback', 'post' );
+    add_meta_box( 'podcast_mp3_thumb', "Podcast Mp3 SRC", 'podcast_mp3_thumb_display_callback', 'post', 'side' );
   }
   add_action( 'add_meta_boxes', 'reg_featured_podcast_mp3_thumb_meta' );
 

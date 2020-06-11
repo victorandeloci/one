@@ -520,7 +520,7 @@ main {
 	background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
 	background: -o-linear-gradient(bottom, #000, transparent);
 	background: linear-gradient(to top, #000, transparent);
-	
+
 }
 
 .featured .small {
@@ -705,7 +705,7 @@ main {
 	    flex-wrap: wrap;
 	padding: 0;
 	margin: 2em 0;
-	justify-content: space-between;
+	justify-content: start;
 }
 
 .podcast-page .container .podcasts .loader-container {
@@ -719,9 +719,9 @@ main {
 }
 
 .podcast-page .container .podcasts .item {
-	width: 17em;
-	height: 17em;
-	margin-right: 2%;
+	width: 15rem;
+	height: 15rem;
+	margin-right: 1.5%;
 	margin-bottom: 1em
 }
 
@@ -1491,8 +1491,13 @@ footer .container .column .search-form button {
 
 @media screen and (min-width:1600px) {
 	.podcasts .item {
-		height: 15em
+		height: 19rem;
+		width: 19rem;
 	}
+		.podcast-page .container .podcasts .item{
+			height: 19rem;
+			width: 19rem;
+		}
 	.twitch-iframe {
 		height: 500px
 	}
@@ -1740,4 +1745,3 @@ footer .container .column .search-form button {
 		font-size: 2em
 	}
 }
-

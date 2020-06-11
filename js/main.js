@@ -328,7 +328,7 @@ jQuery(function($){
           }
       });
     }
-	
+
 	var load_esport = function($slug){
 
       var $defaultC = $("#eSportsContainer");
@@ -362,7 +362,7 @@ jQuery(function($){
           }
       });
     }
-	
+
 	var overlayToggle = function(){
       $(".back-overlay").toggleClass("back-overlay-show");
     }
@@ -392,7 +392,7 @@ jQuery(function($){
       headerToggle();
       overlayToggle();
     });
-	
+
 	$(document).on("click", ".game-selector .game", function(){
 		console.log("click");
 		$(".game-selector .game").removeClass("active");
@@ -509,7 +509,7 @@ jQuery(function($){
 
       togglePlay();
     });
-	
+
 	$(document).on("click", ".podcast-select option", function(){
 		var url = $(this).attr('value');
 		  var title = $(this).attr('title');
