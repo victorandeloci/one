@@ -1,0 +1,16 @@
+[15-Nov-2019 21:04:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/playe653/public_html/wp-content/themes/One/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/playe653/public_html/wp-content/themes/One/404.php on line 1
+[17-Nov-2019 16:45:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/playe653/public_html/wp-content/themes/One/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/playe653/public_html/wp-content/themes/One/404.php on line 1
+[12-Dec-2019 20:33:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/playe653/public_html/wp-content/themes/One/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/playe653/public_html/wp-content/themes/One/404.php on line 1
+[14-Dec-2019 20:22:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/playe653/public_html/wp-content/themes/One/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/playe653/public_html/wp-content/themes/One/404.php on line 1
