@@ -1,6 +1,21 @@
 // habilita o uso do $
 jQuery(function($){
 
+  var browser = (function() {
+  var test = function(regexp) {return regexp.test(window.navigator.userAgent)}
+  switch (true) {
+      case test(/edg/i): return "Microsoft Edge";
+      case test(/trident/i): return "Microsoft Internet Explorer";
+      case test(/firefox|fxios/i): return "Mozilla Firefox";
+      case test(/opr\//i): return "Opera";
+      case test(/ucbrowser/i): return "UC Browser";
+      case test(/samsungbrowser/i): return "Samsung Browser";
+      case test(/chrome|chromium|crios/i): return "Google Chrome";
+      case test(/safari/i): return "Apple Safari";
+      default: return "Other";
+  }
+  })();
+
     //url da página atual
     var pagePath = "";
     //título da página atual
@@ -498,16 +513,22 @@ jQuery(function($){
     }
 
     $(document).on("click", "#podPlay", function(){
-      var player = document.getElementById('player');
-      var playerSource = document.getElementById('playerSource');
-      var playerDownload = document.getElementById('playerPodDownload');
 
-      //carrega no source e audio
-      playerSource.src = $(this).attr("source");
-      playerDownload.href = $(this).attr("source");
-      player.load();
+      if(browser == 'firefox') {
+        var player = document.getElementById('player');
+        var playerSource = document.getElementById('playerSource');
+        var playerDownload = document.getElementById('playerPodDownload');
 
-      togglePlay();
+        //carrega no source e audio
+        playerSource.src = $(this).attr("source");
+        playerDownload.href = $(this).attr("source");
+        player.load();
+
+        togglePlay();
+      } else {
+        let win = window.open($(this).attr("source"), '_blank');
+        win.focus();
+      }
     });
 
 	$(document).on("click", ".podcast-select option", function(){

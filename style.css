@@ -1034,6 +1034,11 @@ footer .container .column {
 	        justify-content: flex-start
 }
 
+footer .container .column .custom-logo {
+	width: 7.5rem;
+	height: auto;
+}
+
 footer .container .column .social-links {
 	margin-top: 1em
 }
@@ -1241,7 +1246,7 @@ footer .container .column .search-form button {
 
 .content-back .post-content .post-block .video-container iframe {
 	width: 100%;
-	height: 30em;
+	height: 35em;
 	margin-bottom: 2em
 }
 
