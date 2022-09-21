@@ -1,29 +1,27 @@
-    <?php get_template_part("parts/player"); ?>
-
     <footer>
       <div class="container">
         <div class="column">
           <?php the_custom_logo(); ?>
           <ul class="menu">
-            <li><a alt="Equipe" class="post" href="/equipe/">Equipe</a></li>
+            <li><a alt="Equipe" class="post" href="<?php echo get_home_url(); ?>/equipe/">Equipe</a></li>
             <li><a id="socialLink" rel="noreferrer noopener" target="_blank" href="mailto:&#099;&#111;&#110;&#116;&#097;&#116;&#111;&#064;&#112;&#108;&#097;&#121;&#101;&#114;&#115;&#101;&#108;&#101;&#099;&#116;&#046;&#099;&#111;&#109;&#046;&#098;&#114;" title="contato@playerselect.com.br">Contate-nos</a></li>
           </ul>
           <?php get_search_form(); ?>
         </div>
         <div class="column">
-          <a class="post menu-link" href="/podcasts/"><h3>Podcasts</h3></a>
+          <a class="post menu-link" href="<?php echo get_home_url(); ?>/podcasts/"><h3>Podcasts</h3></a>
           <ul class="menu">
-            <li class="item"><a slug="playercast" class="category-item menu-link" href="/category/playercast/">PlayerCast</a></li>
-            <li class="item"><a slug="bkp" class="category-item menu-link" href="/category/bkp/">BKP</a></li>
-            <li class="item"><a slug="psnews" class="category-item menu-link" href="/category/psnews/">PS News</a></li>
+            <li class="item"><a slug="playercast" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/playercast/">PlayerCast</a></li>
+            <li class="item"><a slug="bkp" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/bkp/">BKP</a></li>
+            <li class="item"><a slug="psnews" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/psnews/">PS News</a></li>
           </ul>
         </div>
         <div class="column">
-          <a slug="textos" class="category-item menu-link" href="/category/textos/"><h3>Textos</h3></a>
+          <a slug="textos" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/textos/"><h3>Textos</h3></a>
           <ul class="menu">
-            <li class="item"><a slug="analises-games" class="category-item menu-link" href="/category/analises-games/">Análises</a></li>
-			  <li class="item"><a slug="artigos" class="category-item menu-link" href="/category/artigos/">Artigos</a></li>
-			  <li class="item"><a slug="filmes-series" class="category-item menu-link" href="/category/filmes-series/">Filmes e Séries</a></li>
+            <li class="item"><a slug="analises-games" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/analises-games/">Análises</a></li>
+			  <li class="item"><a slug="artigos" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/artigos/">Artigos</a></li>
+			  <li class="item"><a slug="filmes-series" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/filmes-series/">Filmes e Séries</a></li>
           </ul>
         </div>
         <div class="column">
