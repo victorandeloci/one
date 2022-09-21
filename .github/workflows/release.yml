@@ -1,0 +1,39 @@
+name: Build WP theme package & Release
+
+on:
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build_release:
+
+    runs-on: ubuntu-latest
+    env:
+      PACKAGE_LABEL: One
+      PACKAGE_NAME: one
+      RELEASE_TAG: 1.2.0
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Gulp Setup & Run
+        run: |
+          sudo apt-get install nodejs
+          sudo apt-get install npm
+          sudo apt-get install gulp
+          npm install
+          gulp build
+
+      - name: Zip build
+        run: |
+          sudo apt-get install zip -y
+          mkdir build
+          zip -r build/${{ env.PACKAGE_NAME }}-${{ env.RELEASE_TAG }}.zip . -x "*build*" -x "*.git/**" -x "*.github/**" -x "*_content/**" -x "*_dev/**" -x "*.git*" -x "*.md" -x "composer.*" -x "*node_modules/**" -x "gulpfile.js" -x "package.json" -x "package-lock.json"
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/${{ env.PACKAGE_NAME }}-${{ env.RELEASE_TAG }}.zip"
+          tag: ${{ env.RELEASE_TAG }}
+          name: ${{ env.PACKAGE_LABEL }} - v${{ env.RELEASE_TAG }}

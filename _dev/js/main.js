@@ -33,10 +33,10 @@ jQuery(function($) {
   var pageTitle = "";
   var loading = true;
   var $window = $(window);
-  var $ajaxPath = "http://localhost/playerselect/wp-admin/admin-ajax.php";
+  var $ajaxPath = "https://playerselect.com.br/wp-admin/admin-ajax.php";
   var $content = $('#mainContainer');
   var $page = 1;
-  var homeUrl = "http://localhost/playerselect/";
+  var homeUrl = "https://playerselect.com.br/";
 
   var default_load_more = function() {
 
