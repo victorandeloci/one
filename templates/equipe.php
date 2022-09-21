@@ -1,43 +1,20 @@
 <?php
-if(isset($_GET['url'])){
-  $url = $_GET['url'];
-  if($url)
-    $postId = url_to_postid($url);
-  else
-    echo "URL não definida!";
-}
+  /* Template Name: Quem Somos */
+  get_header();
+?>
 
-if(!isset($url)){
-  $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-  $postId = url_to_postid($url);
-
-}
-
-if ($postId) {
-  $post = get_post($postId);
-  ?>
-  <div id="metaInformation">
-    <meta property="og:image" content="<?php echo get_the_post_thumbnail_url($postId); ?>"/>
-    <title><?php echo $post->post_title; ?></title>
-    <meta property="og:title" content="<?php echo $post->post_title; ?>"/>
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="<?php echo get_permalink($postId); ?>"/>
-    <meta property="og:site_name" content="<?php echo get_bloginfo("name"); ?>"/>
-    <meta property="og:type" content="podcast"/>
-  </div>
-
+<main id="mainContainer">
   <section class="equipe">
-    <div class="content-back" style="background-image: url('<?php echo get_the_post_thumbnail_url($postId); ?>');">
+    <div class="content-back" style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');">
       <div class="post-title">
-        <h1><?php echo $post->post_title; ?></h1>
+        <h1><?php echo get_the_title(); ?></h1>
       </div>
 
      </div>
      <div class="container">
        <div class="page-block">
          <article class="post-container">
-           <?php echo $post->post_content; ?>
+           <?php echo get_the_content(); ?>
          </article>
        </div>
        <div class="separator">
@@ -50,7 +27,7 @@ if ($postId) {
          <p>"Quando cheguei aqui era tudo mato. Fã de beat' em up"</p>
          <div class="contact">
            <a href="https://twitter.com/almir_branco" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a>
-			 <a href="https://www.instagram.com/almirtadeu/" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fab fa-instagram"></i></a>
+       <a href="https://www.instagram.com/almirtadeu/" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fab fa-instagram"></i></a>
          </div>
        </div>
        <div class="person">
@@ -59,7 +36,7 @@ if ($postId) {
          <p>Carioca, Bombeiro Militar, Produtor Musical, Editor, DJ e  Diplomata na arte do vacilo. Catedrático nas horas vagas. Forjado no submundo dos fliperamas de buteco.</p>
          <div class="contact">
            <a href="https://www.instagram.com/marlos_catedratico/" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fab fa-instagram"></i></a>
-			 <a href="https://twitter.com/Marlos_BM" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a>
+       <a href="https://twitter.com/Marlos_BM" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a>
          </div>
        </div>
        <div class="person">
@@ -67,7 +44,7 @@ if ($postId) {
          <h3>Francisco “Master Miller”</h3>
          <p>"A vida, o universo e tudo mais!"</p>
          <div class="contact">
-			 <a href="https://twitter.com/Francisco_Miler" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a></i></i></a>
+       <a href="https://twitter.com/Francisco_Miler" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a></i></i></a>
            <a href="https://www.instagram.com/xico_muller/" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fab fa-instagram"></i></a>
          </div>
        </div>
@@ -75,7 +52,7 @@ if ($postId) {
          <div class="thumb" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/equipe/andrews.png');"></div>
          <h3>Andrews Reis</h3>
          <p>Gosto: Final Fantasy, Java e batata frita.<br>
-			Odeio: Indiferença, o Almir e editar podcast.</p>
+      Odeio: Indiferença, o Almir e editar podcast.</p>
          <div class="contact">
            <a href="https://twitter.com/andrewsreis" data-link="social" id="socialLink" class="twitter" target="_blank" rel="noopener norefereer"><i class="fab fa-twitter"></i></a></i></i></a>
          </div>
@@ -85,7 +62,7 @@ if ($postId) {
          <h3>Victor "CiganoSA" Andeloci</h3>
          <p>o melhor jogador de Resident Evil da minha rua</p>
          <div class="contact">
-           <a href="https://www.instagram.com/victor.andeloci/" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fab fa-instagram"></i></a>
+           <a href="https://anchor.fm/podcastporao" data-link="social" id="socialLink" class="instagram" target="_blank" rel="noopener norefereer"><i class="fas fa-link"></i></a>
          </div>
        </div>
        <div class="person">
@@ -116,7 +93,7 @@ Apaixonada por games, filmes e livros, qualquer história tá valendo desde que 
 
          </div>
        </div>
-		<div class="person">
+    <div class="person">
          <div class="thumb" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/equipe/fernando.jpg');"></div>
          <h3>Fernando Russo</h3>
          <p>Gamer desde sempre. Teve o prazer de jogar quase todas as plataformas desde o Atari2600. Era jovem quando a maior parte da geração Playstation nem tinha nascido. Respeite a barba do tio.</p>
@@ -141,16 +118,15 @@ Apaixonada por games, filmes e livros, qualquer história tá valendo desde que 
         <div class="person">
           <div class="thumb" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/equipe/igor.png');"></div>
           <h3>Igor Ritter</h3>
-			<p>
-				Publicitário, maçom e eterno advogado de Half-Life. Podcaster em repouso, co-criador do Player Select. Fanático por tecnologia e games, mesmo que hoje em dia só jogando os PubG no celular.
-			</p>
+      <p>
+        Publicitário, maçom e eterno advogado de Half-Life. Podcaster em repouso, co-criador do Player Select. Fanático por tecnologia e games, mesmo que hoje em dia só jogando os PubG no celular.
+      </p>
           <div class="contact">
 
           </div>
         </div>
       </div>
   </section>
+</main>
 
-  <?php
-}
- ?>
+<?php get_footer(); ?>

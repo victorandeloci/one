@@ -1,24 +1,15 @@
 <?php
-
-  function wpdocs_one_scripts() {
-    wp_enqueue_style( 'fonts-awesome', get_template_directory_uri() . "/css/all.min.css" );
-    wp_enqueue_style( 'style', get_template_directory_uri() . "/style.min.css" );
-    wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-3.4.1.min.js', array(), '3.4.1', true );
-    wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.min.js', array(), '1.0.0', true );
-  }
-  add_action( 'wp_enqueue_scripts', 'wpdocs_one_scripts' );
-
   $page = 1;
 
   function add_widget_Support() {
-    register_sidebar( array(
-                    'name'          => 'Sidebar',
-                    'id'            => 'sidebar',
-                    'before_widget' => '<div>',
-                    'after_widget'  => '</div>',
-                    'before_title'  => '<h2>',
-                    'after_title'   => '</h2>',
-    ) );
+    register_sidebar([
+      'name'          => 'Sidebar',
+      'id'            => 'sidebar',
+      'before_widget' => '<div>',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2>',
+      'after_title'   => '</h2>'
+    ]);
   }
   // Hook the widget initiation and run our function
   add_action( 'widgets_init', 'add_Widget_Support' );
@@ -56,25 +47,31 @@
   /**
  * Disable the emoji's
  */
-function disable_emojis() {
- remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
- remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
- remove_action( 'wp_print_styles', 'print_emoji_styles' );
- remove_action( 'admin_print_styles', 'print_emoji_styles' );
- remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
- remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
- remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
- add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
- add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
-}
-add_action( 'init', 'disable_emojis' );
 
-/**
- * Filter function used to remove the tinymce emoji plugin.
- *
- * @param array $plugins
- * @return array Difference betwen the two arrays
- */
+  function add_nav_menus() {
+    register_nav_menu('header-menu',__('Header Menu'));
+  }
+  add_action('init','add_nav_menus');
+
+  function disable_emojis() {
+   remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+   remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+   remove_action( 'wp_print_styles', 'print_emoji_styles' );
+   remove_action( 'admin_print_styles', 'print_emoji_styles' );
+   remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+   remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+   remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+   add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+   add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+  }
+  add_action( 'init', 'disable_emojis' );
+
+  /**
+   * Filter function used to remove the tinymce emoji plugin.
+   *
+   * @param array $plugins
+   * @return array Difference betwen the two arrays
+   */
   function disable_emojis_tinymce( $plugins ) {
    if ( is_array( $plugins ) ) {
    return array_diff( $plugins, array( 'wpemoji' ) );
@@ -203,7 +200,7 @@ add_action( 'init', 'disable_emojis' );
           <div class="post-details">
             <span><?php echo get_the_category(get_the_id())[0]->name; ?></span>
             <h2><?php the_title(); ?></h2>
-			  <p><?php echo excerpt(12); ?></p>
+  		  <p><?php echo excerpt(12); ?></p>
           </div>
         </a>
       </div>
@@ -242,7 +239,7 @@ add_action( 'init', 'disable_emojis' );
           <div class="post-details">
             <span><?php echo get_the_category(get_the_id())[0]->name; ?></span>
             <h2><?php the_title(); ?></h2>
-			  <p><?php echo excerpt(12); ?></p>
+  		  <p><?php echo excerpt(12); ?></p>
           </div>
         </a>
       </div>
@@ -357,7 +354,7 @@ add_action( 'init', 'disable_emojis' );
     }
     add_action( 'save_post', 'fvideo_save_meta' );
 
-function reg_featured_podcast_mp3_thumb_meta() {
+  function reg_featured_podcast_mp3_thumb_meta() {
     add_meta_box( 'podcast_mp3_thumb', "Podcast Mp3 SRC", 'podcast_mp3_thumb_display_callback', 'post', 'side' );
   }
   add_action( 'add_meta_boxes', 'reg_featured_podcast_mp3_thumb_meta' );
@@ -382,7 +379,7 @@ function reg_featured_podcast_mp3_thumb_meta() {
     }
     add_action( 'save_post', 'podcast_mp3_thumb_save_meta' );
 
-	function statsRequest($slug, $file){
+  function statsRequest($slug, $file){
 
     /*
     Filtros:
@@ -396,4 +393,4 @@ function reg_featured_podcast_mp3_thumb_meta() {
     return $json;
   }
 
- ?>
+?>
