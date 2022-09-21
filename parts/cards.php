@@ -14,6 +14,7 @@
                 <div class="description">
                   <h3><?php the_title(); ?></h3>
                   <span><?php echo get_the_category(get_the_id())[0]->name; ?></span>
+                  <p><?php echo excerpt(10); ?></p>
                 </div>
               </a>
             <?php
