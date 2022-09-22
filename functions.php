@@ -55,6 +55,15 @@
       'side',
       'high'
   	);
+
+    add_meta_box(
+  		'one_podcast_tag',
+      'Monitorar Podcasts',
+      'one_podcast_tag',
+      'event',
+      'side',
+      'high'
+  	);
   }
   add_action('add_meta_boxes', 'one_add_custom_meta_boxes');
 
@@ -128,6 +137,14 @@
     <?php
   }
 
+  function one_podcast_tag() {
+    $tag = (get_post_meta(get_the_ID(), 'one_podcast_tag_value', true)) ?? '';
+
+    ?>
+      <input type="text" name="one_podcast_tag_value" value="<?= $tag ?>" id="one_podcast_tag_value" class="components-text-control__input">
+    <?php
+  }
+
   function one_metabox_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( $parent_id = wp_is_post_revision( $post_id ) ) {
@@ -137,7 +154,8 @@
     $fields = [
       'one_custom_thumbnail_url',
       'one_instagram_data_1',
-      'one_instagram_data_2'
+      'one_instagram_data_2',
+      'one_podcast_tag_value'
     ];
 
     foreach ( $fields as $field ) {

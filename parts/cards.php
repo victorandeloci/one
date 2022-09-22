@@ -18,9 +18,7 @@
                 </div>
               </a>
             <?php
-
             $i++;
-
           endwhile;
         endif;
 
