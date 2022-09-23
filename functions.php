@@ -64,6 +64,15 @@
       'side',
       'high'
   	);
+
+    add_meta_box(
+  		'one_podcast_highlight',
+      'Destacar na home',
+      'one_podcast_highlight',
+      'event',
+      'side',
+      'high'
+  	);
   }
   add_action('add_meta_boxes', 'one_add_custom_meta_boxes');
 
@@ -145,6 +154,25 @@
     <?php
   }
 
+  function one_podcast_highlight() {
+    $highlighted = (get_post_meta(get_the_ID(), 'one_podcast_highlight_value', true)) ?? '';
+    ?>
+      <p>Destacar esse evento na página inicial?</p>
+      <input type="hidden" name="one_podcast_highlight_value" id="one_podcast_highlight_value" value="<?= $highlighted ?>">
+      <input id="one_podcast_highlight_check" type="checkbox" <?= ($highlighted == 'true') ? 'checked' : '' ?>>
+      <script type="text/javascript">
+        document.getElementById('one_podcast_highlight_check').addEventListener('change', function() {
+          let input = document.getElementById('one_podcast_highlight_value');
+          if (this.checked) {
+            input.value = 'true';
+          } else {
+            input.value = 'false';
+          }
+        });
+      </script>
+    <?php
+  }
+
   function one_metabox_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( $parent_id = wp_is_post_revision( $post_id ) ) {
@@ -155,7 +183,8 @@
       'one_custom_thumbnail_url',
       'one_instagram_data_1',
       'one_instagram_data_2',
-      'one_podcast_tag_value'
+      'one_podcast_tag_value',
+      'one_podcast_highlight_value'
     ];
 
     foreach ( $fields as $field ) {
