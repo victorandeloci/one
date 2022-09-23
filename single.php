@@ -27,7 +27,7 @@
                ?>
             </div>
             <?php
-              if(in_category("podcast", $postId)){
+              if (in_category("podcast", $postId)) {
 
                 if( $episode_content = get_the_powerpress_content() ) {
                   ?>

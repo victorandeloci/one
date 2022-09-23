@@ -1,9 +1,14 @@
+<?php
+  if (empty($postId))
+    $postId = $post->ID;
+?>
+
 <div id="sharer" class="sharer">
   <a title="Compartilhar" id="socialLink" class="facebook" target="_blank" rel="noreferrer noopener" href='
 
-<?php
-	echo "https://www.facebook.com/sharer.php?u=" . urlencode(get_permalink($postId));
-?>
+    <?php
+    	echo "https://www.facebook.com/sharer.php?u=" . urlencode(get_permalink($postId));
+    ?>
 
     '><i class="fab fa-facebook"></i></a>
 

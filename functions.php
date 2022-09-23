@@ -18,6 +18,154 @@
   add_theme_support( 'custom-logo' );
   add_theme_support("custom-fields");
 
+  // ========== EVENTS ==========
+
+  function create_posttype() {
+    register_post_type( 'event',
+      [
+        'labels' => [
+          'name' => __( 'Eventos' ),
+          'singular_name' => __( 'Eventos' )
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => ['slug' => 'event'],
+        'show_in_rest' => true,
+  			'supports' => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields']
+      ]
+    );
+  }
+  add_action( 'init', 'create_posttype' );
+
+  function one_add_custom_meta_boxes() {
+    add_meta_box(
+  		'one_custom_thumbnail',
+      'Logo do Evento',
+      'one_custom_thumbnail',
+      'event',
+      'side',
+      'high'
+  	);
+
+    add_meta_box(
+  		'one_instagram',
+      'Posts do Instagram',
+      'one_instagram',
+      'event',
+      'side',
+      'high'
+  	);
+
+    add_meta_box(
+  		'one_podcast_tag',
+      'Monitorar Podcasts',
+      'one_podcast_tag',
+      'event',
+      'side',
+      'high'
+  	);
+  }
+  add_action('add_meta_boxes', 'one_add_custom_meta_boxes');
+
+  function one_instagram() {
+    $data_1 = (get_post_meta(get_the_ID(), 'one_instagram_data_1', true)) ?? '';
+    $data_2 = (get_post_meta(get_the_ID(), 'one_instagram_data_2', true)) ?? '';
+
+    ?>
+      <input type="text" class="components-text-control__input" name="one_instagram_data_1" id="one_instagram_data_1" value="<?= $data_1 ?>" style="margin-bottom: 1rem;">
+      <input type="text" class="components-text-control__input" name="one_instagram_data_2" id="one_instagram_data_2" value="<?= $data_2 ?>" style="margin-bottom: 1rem;">
+    <?php
+  }
+
+  function one_custom_thumbnail() {
+  	$url = (get_post_meta(get_the_ID(), 'one_custom_thumbnail_url', true)) ?? '';
+
+    ?>
+      <div class="metabox-content">
+        <img id="one_custom_thumbnail_show" src="<?= !empty($url) ? $url : (get_template_directory_uri() . '/img/default-image.png') ?>" alt="">
+        <button class="button" type="button" name="one_custom_thumbnail_select" id="one_custom_thumbnail_select">Selecionar imagem</button>
+        <button class="button" type="button" name="one_custom_thumbnail_remove" id="one_custom_thumbnail_remove">Remover imagem</button>
+        <input type="hidden" id="one_custom_thumbnail_url" name="one_custom_thumbnail_url" value="<?= $url ?>">
+      </div>
+
+      <script type="text/javascript">
+        var defaultOneUploadImage = '<?= (get_template_directory_uri() . '/img/default-image.png') ?>';
+        if (document.querySelector('#one_custom_thumbnail')) {
+          jQuery(document).ready(function($){
+            // Instantiates the variable that holds the media library frame.
+            var meta_image_frame;
+
+            // Runs when the image button is clicked.
+            $('#one_custom_thumbnail_select').click(function(e){
+
+              // Prevents the default action from occuring.
+              e.preventDefault();
+
+              // If the frame already exists, re-open it.
+              if ( meta_image_frame ) {
+                meta_image_frame.open();
+                return;
+              }
+
+              // Sets up the media library frame
+              meta_image_frame = wp.media.frames.meta_image_frame = wp.media({
+                library: { type: 'image' }
+              });
+
+              // Runs when an image is selected.
+              meta_image_frame.on('select', function(){
+
+                // Grabs the attachment selection and creates a JSON representation of the model.
+                var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
+
+                // Sends the attachment URL to our custom image input field.
+                document.querySelector('#one_custom_thumbnail_url').value = media_attachment.url;
+                document.querySelector('#one_custom_thumbnail_show').setAttribute('src', media_attachment.url);
+              });
+
+              // Opens the media library frame.
+              meta_image_frame.open();
+            });
+          });
+
+          document.getElementById('one_custom_thumbnail_remove').addEventListener('click', function(){
+            document.querySelector('#one_custom_thumbnail_url').value = '';
+            document.querySelector('#one_custom_thumbnail_show').setAttribute('src', defaultOneUploadImage);
+          });
+        }
+      </script>
+    <?php
+  }
+
+  function one_podcast_tag() {
+    $tag = (get_post_meta(get_the_ID(), 'one_podcast_tag_value', true)) ?? '';
+
+    ?>
+      <input type="text" name="one_podcast_tag_value" value="<?= $tag ?>" id="one_podcast_tag_value" class="components-text-control__input">
+    <?php
+  }
+
+  function one_metabox_save( $post_id ) {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( $parent_id = wp_is_post_revision( $post_id ) ) {
+      $post_id = $parent_id;
+    }
+
+    $fields = [
+      'one_custom_thumbnail_url',
+      'one_instagram_data_1',
+      'one_instagram_data_2',
+      'one_podcast_tag_value'
+    ];
+
+    foreach ( $fields as $field ) {
+      if ( array_key_exists( $field, $_POST ) ) {
+        update_post_meta( $post_id, $field, htmlspecialchars($_POST[$field]) );
+      }
+    }
+  }
+  add_action( 'save_post', 'one_metabox_save' );
+
   function excerpt($limit) {
     $excerpt = explode(' ', get_the_excerpt(), $limit);
     if (count($excerpt)>=$limit) {

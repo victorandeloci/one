@@ -6,7 +6,7 @@
     <div class="container">
       <section class="sec404">
         <h1>404</h1>
-        <p>Não encontramos o que você procura aqui. Talvez o link esteja errado ou essa página deixou de existir : /</p>
+        <p>Não encontramos o que você procura aqui.<br> Talvez o link esteja errado ou essa página deixou de existir : /</p>
 
         <?php query_posts(array("post_type" => "post")); ?>
 
