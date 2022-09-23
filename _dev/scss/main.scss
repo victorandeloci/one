@@ -110,7 +110,7 @@ h6 {
 	bottom: -5em;
 	left: 0;
 	background-color: #4a587c;
-	color: #fff;
+	color: #fcfcfc;
 	padding: .5em 0;
 	z-index: 899;
 	-webkit-transition-duration: .2s;
@@ -197,7 +197,6 @@ h6 {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1300px;
 }
 aside {
   padding: 2rem 0;
@@ -217,7 +216,7 @@ aside {
 	border-radius: 2em;
 	border: none;
 	background-color: #ff8f57;
-	color: #fff;
+	color: #fcfcfc;
 	cursor: pointer;
 	font-size: 1em;
 	-webkit-transition-duration: .2s;
@@ -333,7 +332,7 @@ aside {
 			hr {
 				width: 2em;
 				height: 3px;
-				background-color: #fff;
+				background-color: #fcfcfc;
 				border: none;
 			}
 			&:hover {
@@ -434,7 +433,7 @@ nav {
 					color: #ddd;
 					text-decoration: none;
 					&:hover {
-						color: #fff;
+						color: #fcfcfc;
 					}
 				}
 			}
@@ -449,7 +448,7 @@ main {
     background-size: 100% auto;
     position: relative;
     overflow: hidden;
-    padding: 5rem 0;
+    padding: 5rem 0 15rem 0;
     .overlay {
       position: absolute;
       width: 100%;
@@ -487,14 +486,16 @@ main {
             }
           }
           &:nth-child(2) {
-            width: 74%;
-            padding-left: 5rem;
+            width: 69%;
             align-items: flex-start;
+            padding: 2rem;
+            background-color: #fcfcfc;
+            border-radius: 1rem;
             a.subtitle {
               width: 100%;
               text-align: left;
               font-size: 200%;
-              color: #fff;
+              color: #2a2a2a;
               font-family: Agency;
               text-decoration: none;
               display: flex;
@@ -512,6 +513,9 @@ main {
             width: 100%;
             height: auto;
           }
+          p {
+            line-height: 1.5;
+          }
           .h-decoration {
             background-color: #F27B4E;
             width: 5rem;
@@ -520,8 +524,8 @@ main {
             border: none;
             margin: .5rem 0;
           }
-          .event-post-content {
-            color: #fff;
+          .event-post-details {
+            color: #fcfcfc;
           }
           .instagram-posts {
             width: 100%;
@@ -592,7 +596,7 @@ main {
                   margin-top: 0;
                 }
           			a:not(.play-podcast) {
-          				color: #fff;
+          				color: #fcfcfc;
           				text-decoration: none;
           				font-size: 1.5em;
           				text-align: center;
@@ -602,10 +606,21 @@ main {
           }
           .event-post-content {
             width: 100%;
+            margin-bottom: 2rem;
+            color: #2a2a2a;
             iframe {
               width: 100% !important;
               height: 26rem;
             }
+          }
+          #loadDisqus {
+            margin: 3rem auto;
+          }
+          #disqus_recommendations {
+            width: 100%;
+          }
+          #disqus_thread {
+            width: 100%;
           }
         }
       }
@@ -619,7 +634,7 @@ main {
 	display: flex;
 	margin: 0;
 	padding: 0;
-	color: #fff;
+	color: #fcfcfc;
 	h3 {
 		font-size: 2em;
 		padding: 0 .5em;
@@ -652,7 +667,7 @@ main {
 			}
 		}
 		a {
-			color: #fff;
+			color: #fcfcfc;
 			text-decoration: none;
 			z-index: 2;
 			text-align: center;
@@ -794,7 +809,7 @@ main {
 }
 .podcasts {
 	background-color: #1c1c1c;
-	color: #fff;
+	color: #fcfcfc;
 	margin-top: 5em;
 	padding: 5em 0;
 	.container {
@@ -821,7 +836,7 @@ main {
 				padding: 1em .5em;
 				border: none;
 				border-radius: 0;
-				color: #fff;
+				color: #fcfcfc;
 				background-color: #1c1c1c;
 				cursor: pointer;
 				-moz-appearance: none;
@@ -851,7 +866,7 @@ main {
 				flex-wrap: nowrap;
 				a {
 					text-decoration: none;
-					color: #fff;
+					color: #fcfcfc;
 					font-size: 1.5em;
 					margin: 0 .5em;
 				}
@@ -885,7 +900,7 @@ main {
 			flex-wrap: wrap;
 			-webkit-box-pack: justify;
 			-ms-flex-pack: justify;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			-webkit-box-orient: horizontal;
 			-webkit-box-direction: normal;
 			-ms-flex-direction: row;
@@ -950,7 +965,7 @@ main {
         text-decoration: none;
       }
 			a:not(.play-podcast) {
-				color: #fff;
+				color: #fcfcfc;
 				text-decoration: none;
 				font-size: 1.5em;
 				text-align: center;
@@ -998,8 +1013,8 @@ main {
 				height: 20vh;
 				.loader {
 					&:after {
-						border: 5px solid #fff;
-						border-color: #fff transparent #fff transparent;
+						border: 5px solid #fcfcfc;
+						border-color: #fcfcfc transparent #fcfcfc transparent;
 					}
 				}
 			}
@@ -1010,7 +1025,7 @@ main {
 				margin-bottom: 1em;
 			}
 			.no-more-posts {
-				color: #fff;
+				color: #fcfcfc;
 				font-size: 1.2em;
 			}
 		}
@@ -1126,6 +1141,7 @@ main {
 footer {
 	background-color: #000;
 	padding: 3em 0;
+  position: relative;
   z-index: 2;
 	.container {
 		display: -webkit-box;
@@ -1178,13 +1194,13 @@ footer {
 				}
 			}
 			h3 {
-				color: #fff;
+				color: #fcfcfc;
 				font-size: 2em;
 				text-align: center;
 				margin: 0;
 			}
 			h4 {
-				color: #fff;
+				color: #fcfcfc;
 				font-size: 1.5em;
 				text-align: center;
 				margin-bottom: 0;
@@ -1200,7 +1216,7 @@ footer {
 						text-align: center;
 						color: #ddd;
 						&:hover {
-							color: #fff;
+							color: #fcfcfc;
 						}
 					}
 				}
@@ -1212,14 +1228,14 @@ footer {
 				input {
 					border: none;
 					background-color: #000;
-					color: #fff;
+					color: #fcfcfc;
 					border-bottom: solid 1px #ddd;
 					padding: .5em;
 				}
 				button {
 					background-color: #000;
 					border: none;
-					color: #fff;
+					color: #fcfcfc;
 					padding: .5em;
 					cursor: pointer;
 				}
@@ -1263,7 +1279,7 @@ footer {
 		background: linear-gradient(to top, #000, transparent);
 		h1 {
 			text-align: center;
-			color: #fff;
+			color: #fcfcfc;
 			font-size: 3em;
 			text-shadow: 2px 2px 5px #000;
 			margin: 0;
@@ -1284,7 +1300,7 @@ footer {
 			flex-wrap: wrap;
 			a {
 				text-decoration: none;
-				color: #fff;
+				color: #fcfcfc;
 				background-color: #ff8f57;
 				padding: .1em .5em;
 				border-radius: .5em;
@@ -1316,7 +1332,7 @@ footer {
 		}
 	}
 	.post-content {
-		background-color: #fff;
+		background-color: #fcfcfc;
 		padding: 3em 0;
 		.post-column-layout {
 			display: -webkit-box;
@@ -1391,7 +1407,7 @@ footer {
 		background-color: #1c1c1c;
 		.page-block {
 			width: 100%;
-			color: #fff;
+			color: #fcfcfc;
 			margin-bottom: 3em;
 		}
 		.separator {
@@ -1401,7 +1417,7 @@ footer {
 			text-align: center;
 			font-size: 2em;
 			margin: 0;
-			color: #fff;
+			color: #fcfcfc;
 		}
 		hr {
 			margin-bottom: 2em;
@@ -1438,7 +1454,7 @@ footer {
 				background-size: cover;
 			}
 			h3 {
-				color: #fff;
+				color: #fcfcfc;
 				font-size: 1.5em;
 				margin: .5em 0;
 				text-align: center;

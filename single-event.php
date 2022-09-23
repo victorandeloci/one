@@ -13,7 +13,7 @@
           ?>
             <img src="<?= $logoUrl ?>" alt="Event Logo" class="event-logo">
           <?php endif; ?>
-          <div class="event-post-content">
+          <div class="event-post-details">
             <h1><?= $eventPost->post_title ?></h1>
             <div class="h-decoration"></div>
             <p><?= get_the_excerpt($eventPost->ID) ?></p>
@@ -21,9 +21,11 @@
           <?php get_template_part('parts/sharer'); ?>
         </div>
         <div class="column">
-          <div class="event-post-content">
-            <?= $post->post_content ?>
-          </div>
+          <?php if (!empty($post->post_content)): ?>
+            <div class="event-post-content">
+              <?= $post->post_content ?>
+            </div>
+          <?php endif; ?>
           <?php
             $podcastTag = get_post_meta($eventPost->ID, 'one_podcast_tag_value', true);
             if (!empty($podcastTag)):

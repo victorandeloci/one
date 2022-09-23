@@ -1,4 +1,18 @@
-@media screen and (min-width:1600px) {
+@media screen and (min-width: 1600px) {
+	main {
+		&.event {
+			.event-post-content {
+				iframe {
+					height: 31rem !important;
+				}
+			}
+			.event-podcast-content {
+				.item {
+					height: 16rem;
+				}
+			}
+		}
+	}
 	.podcasts {
 		.item {
 			height: 19rem;
@@ -19,7 +33,37 @@
 		height: 500px;
 	}
 }
-@media screen and (max-width:900px) {
+
+@media screen and (min-width: 1860px) {
+	.container {
+		width: 70%;
+	}
+	main {
+		&.event {
+			.container {
+				.row {
+					.column {
+						&:nth-child(1) {
+							left: 15%;
+						}
+						.event-post-content {
+							iframe {
+								height: 34rem !important;
+							}
+						}
+						.event-podcast-content {
+							.item {
+								height: 18em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1023px) {
 	nav {
 		z-index: 999;
 		.container {
@@ -218,7 +262,8 @@
 		}
 	}
 }
-@media screen and (max-width:600px) {
+
+@media screen and (max-width: 640px) {
 	.container {
 		width: 90%;
 	}
