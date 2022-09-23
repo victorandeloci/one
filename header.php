@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= bloginfo('name') ?></title>
+    <title><?= is_front_page() ? bloginfo('name') : get_the_title() ?></title>
 
     <?php wp_head(); ?>
 
-    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/plugins.min.css?v=1.3.2">
-    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=1.3.2">
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/plugins.min.css?v=1.3.3">
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=1.3.3">
 
-    <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=1.3.2" charset="utf-8" defer></script>
-    <script src="<?= get_template_directory_uri() ?>/main.min.js?v=1.3.2" charset="utf-8" defer></script>
+    <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=1.3.3" charset="utf-8" defer></script>
+    <script src="<?= get_template_directory_uri() ?>/main.min.js?v=1.3.3" charset="utf-8" defer></script>
   </head>
   <body>
     <nav>
