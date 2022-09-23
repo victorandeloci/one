@@ -82,7 +82,7 @@
 				flex-direction: column;
 				position: fixed;
 				background-color: #fff;
-				width: 15em;
+				width: 30%;
 				height: 100vh;
 				top: 0;
 				right: -30em;
@@ -261,6 +261,34 @@
 			}
 		}
 	}
+	main {
+		&.event {
+			background-size: auto 100%;
+			.container {
+				.row {
+					flex-direction: column;
+					.column {
+						&:nth-child(1) {
+							position: relative;
+							width: 100%;
+							left: unset;
+						}
+						&:nth-child(2) {
+							width: 100%;
+						}
+						.event-logo {
+							width: 50%;
+						}
+						.event-podcast-content {
+							.item {
+								height: 12rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 640px) {
@@ -274,12 +302,53 @@
 		position: relative;
 		.container {
 			.menu {
-				width: 10em;
+				width: 65%;
 			}
 		}
 	}
 	main {
 		margin-top: 0;
+		&.event {
+			.container {
+				.row {
+					.column {
+						&:nth-child(1) {
+						}
+						&:nth-child(2) {
+							a {
+								&.subtitle {
+									font-size: 150%;
+								}
+							}
+						}
+						.event-logo {
+						}
+						.event-podcast-content {
+							flex-direction: column;
+							justify-content: flex-start;
+							flex-wrap: nowrap;
+							.item {
+								width: 100%;
+								height: 16rem;
+							}
+						}
+						.instagram-posts {
+							flex-direction: column;
+							justify-content: flex-start;
+							flex-wrap: nowrap;
+							iframe {
+								width: 100% !important;
+							}
+						}
+						.event-post-content {
+							iframe {
+								height: 15rem !important;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	.cards {
 		.item {
@@ -328,9 +397,7 @@
 		width: 100%;
 	}
 	.posts {
-		.default {
-			width: 48%;
-		}
+		width: 48%;
 	}
 	.podcast-page {
 		.container {
