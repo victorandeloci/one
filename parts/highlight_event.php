@@ -23,17 +23,6 @@
       <a href="<?= get_permalink($post->ID) ?>">
         <p class="description">Acompanhe a cobertura do evento!</p>
       </a>
-      <?php
-        $instagramEmbed_1 = get_post_meta($post->ID, 'one_instagram_data_1', true);
-        $instagramEmbed_2 = get_post_meta($post->ID, 'one_instagram_data_2', true);
-
-        if (!empty($instagramEmbed_1) || !empty($instagramEmbed_2)):
-      ?>
-        <div class="instagram-posts">
-          <?= htmlspecialchars_decode($instagramEmbed_1) ?>
-          <?= htmlspecialchars_decode($instagramEmbed_2) ?>
-        </div>
-      <?php endif; ?>
     </div>
   </section>
 <?php
