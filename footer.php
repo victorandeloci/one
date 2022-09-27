@@ -26,12 +26,7 @@
         </div>
         <div class="column">
           <h3>Redes Sociais</h3>
-          <div class="social-links">
-            <a href="https://twitter.com/playerselectBR" data-link="social" class="twitter" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/playerselecttv" data-link="social" class="youtube" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/PlayerSelectSite/" data-link="social" class="facebook" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-facebook-square"></i></a>
-            <a href="https://www.instagram.com/playerselectbr/" data-link="social" class="instagram" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-instagram"></i></i></a>
-          </div>
+          <?php get_template_part('elements/social_links'); ?>
           <h4>Grupo de Ouvintes</h4>
           <div class="social-links">
             <a href="https://t.me/playerselect" data-link="social" class="telegram" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-telegram"></i></a>
