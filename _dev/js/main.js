@@ -425,7 +425,7 @@ jQuery(function($) {
   }
 
   var headerToggle = function() {
-    $("#navMenu").toggleClass("menu-show");
+    $(".menu-menu-header-container").toggleClass("menu-show");
   }
 
   $(document).on("click", ".back-overlay", function() {
@@ -489,5 +489,4 @@ jQuery(function($) {
     $(this).remove();
 
   });
-
 });

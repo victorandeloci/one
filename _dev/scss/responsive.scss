@@ -35,6 +35,11 @@
 }
 
 @media screen and (min-width: 1860px) {
+	body {
+		#mainContainer {
+			min-height: 70vh;
+		}
+	}
 	.container {
 		width: 70%;
 	}
@@ -60,6 +65,11 @@
 				}
 			}
 		}
+		&.page {
+			.container {
+				width: 35%;
+			}
+		}
 	}
 }
 
@@ -72,48 +82,51 @@
 				color: #fff;
 				font-size: 1.5em;
 			}
-			.menu {
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: flex;
-				-webkit-box-orient: vertical;
-				-webkit-box-direction: normal;
-				-ms-flex-direction: column;
-				flex-direction: column;
+			.menu-menu-header-container {
 				position: fixed;
 				background-color: #fff;
 				width: 30%;
 				height: 100vh;
+				overflow-y: auto;
 				top: 0;
 				right: -30em;
 				margin: 0;
-				padding: 2em;
 				-webkit-transition-duration: .2s;
 				-o-transition-duration: .2s;
 				transition-duration: .2s;
 				z-index: 999;
-				li {
-					margin-bottom: .5em;
-					a {
-						color: #000;
-						&:hover {
-							color: #ff8f57;
+				.menu {
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+					flex-direction: column;
+					padding: 2em;
+					li {
+						margin-bottom: .5em;
+						a {
+							color: #000;
+							&:hover {
+								color: #ff8f57;
+							}
+						}
+						.sub-menu {
+							display: -webkit-box;
+							display: -ms-flexbox;
+							display: flex;
+							background-color: #fff;
+							position: relative;
+							border-bottom: none;
+							border-left: solid 2px #ff8f57;
+							margin: .5em;
 						}
 					}
-					.submenu {
-						display: -webkit-box;
-						display: -ms-flexbox;
-						display: flex;
-						background-color: #fff;
-						position: relative;
-						border-bottom: none;
-						border-left: solid 2px #ff8f57;
-						margin: .5em;
-					}
 				}
-			}
-			.menu-show {
-				right: 0;
+				&.menu-show {
+					right: 0;
+				}
 			}
 		}
 	}
@@ -288,6 +301,24 @@
 				}
 			}
 		}
+		&.page {
+			.container {
+				width: 80%;
+				.post-title {
+					h1 {
+						text-align: left;
+					}
+					hr {
+						margin-left: 0;
+					}
+				}
+				.post-container {
+					p {
+						text-align: left;
+					}
+				}
+			}
+		}
 	}
 	.highlight-event {
 		.container {
@@ -306,7 +337,7 @@
 	nav {
 		position: relative;
 		.container {
-			.menu {
+			.menu-menu-header-container {
 				width: 65%;
 			}
 		}
@@ -352,6 +383,11 @@
 						}
 					}
 				}
+			}
+		}
+		&.page {
+			.container {
+				width: 90%;
 			}
 		}
 	}
