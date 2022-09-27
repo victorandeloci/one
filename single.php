@@ -2,10 +2,18 @@
   <main id="mainContainer">
     <?php
       $postId = get_the_id();
-      if ($postId) {
+      if ($postId) :
         $post = get_post($postId);
-        ?>
-          <div class="content-back" style="background-image: url('<?php echo get_the_post_thumbnail_url($postId); ?>');">
+
+        // thumbnail
+        $thumbnail = get_the_post_thumbnail_url($postId);
+        // get first image if no thumbnail
+        if (empty($thumbnail)) {
+          $thumbnail = get_first_image($postId);
+        }
+
+      ?>
+        <div class="content-back" style="background-image: url('<?= $thumbnail ?>');">
 
           <div class="post-title">
             <h1><?php echo $post->post_title; ?></h1>
@@ -14,9 +22,9 @@
 
                 $i = 0;
                 $tags = get_the_tags($postId);
-                if($tags):
+                if ($tags):
                   foreach ($tags as $tag) {
-                    if($i <= 4){
+                    if ($i <= 4){
                     ?>
                       <a href="<?php echo get_home_url(); ?>/tag/<?php echo str_replace(" ", "-", $tag->name); ?>" tag="<?php echo str_replace(" ", "-", $tag->name); ?>" id="tagLink" class="tag"><span># </span><?php echo $tag->name; ?></a>
                     <?php
@@ -29,7 +37,7 @@
             <?php
               if (in_category("podcast", $postId)) {
 
-                if( $episode_content = get_the_powerpress_content() ) {
+                if ( $episode_content = get_the_powerpress_content() ) {
                   ?>
                     <div class="power-press-player"><?php echo $episode_content; ?></div>
                   <?php
@@ -59,14 +67,14 @@
                 <?php
 
                   //checa se tem um meta de url de video
-                  if(trim(get_post_meta($postId, "fvideoUrl", true))):
+                  if (trim(get_post_meta($postId, "fvideoUrl", true))):
 
                     $fVideoUrl = trim(get_post_meta($postId, "fvideoUrl", true));
 
                     //pega id do video (YouTube)
-                    if(strpos($fVideoUrl, "watch?v="))
+                    if (strpos($fVideoUrl, "watch?v="))
                       $ytId = substr($fVideoUrl, strpos($fVideoUrl, "watch?v=") + 8);
-                    else if(strpos($fVideoUrl, "youtu.be/"))
+                    else if (strpos($fVideoUrl, "youtu.be/"))
                       $ytId = substr($fVideoUrl, strpos($fVideoUrl, "youtu.be/") + 9);
                   ?>
 
@@ -102,9 +110,7 @@
              </div>
           </div>
 
-         </div>
-        <?php
-      }
-    ?>
+        </div>
+      <?php endif; ?>
   </main>
 <?php get_footer(); ?>
