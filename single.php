@@ -17,23 +17,7 @@
 
           <div class="post-title">
             <h1><?php echo $post->post_title; ?></h1>
-            <div class="tags-container">
-              <?php
-
-                $i = 0;
-                $tags = get_the_tags($postId);
-                if ($tags):
-                  foreach ($tags as $tag) {
-                    if ($i <= 4){
-                    ?>
-                      <a href="<?php echo get_home_url(); ?>/tag/<?php echo str_replace(" ", "-", $tag->name); ?>" tag="<?php echo str_replace(" ", "-", $tag->name); ?>" id="tagLink" class="tag"><span># </span><?php echo $tag->name; ?></a>
-                    <?php
-                    }
-                    $i++;
-                  }
-                endif;
-               ?>
-            </div>
+            <?php get_template_part('elements/tags_container'); ?>
             <?php
               if (in_category("podcast", $postId)) {
 
