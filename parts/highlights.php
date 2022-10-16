@@ -31,7 +31,10 @@
         >
           <div class="overlay"></div>
           <div class="container">
-            <a class="title-link" href="<?= get_the_permalink() ?>"><h2><?= get_the_title() ?></h2></a>
+            <a class="title-link" href="<?= get_the_permalink() ?>">
+              <h2><?= get_the_title() ?></h2>
+              <p><?= excerpt(20) ?></p>
+            </a>
 
             <?php
               $categories = get_the_category();
