@@ -32,7 +32,14 @@
           <div class="overlay"></div>
           <div class="container">
             <a class="title-link" href="<?= get_the_permalink() ?>">
-              <h2><?= get_the_title() ?></h2>
+              <div class="title-container">
+                <h2><?= get_the_title() ?></h2>
+                <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_review_score_value', true))): ?>
+                  <div class="score-container" style="background-image: url(<?= get_template_directory_uri() . '/img/logo_base_empty.png' ?>);">
+                    <span><?= get_post_meta(get_the_ID(), 'one_game_review_score_value', true) ?></span>
+                  </div>
+                <?php endif; ?>
+              </div>
               <p><?= excerpt(20) ?></p>
             </a>
 

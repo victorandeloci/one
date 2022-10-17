@@ -560,6 +560,9 @@
 			}
 			.slides-container {
 				height: 87vh;
+				.overlay {
+					background: linear-gradient(to right,#000,transparent 250%);
+				}
 				.container {
 					width: 90%;
 					margin-left: 5%;

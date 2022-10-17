@@ -353,6 +353,9 @@ aside {
 .more-posts {
 	>h2 {
 		font-size: 2em;
+    span {
+      color: var(--orange);
+    }
 	}
 }
 .back-overlay {
@@ -878,11 +881,6 @@ main {
 		-webkit-transition-duration: .2s;
 		-o-transition-duration: .2s;
 		transition-duration: .2s;
-		&:hover {
-			-webkit-transform: scale(1.1);
-			-ms-transform: scale(1.1);
-			transform: scale(1.1);
-		}
 		.thumb {
 			width: 100%;
 			height: 12em;
@@ -897,11 +895,27 @@ main {
 		}
 		.description {
 			padding: 1em 1em;
-			h3 {
-				color: #ff8f57;
-				font-size: 1.5em;
-				margin: 0;
-			}
+      .title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3 {
+  				color: #ff8f57;
+  				font-size: 1.5em;
+  				margin: 0;
+  			}
+        .score-container {
+          width: 3rem;
+          height: 3rem;
+          margin-right: 0;
+          opacity: 0;
+          transition-duration: .3s;
+          span {
+            color: #fff;
+            font-size: 100%;
+          }
+        }
+      }
 			span {
 				color: #4a587c;
 			}
@@ -910,6 +924,14 @@ main {
 				margin-bottom: 0;
         color: #2a2a2a;
 			}
+		}
+    &:hover {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+      .score-container {
+        opacity: 1 !important;
+      }
 		}
 	}
 	.odd {
@@ -1735,11 +1757,27 @@ footer {
         z-index: 2;
         .title-link {
           text-decoration: none;
-          h2 {
-            text-transform: uppercase;
-            color: #fcfcfc;
-            font-size: 300%;
+          .title-container {
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
+            padding-top: 2rem;
+            h2 {
+              text-transform: uppercase;
+              color: #fcfcfc;
+              font-size: 300%;
+              margin: 0;
+            }
+            .score-container {
+              width: 3rem;
+              height: 3rem;
+              margin-right: 0;
+              margin-left: 1rem;
+              span {
+                color: #fff;
+                font-size: 100%;
+              }
+            }
           }
           p {
             color: #fcfcfc;
@@ -1801,6 +1839,39 @@ footer {
     hr {
       opacity: 0.3;
       margin-bottom: 1rem;
+    }
+  }
+}
+.score-container {
+  width: 5rem;
+  height: 5rem;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  margin-right: 2rem;
+  span {
+    color: #fff;
+    text-align: center;
+    font-size: 150%;
+    padding-top: .2rem;
+    padding-left: .2rem;
+    user-select: none;
+    font-family: Agency;
+  }
+}
+.game-score {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-left: solid 5px var(--orange);
+  border-radius: .5rem;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  .score-definition {
+    p {
+      font-size: 130%;
+      font-style: italic;
     }
   }
 }

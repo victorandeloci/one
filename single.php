@@ -49,7 +49,6 @@
               <div class="post-block">
 
                 <?php
-
                   //checa se tem um meta de url de video
                   if (trim(get_post_meta($postId, "fvideoUrl", true))):
 
@@ -60,7 +59,7 @@
                       $ytId = substr($fVideoUrl, strpos($fVideoUrl, "watch?v=") + 8);
                     else if (strpos($fVideoUrl, "youtu.be/"))
                       $ytId = substr($fVideoUrl, strpos($fVideoUrl, "youtu.be/") + 9);
-                  ?>
+                ?>
 
                   <div class="video-container">
                     <iframe src="https://youtube.com/embed/<?php echo $ytId; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -68,7 +67,7 @@
 
                 <?php
                   endif;
-                 ?>
+                ?>
 
                 <div class="post-column-layout">
                   <article class="post-container">
@@ -80,11 +79,23 @@
                     </div>
                     <?php echo $post->post_content; ?>
 
+                    <?php if (in_category('analises-games', get_the_ID()) && !empty(get_post_meta(get_the_ID(), 'one_game_review_score_value', true))): ?>
+                      <div class="game-score">
+                        <div class="score-container" style="background-image: url(<?= get_template_directory_uri() . '/img/logo_base_empty.png' ?>);">
+                          <span><?= get_post_meta(get_the_ID(), 'one_game_review_score_value', true) ?></span>
+                        </div>
+                        <div class="score-definition">
+                          <p><?= getGRSD(get_post_meta(get_the_ID(), 'one_game_review_score_value', true)) ?></p>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+
+                    <h2>Compartilhe: </h2>
                     <?php get_template_part("parts/sharer"); ?>
 
                     <?php get_template_part("parts/comments"); ?>
 
-                    </article>
+                  </article>
                   <?php get_sidebar(); ?>
                 </div>
 

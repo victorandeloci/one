@@ -1,4 +1,23 @@
 <?php
+  define('ONE_GRSD', [
+    0 => 'No começo tava ruim, aí depois parece que piorou!',
+    2.5 => 'Era melhor ter ido ver o pelé!',
+    4.5 => 'Tá ruim, mas tá bom...',
+    6 => 'Passou de ano!',
+    8 => 'Jogo bonito, jogo formoso!',
+    10 => 'Esse só perde para Chrono Trigger...'
+  ]);
+
+  function getGRSD($score) {
+    $finalDefinition = '';
+    foreach (ONE_GRSD as $baseScore => $definition) {
+      if ($score >= $baseScore)
+        $finalDefinition = $definition;
+    }
+
+    return $finalDefinition;
+  }
+
   $page = 1;
 
   function add_widget_Support() {
@@ -70,6 +89,15 @@
       'Destacar na home',
       'one_podcast_highlight',
       'event',
+      'side',
+      'high'
+  	);
+
+    add_meta_box(
+  		'one_game_review_score',
+      'Nota da review',
+      'one_game_review_score',
+      'post',
       'side',
       'high'
   	);
@@ -267,6 +295,14 @@
     <?php
   }
 
+  function one_game_review_score() {
+    $score = (get_post_meta(get_the_ID(), 'one_game_review_score_value', true)) ?? '';
+
+    ?>
+      <input type="text" name="one_game_review_score_value" value="<?= $score ?>" id="one_game_review_score_value" class="components-text-control__input">
+    <?php
+  }
+
   function one_metabox_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( $parent_id = wp_is_post_revision( $post_id ) ) {
@@ -284,7 +320,8 @@
       'one_game_info_publisher',
       'one_game_info_developer',
       'one_game_info_genre',
-      'one_game_info_platforms'
+      'one_game_info_platforms',
+      'one_game_review_score_value'
     ];
 
     foreach ( $fields as $field ) {
