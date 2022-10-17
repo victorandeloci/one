@@ -555,21 +555,22 @@
 	#highlights {
 		.slider-wrapper {
 			.slide-arrow {
-				top: unset;
-				bottom: 20%;
+				display: none;
 			}
 			.slides-container {
-				height: 87vh;
+				height: 70vh;
 				.overlay {
 					background: linear-gradient(to right,#000,transparent 250%);
 				}
 				.container {
 					width: 90%;
 					margin-left: 5%;
-					padding: 3rem 0;
+					padding: 2rem 0;
 					.title-link {
-						h2 {
-							font-size: 250%;
+						.title-container {
+							h2 {
+								font-size: 220%;
+							}
 						}
 					}
 				}
