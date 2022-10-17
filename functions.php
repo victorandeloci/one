@@ -14,9 +14,9 @@
   // Hook the widget initiation and run our function
   add_action( 'widgets_init', 'add_Widget_Support' );
 
-  add_theme_support( 'post-thumbnails' );
-  add_theme_support( 'custom-logo' );
-  add_theme_support("custom-fields");
+  add_theme_support('post-thumbnails');
+  add_theme_support('custom-logo');
+  add_theme_support('custom-fields');
 
   // ========== EVENTS ==========
 
@@ -70,6 +70,24 @@
       'Destacar na home',
       'one_podcast_highlight',
       'event',
+      'side',
+      'high'
+  	);
+
+    add_meta_box(
+  		'one_game_infos',
+      'Ficha técnica',
+      'one_game_infos',
+      'post',
+      'side',
+      'high'
+  	);
+
+    add_meta_box(
+  		'one_game_cover',
+      'Capa do jogo',
+      'one_game_cover',
+      'post',
       'side',
       'high'
   	);
@@ -173,6 +191,82 @@
     <?php
   }
 
+  function one_game_cover() {
+  	$url = (get_post_meta(get_the_ID(), 'one_game_cover_url', true)) ?? '';
+
+    ?>
+      <div class="metabox-content">
+        <img id="one_game_cover_show" src="<?= !empty($url) ? $url : (get_template_directory_uri() . '/img/default-image.png') ?>" alt="">
+        <button class="button" type="button" name="one_game_cover_select" id="one_game_cover_select">Selecionar imagem</button>
+        <button class="button" type="button" name="one_game_cover_remove" id="one_game_cover_remove">Remover imagem</button>
+        <input type="hidden" id="one_game_cover_url" name="one_game_cover_url" value="<?= $url ?>">
+      </div>
+
+      <script type="text/javascript">
+        var defaultOneUploadImage = '<?= (get_template_directory_uri() . '/img/default-image.png') ?>';
+        if (document.querySelector('#one_game_cover')) {
+          jQuery(document).ready(function($){
+            // Instantiates the variable that holds the media library frame.
+            var meta_image_frame;
+
+            // Runs when the image button is clicked.
+            $('#one_game_cover_select').click(function(e){
+
+              // Prevents the default action from occuring.
+              e.preventDefault();
+
+              // If the frame already exists, re-open it.
+              if ( meta_image_frame ) {
+                meta_image_frame.open();
+                return;
+              }
+
+              // Sets up the media library frame
+              meta_image_frame = wp.media.frames.meta_image_frame = wp.media({
+                library: { type: 'image' }
+              });
+
+              // Runs when an image is selected.
+              meta_image_frame.on('select', function(){
+
+                // Grabs the attachment selection and creates a JSON representation of the model.
+                var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
+
+                // Sends the attachment URL to our custom image input field.
+                document.querySelector('#one_game_cover_url').value = media_attachment.url;
+                document.querySelector('#one_game_cover_show').setAttribute('src', media_attachment.url);
+              });
+
+              // Opens the media library frame.
+              meta_image_frame.open();
+            });
+          });
+
+          document.getElementById('one_game_cover_remove').addEventListener('click', function(){
+            document.querySelector('#one_game_cover_url').value = '';
+            document.querySelector('#one_game_cover_show').setAttribute('src', defaultOneUploadImage);
+          });
+        }
+      </script>
+    <?php
+  }
+
+  function one_game_infos() {
+    $year = (get_post_meta(get_the_ID(), 'one_game_info_year', true)) ?? '';
+    $publisher = (get_post_meta(get_the_ID(), 'one_game_info_publisher', true)) ?? '';
+    $developer = (get_post_meta(get_the_ID(), 'one_game_info_developer', true)) ?? '';
+    $genre = (get_post_meta(get_the_ID(), 'one_game_info_genre', true)) ?? '';
+    $platforms = (get_post_meta(get_the_ID(), 'one_game_info_platforms', true)) ?? '';
+
+    ?>
+      <input type="text" name="one_game_info_year" value="<?= $year ?>" id="one_game_info_year" class="components-text-control__input" placeholder="Ano de lançamento">
+      <input type="text" name="one_game_info_publisher" value="<?= $publisher ?>" id="one_game_info_publisher" class="components-text-control__input" placeholder="Distribuidora">
+      <input type="text" name="one_game_info_developer" value="<?= $developer ?>" id="one_game_info_developer" class="components-text-control__input" placeholder="Desenvolvedora">
+      <input type="text" name="one_game_info_genre" value="<?= $genre ?>" id="one_game_info_genre" class="components-text-control__input" placeholder="Gêneros">
+      <input type="text" name="one_game_info_platforms" value="<?= $platforms ?>" id="one_game_info_platforms" class="components-text-control__input" placeholder="Plataformas">
+    <?php
+  }
+
   function one_metabox_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
     if ( $parent_id = wp_is_post_revision( $post_id ) ) {
@@ -184,7 +278,13 @@
       'one_instagram_data_1',
       'one_instagram_data_2',
       'one_podcast_tag_value',
-      'one_podcast_highlight_value'
+      'one_podcast_highlight_value',
+      'one_game_cover_url',
+      'one_game_info_year',
+      'one_game_info_publisher',
+      'one_game_info_developer',
+      'one_game_info_genre',
+      'one_game_info_platforms'
     ];
 
     foreach ( $fields as $field ) {

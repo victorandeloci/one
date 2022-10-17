@@ -82,7 +82,7 @@
 
                     <?php get_template_part("parts/sharer"); ?>
 
-            <?php get_template_part("parts/comments"); ?>
+                    <?php get_template_part("parts/comments"); ?>
 
                     </article>
                   <?php get_sidebar(); ?>

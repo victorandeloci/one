@@ -10,13 +10,13 @@
   */
 
   //faz o request e cria o arquivo
-  
+
   if(isset($_GET["EsSlug"]))
     $slug = $_GET["EsSlug"];
   else
     $slug = "lol";
 
-  $file = $_SERVER['DOCUMENT_ROOT'] . "/wp-content/themes/One/parts/eSportsStats/" . $slug . ".json";
+  $file = get_template_directory() . '/parts/eSportsStats/' . $slug . ".json";
   $json = null;
 
   //verifica se há um arquivo existente baseado no SLUG
