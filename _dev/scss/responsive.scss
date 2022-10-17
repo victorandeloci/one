@@ -32,9 +32,19 @@
 	.twitch-iframe {
 		height: 500px;
 	}
+	#highlights {
+		.slider-wrapper {
+			.slides-container {
+				height: 92.5vh;
+				.container {
+					padding: 8rem 0;
+				}
+			}
+		}
+	}
 }
 
-@media screen and (min-width: 1860px) {
+@media screen and (min-width: 1875px) {
 	body {
 		#mainContainer {
 			min-height: 70vh;
@@ -68,6 +78,33 @@
 		&.page {
 			.container {
 				width: 35%;
+			}
+		}
+	}
+	#highlights {
+		.slider-wrapper {
+			.slides-container {
+				height: 92vh;
+				.container {
+					padding: 8rem 0;
+					margin-left: 15%;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 2500px) {
+	.container {
+		width: 60%;
+	}
+	#highlights {
+		.slider-wrapper {
+			.slides-container {
+				height: 92.5vh;
+				.container {
+					margin-left: 20%;
+				}
 			}
 		}
 	}
@@ -325,6 +362,19 @@
 			width: 80%;
 		}
 	}
+	#highlights {
+		.slider-wrapper {
+			.slides-container {
+				height: 93vh;
+				.container {
+					width: 50%;
+				}
+			}
+		}
+	}
+	.info-board {
+		width: 90%;
+	}
 }
 
 @media screen and (max-width: 640px) {
@@ -438,7 +488,11 @@
 		width: 100%;
 	}
 	.posts {
-		width: 48%;
+		width: 100%;
+		.default {
+			width: 100%;
+			margin-right: 0;
+		}
 	}
 	.podcast-page {
 		.container {
@@ -454,7 +508,8 @@
 			.default-container {
 				.last-posts {
 					.default {
-						width: 48%;
+						width: 100%;
+						margin-right: 0;
 					}
 				}
 			}
@@ -493,6 +548,30 @@
 				justify-content: flex-start;
 				iframe {
 					width: 100% !important;
+				}
+			}
+		}
+	}
+	#highlights {
+		.slider-wrapper {
+			.slide-arrow {
+				top: unset;
+				bottom: 20%;
+			}
+			.slides-container {
+				height: 87vh;
+				.overlay {
+					background: linear-gradient(to right,#000,transparent 250%);
+				}
+				.container {
+					width: 90%;
+					margin-left: 5%;
+					padding: 3rem 0;
+					.title-link {
+						h2 {
+							font-size: 250%;
+						}
+					}
 				}
 			}
 		}
