@@ -488,7 +488,11 @@
 		width: 100%;
 	}
 	.posts {
-		width: 48%;
+		width: 100%;
+		.default {
+			width: 100%;
+			margin-right: 0;
+		}
 	}
 	.podcast-page {
 		.container {
@@ -504,7 +508,8 @@
 			.default-container {
 				.last-posts {
 					.default {
-						width: 48%;
+						width: 100%;
+						margin-right: 0;
 					}
 				}
 			}
