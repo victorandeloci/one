@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 1.4.1
+  Version: 1.4.2
 */
 
 :root {
@@ -1245,104 +1245,114 @@ footer {
   position: relative;
   z-index: 2;
 	.container {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: start;
-		-ms-flex-align: start;
-		align-items: flex-start;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		.column {
-			width: 33.333%;
-			padding: 0 1em;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			align-items: center;
-			-webkit-box-pack: start;
-			-ms-flex-pack: start;
-			justify-content: flex-start;
-			.custom-logo {
-				width: 7.5rem;
-				height: auto;
-			}
-			.social-links {
-				margin-top: 1em;
-				a {
-					font-size: 1.5em;
-					margin-right: .5em;
-          color: #bbb !important;
-					&:hover {
-						color: #ff8f57;
-					}
-				}
-			}
-			a {
-				width: 100%;
-				text-decoration: none;
-				color: #bbb;
-				text-align: center;
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-			h3 {
-				color: #fcfcfc;
-				font-size: 2em;
-				text-align: center;
-				margin: 0;
-			}
-			h4 {
-				color: #fcfcfc;
-				font-size: 1.5em;
-				text-align: center;
-				margin-bottom: 0;
-			}
-			.menu {
-				padding-left: 0;
-				li {
-					list-style: none;
-          display: grid;
-          place-items: center;
-					a {
-						width: 100%;
-						text-align: center;
-						color: #ddd;
-						&:hover {
-							color: #fcfcfc;
-						}
-					}
-				}
-			}
-			.search-form-container {
-				display: flex;
-			}
-			.search-form {
-				input {
-					border: none;
-					background-color: #000;
-					color: #fcfcfc;
-					border-bottom: solid 1px #ddd;
-					padding: .5em;
-				}
-				button {
-					background-color: #000;
-					border: none;
-					color: #fcfcfc;
-					padding: .5em;
-					cursor: pointer;
-				}
-			}
-		}
+		&:not(.info) {
+  		display: flex;
+  		align-items: flex-start;
+  		justify-content: space-between;
+  		.column {
+  			width: 33.333%;
+  			padding: 0 1em;
+  			display: -webkit-box;
+  			display: -ms-flexbox;
+  			display: flex;
+  			-webkit-box-orient: vertical;
+  			-webkit-box-direction: normal;
+  			-ms-flex-direction: column;
+  			flex-direction: column;
+  			-webkit-box-align: center;
+  			-ms-flex-align: center;
+  			align-items: center;
+  			-webkit-box-pack: start;
+  			-ms-flex-pack: start;
+  			justify-content: flex-start;
+  			.custom-logo {
+  				width: 7.5rem;
+  				height: auto;
+  			}
+  			.social-links {
+  				margin-top: 1em;
+  				a {
+  					font-size: 1.5em;
+  					margin-right: .5em;
+            color: #bbb !important;
+  					&:hover {
+  						color: #ff8f57;
+  					}
+  				}
+  			}
+  			a {
+  				width: 100%;
+  				text-decoration: none;
+  				color: #bbb;
+  				text-align: center;
+  				img {
+  					width: 100%;
+  					height: auto;
+  				}
+  			}
+  			h3 {
+  				color: #fcfcfc;
+  				font-size: 2em;
+  				text-align: center;
+  				margin: 0;
+  			}
+  			h4 {
+  				color: #fcfcfc;
+  				font-size: 1.5em;
+  				text-align: center;
+  				margin-bottom: 0;
+  			}
+  			.menu {
+  				padding-left: 0;
+  				li {
+  					list-style: none;
+            display: grid;
+            place-items: center;
+  					a {
+  						width: 100%;
+  						text-align: center;
+  						color: #ddd;
+  						&:hover {
+  							color: #fcfcfc;
+  						}
+  					}
+  				}
+  			}
+  			.search-form-container {
+  				display: flex;
+  			}
+  			.search-form {
+  				input {
+  					border: none;
+  					background-color: #000;
+  					color: #fcfcfc;
+  					border-bottom: solid 1px #ddd;
+  					padding: .5em;
+  				}
+  				button {
+  					background-color: #000;
+  					border: none;
+  					color: #fcfcfc;
+  					padding: .5em;
+  					cursor: pointer;
+  				}
+  			}
+  		}
+    }
+    &.info {
+      margin-top: 2rem;
+      p {
+        text-align: center;
+        color: #ddd;
+        a {
+          color: var(--orange);
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
 	}
 }
 .wp-block-image {
@@ -1388,6 +1398,12 @@ footer {
 			padding: 0 2em;
 		}
 	}
+  &.compact {
+    .post-title {
+      height: 20rem;
+      background: #322428;
+    }
+  }
 	.container {
 		.default-container {
 			display: -webkit-box;
@@ -1434,6 +1450,15 @@ footer {
 						text-decoration: underline;
 					}
 				}
+        h4 {
+          font-size: 130%;
+        }
+        h5 {
+          font-size: 120%;
+        }
+        h6 {
+          font-size: 100%;
+        }
 				.details {
 					margin-bottom: 2em;
 					color: #666;
@@ -1444,6 +1469,7 @@ footer {
 						margin-right: 1em;
 					}
 				}
+
 			}
 			#sidebar {
 				width: 35%;

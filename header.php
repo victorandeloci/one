@@ -7,11 +7,11 @@
 
     <?php wp_head(); ?>
 
-    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/plugins.min.css?v=1.4.1">
-    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=1.4.1">
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/plugins.min.css?v=<?= ONE_VERSION ?>">
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=<?= ONE_VERSION ?>">
 
-    <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=1.4.1" charset="utf-8" defer></script>
-    <script src="<?= get_template_directory_uri() ?>/main.min.js?v=1.4.1" charset="utf-8" defer></script>
+    <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=<?= ONE_VERSION ?>" charset="utf-8" defer></script>
+    <script src="<?= get_template_directory_uri() ?>/main.min.js?v=<?= ONE_VERSION ?>" charset="utf-8" defer></script>
   </head>
   <body>
     <nav>
