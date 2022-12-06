@@ -20,8 +20,8 @@
           <a slug="textos" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/textos/"><h3>Textos</h3></a>
           <ul class="menu">
             <li class="item"><a slug="analises-games" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/analises-games/">Análises</a></li>
-			  <li class="item"><a slug="artigos" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/artigos/">Artigos</a></li>
-			  <li class="item"><a slug="filmes-series" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/filmes-series/">Filmes e Séries</a></li>
+            <li class="item"><a slug="artigos" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/artigos/">Artigos</a></li>
+            <li class="item"><a slug="filmes-series" class="category-item menu-link" href="<?php echo get_home_url(); ?>/category/filmes-series/">Filmes e Séries</a></li>
           </ul>
         </div>
         <div class="column">
@@ -30,8 +30,12 @@
           <h4>Grupo de Ouvintes</h4>
           <div class="social-links">
             <a href="https://t.me/playerselect" data-link="social" class="telegram" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-telegram"></i></a>
-			  <a href="https://discord.gg/43jtZYX" data-link="social" class="discord" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-discord"></i></a>
+    			  <a href="https://discord.gg/43jtZYX" data-link="social" class="discord" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-discord"></i></a>
+          </div>
         </div>
+      </div>
+      <div class="container info">
+        <p>ONE - Version: <?= ONE_VERSION ?> | Development by <a href="https://github.com/victorandeloci" target="_blank" rel="nofollow noreferrer">@victorandeloci</a></p>
       </div>
     </footer>
 

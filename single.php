@@ -7,13 +7,8 @@
 
         // thumbnail
         $thumbnail = get_the_post_thumbnail_url($postId);
-        // get first image if no thumbnail
-        if (empty($thumbnail)) {
-          $thumbnail = get_first_image($postId);
-        }
-
       ?>
-        <div class="content-back" style="background-image: url('<?= $thumbnail ?>');">
+        <div class="content-back <?= ((empty($thumbnail) || (strpos($thumbnail, 'Pequena') !== false)) ? 'compact' : '') ?>" style="background-image: url('<?= $thumbnail ?>');">
 
           <div class="post-title">
             <h1><?php echo $post->post_title; ?></h1>

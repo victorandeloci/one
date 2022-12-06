@@ -1,4 +1,3 @@
-// habilita o uso do $
 jQuery(function($) {
 
   var browser = (function() {
@@ -37,6 +36,7 @@ jQuery(function($) {
   var $content = $('#mainContainer');
   var $page = 1;
   var homeUrl = "https://playerselect.com.br/";
+  var lastPodcastCategory = '';
 
   var default_load_more = function() {
 
@@ -116,7 +116,12 @@ jQuery(function($) {
   var podcast_load_more = function($category, $id) {
 
     var $defaultC = $($id);
+
+    if ($category != lastPodcastCategory) {
+      $page = 1;
+    }
     $page++;
+    lastPodcastCategory = $category;
 
     $.ajax({
       type: "GET",

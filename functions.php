@@ -1,4 +1,6 @@
 <?php
+  define('ONE_VERSION', '1.4.2');
+
   define('ONE_GRSD', [
     0 => 'No começo tava ruim, aí depois parece que piorou!',
     2.5 => 'Era melhor ter ido ver o pelé!',
@@ -457,17 +459,17 @@
   add_action('wp_ajax_nopriv_category_load_more', 'category_load_more');
 
   function podcast_load_more(){
-    if(isset($_GET["category"]))
+    if (isset($_GET["category"]))
       $category = $_GET["category"];
 
-    if(isset($_GET["page"]))
+    if (isset($_GET["page"]))
       $page = $_GET["page"];
 
-    query_posts(array("post_type" => "post",
-                      "category_name" => $category,
-                      "posts_per_page" => "6",
-                      "paged" => $page
-                ));
+    query_posts(["post_type" => "post",
+                  "category_name" => $category,
+                  "posts_per_page" => "4",
+                  "paged" => $page
+                ]);
 
     $i = 1;
     if (have_posts()) : while (have_posts() && $i <= 4) : the_post();
