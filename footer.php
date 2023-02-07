@@ -29,7 +29,7 @@
           <?php get_template_part('elements/social_links'); ?>
           <h4>Grupo de Ouvintes</h4>
           <div class="social-links">
-            <a href="https://t.me/playerselect" data-link="social" class="telegram" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-telegram"></i></a>
+            <a href="https://t.me/joinchat/B5Ld9j4yD0o0bq6VgEz9Hg" data-link="social" class="telegram" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-telegram"></i></a>
     			  <a href="https://discord.gg/43jtZYX" data-link="social" class="discord" target="_blank" rel="noopener noreferrer" id="socialLink"><i class="fab fa-discord"></i></a>
           </div>
         </div>
