@@ -16,14 +16,15 @@
         if (trim(get_post_meta(get_the_ID(), "podcast_mp3_thumb", true)))
           $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), "podcast_mp3_thumb", true));
 
-              ?>
-            <a href="<?php the_permalink(); ?>" class="post" title="<?= get_the_title() ?>"><img src="<?php if ($podcast_mp3_thumb) echo $podcast_mp3_thumb; else echo the_post_thumbnail_url('medium');  ?>"></a>
-          <?php
-              $i++;
-            endwhile;
-          endif;
-
-          ?>
+      ?>
+        <a href="<?php the_permalink(); ?>" class="post" title="<?= get_the_title() ?>"><img src="<?= !empty($podcast_mp3_thumb) 
+                                                                                                        ? $podcast_mp3_thumb 
+                                                                                                        : get_template_directory_uri() . '/img/podcasts_cover.jpg' ?>"></a>
+      <?php
+            $i++;
+          endwhile;
+        endif;
+      ?>
 
       </div>
       <div class="column second">
@@ -40,7 +41,7 @@
 
     <div class="container">
       <h2>PlayerCast</h2>
-      <?php if(category_description()) echo category_description(); ?>
+      <?php if (category_description()) echo category_description(); ?>
       <div class="podcasts" id="playercastContainer">
         <?php
           $i = 0;
@@ -62,7 +63,7 @@
 
     <div class="container">
       <h2>PS News</h2>
-      <?php if(category_description()) echo category_description(); ?>
+      <?php if (category_description()) echo category_description(); ?>
       <div class="podcasts" id="psnewsContainer">
         <?php
           $i = 0;
