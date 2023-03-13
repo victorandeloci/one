@@ -15,5 +15,5 @@
   </head>
   <body>
     <header>
-      <?php get_template_part('elements/nav'); ?>
+      <?php the_custom_logo(); ?>
     </header>
