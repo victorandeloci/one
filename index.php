@@ -1,7 +1,5 @@
-<?php get_header(); ?>
+<?php
 
-<main id="mainContainer">
-  <?php get_template_part('pages/home'); ?>
-</main>
+get_header();
 
-<?php get_footer(); ?>
+get_footer();

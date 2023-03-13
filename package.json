@@ -1,21 +1,20 @@
 {
   "name": "one",
-  "version": "1.4.4",
-  "description": "",
+  "version": "2.0.0",
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ValkyriaTech/wordpress_sass_gulp.git"
+    "url": "git+https://github.com/victorandeloci/one.git"
   },
-  "author": "",
+  "author": "https://github.com/victorandeloci",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ValkyriaTech/wordpress_sass_gulp/issues"
+    "url": "https://github.com/victorandeloci/one/issues"
   },
-  "homepage": "https://github.com/ValkyriaTech/wordpress_sass_gulp#readme",
+  "homepage": "https://github.com/victorandeloci/one#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",

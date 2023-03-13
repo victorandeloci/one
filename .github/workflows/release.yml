@@ -1,8 +1,8 @@
 name: Build WP theme package & Release
 
 on:
-  pull_request:
-    branches: [ master ]
+  push:
+    branches: [ main ]
 
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ jobs:
     env:
       PACKAGE_LABEL: One
       PACKAGE_NAME: one
-      RELEASE_TAG: 1.4.4
+      RELEASE_TAG: 2.0.0
     steps:
       - uses: actions/checkout@v2
 
