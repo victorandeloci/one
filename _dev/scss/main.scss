@@ -27,7 +27,7 @@
 
 html {
   body {
-    background-color: var(--darkGrey);
+    background: linear-gradient(to bottom, #000, var(--darkGrey));
     color: var(--white);
     overflow-x: hidden;
     .container {
@@ -120,6 +120,49 @@ html {
                   margin: 0;
                   opacity: .7;
                 }
+              }
+            }
+          }
+        }
+      }
+      &#podcast {
+        .container {
+          .items {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 3%;
+            .podcast-item {
+              width: 48.5%;
+              margin-bottom: .5rem;
+              font-family: Myriad;
+              &:first-child {
+                width: 100%;
+              }
+              a {
+                width: 100%;
+                img {
+                  width: 100%;
+                  height: auto;
+                  border-radius: .5rem;
+                }
+              }
+              h2, h3, h4 {
+                font-family: Agency;
+                text-transform: uppercase;
+              }
+              p, li {
+                opacity: .7;
+              }
+              a {
+                color: var(--orange);
+                text-decoration: none;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              iframe {
+                width: 100% !important;
               }
             }
           }
