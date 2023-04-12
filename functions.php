@@ -1,5 +1,5 @@
 <?php
-  define('ONE_VERSION', '1.4.4');
+  define('ONE_VERSION', '1.4.5');
 
   define('ONE_GRSD', [
     0 => 'No começo tava ruim, aí depois parece que piorou!',
