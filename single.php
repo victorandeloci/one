@@ -16,23 +16,16 @@
             <?php
               if (in_category("podcast", $postId)) :
 
-                if ( $episode_content = get_the_powerpress_content() ) {
-                  ?>
-                    <div class="power-press-player"><?php echo $episode_content; ?></div>
-                  <?php
-                }
-
-                $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
-                $MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
-
-                if (strpos($post->post_content, 'podcasters.spotify.com') != true) :
+                $anchorMp3 = trim(get_post_meta(get_the_ID(), 'anchor_mp3_url', true)) ?? null;
+                
+                if (strpos($post->post_content, 'podcasters.spotify.com') != true && !empty($anchorMp3)) :
 
                 ?>
                   <div class="podcast-btns">
-                    <a href="<?php echo $MediaURL; ?>" target="_blank" rel="noreferrer noopener" class="podcast-btn btn" id="podPlay" source="<?php echo $MediaURL; ?>">
+                    <a href="<?php echo $anchorMp3; ?>" target="_blank" rel="noreferrer noopener" class="podcast-btn btn" id="podPlay" source="<?php echo $anchorMp3; ?>">
                       <span><i class="fas fa-play"></i> Reproduzir</span>
                     </a>
-                    <a id="podDownload" target="_blank" rel="noreferrer noopener" class="podcast-btn btn" href="<?php echo $MediaURL; ?>" download>
+                    <a id="podDownload" target="_blank" rel="noreferrer noopener" class="podcast-btn btn" href="<?php echo $anchorMp3; ?>" download>
                       <span><i class="fas fa-download"></i> Download</span>
                     </a>
                   </div>
