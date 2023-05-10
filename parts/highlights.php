@@ -3,12 +3,12 @@
         'post_type' => 'post',
         'category_name' => 'highlight',
         'order' => 'DESC',
-        'posts_per_page' => 5
+        'posts_per_page' => 8
     ];
 
     $query = new WP_Query($args);
 
-    if ($query->have_posts()):
+    if ($query->have_posts()) :
 ?>
 
     <section id="highlights">
@@ -18,19 +18,11 @@
         <div class="highlight-container">
             <div class="items">
                 <?php
-                    while ($query->have_posts()):
+                    while ($query->have_posts()) {
                         $query->the_post();
+                        get_template_part('elements/highlight_item');
+                    }
                 ?>
-                    <a href="<?= get_permalink() ?>" class="highlight-item" style="background-image: url(<?= !empty(get_the_post_thumbnail_url()) 
-                                                                                                            ? get_the_post_thumbnail_url()
-                                                                                                            : (get_template_directory_uri() . '/assets/img/default-image.png') ?>);">
-                        <div class="overlay"></div>
-                        <div class="content">
-                            <h3><?= get_the_title() ?></h3>
-                            <p><?= excerpt(15) ?></p>
-                        </div>
-                    </a>
-                <?php endwhile; ?>
             </div>
         </div>
     </section>

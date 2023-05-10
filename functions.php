@@ -1,10 +1,10 @@
 <?php
 
+define('ONE_VERSION', '2.0.0');
+
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
 add_theme_support('custom-fields');
-
-define('ONE_VERSION', '1.4.4');
 
 define('ONE_GRSD', [
   0 => 'No começo tava ruim, aí depois parece que piorou!',

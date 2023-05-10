@@ -30,8 +30,11 @@
                                                 : get_template_directory_uri() . '/assets/img/default-image.png') ?>" alt="">
                         </a>
                         <?php if ($i == 0): ?>
-                            <h2><?= get_the_title() ?></h2>
-                            <?= get_the_content() ?>
+                            <div class="content">
+                                <?php get_template_part('elements/tags_container'); ?>
+                                <h2><?= get_the_title() ?></h2>
+                                <?= get_the_content() ?>
+                            </div>
                         <?php endif; ?>
                     </div>
                 <?php
