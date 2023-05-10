@@ -1,3 +1,4 @@
+    <?php get_template_part('elements/main_nav'); ?>
     <footer>
       <div class="container">
         <?php

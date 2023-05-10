@@ -22,11 +22,14 @@
                 ?>
                     <div class="podcast-item">
                         <a href="<?= get_permalink() ?>" title="<?= get_the_title() ?>">
-                            <?php $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), "podcast_mp3_thumb", true)); ?>
+                            <?php 
+                                $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
+                                $postThumb = get_the_post_thumbnail_url(get_the_ID(), ($i == 0) ? 'large' : 'medium');
+                            ?>
                             <img src="<?= !empty($podcast_mp3_thumb) 
                                             ? $podcast_mp3_thumb
-                                            : (!empty(get_the_post_thumbnail_url(get_the_ID(), 'medium'))
-                                                ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
+                                            : (!empty($postThumb)
+                                                ? $postThumb
                                                 : get_template_directory_uri() . '/assets/img/default-image.png') ?>" alt="">
                         </a>
                         <?php if ($i == 0): ?>

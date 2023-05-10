@@ -20,6 +20,7 @@
   --darkGrey: #1C1C1C;
   --white: #fcfcfc;
   --pink: #eb707b;
+  --brown: #332429;
 }
 
 * {
@@ -28,7 +29,8 @@
 
 html {
   body {
-    background: linear-gradient(to bottom, #000, var(--darkGrey));
+    background: var(--darkGrey);
+    background: linear-gradient(to bottom, #000, var(--darkGrey) 5%);
     color: var(--white);
     overflow-x: hidden;
     font-family: Myriad;
@@ -51,7 +53,6 @@ html {
       border-left: solid 2px var(--orange);
     }
     .tags-container {
-      margin-top: 1rem;
       width: 100%;
       display: flex;
       flex-wrap: wrap;
@@ -77,6 +78,30 @@ html {
         }
       }
     }
+    #mainNav {
+      width: 100%;
+      background-color: #000;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-evenly;
+      box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
+      a {
+        padding: .5rem 0;
+        &.active {
+          svg {
+            fill: var(--orange);
+          }
+        }
+        svg {
+          fill: #5e5e5e;
+          height: 1.5rem;
+        }
+      }
+    }
     section {
       &#highlights {  
         padding: 1rem 0 2rem 0;      
@@ -95,7 +120,7 @@ html {
             gap: 1rem;
             .highlight-item {
               width: 18rem;
-              height: 22rem;
+              height: 28rem;
               position: relative;
               background-size: cover;
               background-position: center;
@@ -143,7 +168,7 @@ html {
         }
       }
       &#podcast {
-        padding-top: 3rem;
+        padding: 3rem 0;
         .container {
           .items {
             display: flex;
@@ -157,17 +182,22 @@ html {
               border-radius: .5rem;
               &:first-child {
                 width: 100%;
-                background-color: var(--darkGrey);
-                
+                background-color: var(--white);
+                color: var(--darkGrey);
                 margin-bottom: 1rem;
+                a {
+                  img {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                  }
+                }
               }
               a {
                 width: 100%;
                 img {
                   width: 100%;
                   height: auto;
-                  border-top-left-radius: .5rem;
-                  border-top-right-radius: .5rem;
+                  border-radius: .5rem;
                 }
               }
               .content {
@@ -177,7 +207,7 @@ html {
                   text-transform: uppercase;
                 }
                 p, li {
-                  opacity: .75;
+                  opacity: .85;
                 }
                 a {
                   color: var(--orange);
@@ -195,7 +225,7 @@ html {
         }
       }
       &.highlight-event {
-        background-color: var(--darkGrey);
+        background-color: var(--brown);
         padding: 3em 0;
         border-top: solid 2px var(--orange);
         border-bottom: solid 2px var(--orange);
@@ -239,7 +269,7 @@ html {
     }
     footer {
       background-color: #000;
-      padding: 2rem 0;
+      padding: 2rem 0 5rem 0;
       .container {
         #searchform {
           display: flex;
