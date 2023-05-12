@@ -157,7 +157,7 @@ html {
             gap: 1rem;
             .highlight-item {
               width: 18rem;
-              height: 28rem;
+              height: 68vh;
               position: relative;
               background-size: cover;
               background-position: center;
@@ -207,6 +207,29 @@ html {
       &#podcast {
         padding: 3rem 0;
         .container {
+          .selector {
+            display: flex;
+            align-items: center;
+            border: solid 2px #ff8f57;
+            padding: 0 1em;
+            margin: 1rem 0;
+            .podcast-select {
+              width: 100%;
+              padding: 1em .5em;
+              border: none;
+              border-radius: 0;
+              color: #fcfcfc;
+              background-color: #1c1c1c;
+              cursor: pointer;
+              -moz-appearance: none;
+              -webkit-appearance: none;
+              appearance: none;
+            }
+            svg {
+              width: 1rem;
+              fill: #ff8f57;
+            }
+          }
           .items {
             display: flex;
             justify-content: flex-start;

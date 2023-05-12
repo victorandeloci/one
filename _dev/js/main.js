@@ -54,5 +54,15 @@ async function sendByAction(method, action, formData = null, params = null) {
 }
 
 docReady(function() {
-  
+  // podcast selector
+  let podcastSelectors = document.querySelectorAll('.podcast-select');
+  if (podcastSelectors != null && podcastSelectors.length > 0) {
+    podcastSelectors.forEach((select) => {
+      select.addEventListener('change', function() {
+        if (this.value != null && this.value != '') {
+          window.location.href = this.value;
+        }
+      });
+    });
+  }  
 });
