@@ -66,6 +66,42 @@ html {
         font-size: 85%;
       }
     }
+    .social-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      a {
+        &.facebook {
+          svg {
+            fill: #4267b2 !important;
+          }
+        }
+        &.twitch {
+          svg {
+            fill: #6441a5 !important;
+          }
+        }
+        &.twitter {
+          svg {
+            fill: #50abf1 !important;
+          }
+        }
+        &.youtube {
+          svg {
+            fill: #d4101d !important;
+          }
+        }
+        &.instagram {
+          svg {
+            fill: #9a27a2 !important;
+          }
+        }
+        svg {
+          height: 2rem;
+        }
+      }
+    }
     header {
       padding: 1rem 0;
       .custom-logo-link {
@@ -84,6 +120,7 @@ html {
       border-top-left-radius: .5rem;
       border-top-right-radius: .5rem;
       position: fixed;
+      z-index: 998;
       bottom: 0;
       left: 0;
       display: flex;
@@ -235,7 +272,7 @@ html {
           }
           h2 {
             text-align: center;
-            font-size: 200%;
+            font-size: 150%;
             margin: 0;
             color: #fff;
             text-decoration: none;
@@ -253,6 +290,8 @@ html {
               color: #ddd;
               text-align: center;
               text-decoration: none;
+              font-size: 90%;
+              margin-bottom: 0;
             }
           }
           .instagram-posts {
@@ -262,6 +301,24 @@ html {
               width: 49% !important;
               min-width: unset !important;
               max-width: unset !important;
+            }
+          }
+        }
+      }
+      &#social {
+        padding-bottom: 3rem;
+        .container {
+          .sb_youtube {
+            .sby_items_wrap {
+              padding: 0 !important;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 4%;
+              .sby_item {
+                width: 48%;
+                padding: 0 !important;
+                margin-bottom: 1rem;
+              }
             }
           }
         }
