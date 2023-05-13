@@ -1,5 +1,8 @@
 <nav id="mainNav">
-    <a href="/podcasts" class="<?= (is_page('podcasts')) ? 'active' : '' ?>">
+    <a  href="/podcasts" 
+        class="<?= (!is_home() && (is_page('podcasts') || (!empty(get_the_ID()) && in_category('podcast', get_the_ID()))))
+                        ? 'active' 
+                        : '' ?>">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 6a2 2 0 1 1 4 0h-1a1 1 0 1 0 0 2h1v2h-1a1 1 0 1 0 0 2h1v1a2 2 0 1 1-4 0V6Zm2-4a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-5 9a1 1 0 1 0-2 0v2a7 7 0 0 0 6 7v1H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-1a7 7 0 0 0 6-7v-2a1 1 0 1 0-2 0v2a5 5 0 0 1-10 0v-2Z"/></svg>
     </a>
     <a href="<?= bloginfo('url') ?>" class="<?= (is_home()) ? 'active' : '' ?>">

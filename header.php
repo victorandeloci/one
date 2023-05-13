@@ -14,6 +14,6 @@
     <script src="<?= get_template_directory_uri() ?>/main.min.js?v=2.0.0" charset="utf-8" defer></script>
   </head>
   <body>
-    <header>
+    <header class="<?= (is_single() || is_page()) ? 'back-filled' : '' ?>">
       <?php the_custom_logo(); ?>
     </header>
