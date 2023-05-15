@@ -12,13 +12,13 @@ define('ONE_GRSD', [
   4.5 => 'Tá ruim, mas tá bom...',
   6 => 'Passou de ano!',
   8 => 'Jogo bonito, jogo formoso!',
-  10 => 'Esse só perde para Chrono Trigger...'
+  9.5 => 'Esse só perde para Chrono Trigger...'
 ]);
 
 function getGRSD($score) {
   $finalDefinition = '';
   foreach (ONE_GRSD as $baseScore => $definition) {
-    if ($score >= $baseScore)
+    if (doubleval($score) >= $baseScore)
       $finalDefinition = $definition;
   }
 
@@ -37,8 +37,6 @@ function add_widget_Support() {
 }
 add_action( 'widgets_init', 'add_Widget_Support' );  
 
-// ========== EVENTS ==========
-
 function create_posttype() {
   register_post_type( 'event',
     [
@@ -53,8 +51,24 @@ function create_posttype() {
       'supports' => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields']
     ]
   );
+
+  register_post_type( 'team',
+    [
+      'labels' => [
+        'name' => __( 'Equipe' ),
+        'singular_name' => __( 'Equipe' )
+      ],
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => ['slug' => 'team'],
+      'show_in_rest' => true,
+      'supports' => [ 'title', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields']
+    ]
+  );
 }
 add_action( 'init', 'create_posttype' );
+
+// ========== EVENTS ==========
 
 function one_add_custom_meta_boxes() {
   add_meta_box(
@@ -201,14 +215,14 @@ function one_podcast_tag() {
 }
 
 function one_podcast_highlight() {
-  $highlighted = (get_post_meta(get_the_ID(), 'one_podcast_highlight_value', true)) ?? '';
+  $highlighted = (get_post_meta(get_the_ID(), 'one_event_highlight_value', true)) ?? '';
   ?>
     <p>Destacar esse evento na página inicial?</p>
-    <input type="hidden" name="one_podcast_highlight_value" id="one_podcast_highlight_value" value="<?= $highlighted ?>">
+    <input type="hidden" name="one_event_highlight_value" id="one_event_highlight_value" value="<?= $highlighted ?>">
     <input id="one_podcast_highlight_check" type="checkbox" <?= ($highlighted == 'true') ? 'checked' : '' ?>>
     <script type="text/javascript">
       document.getElementById('one_podcast_highlight_check').addEventListener('change', function() {
-        let input = document.getElementById('one_podcast_highlight_value');
+        let input = document.getElementById('one_event_highlight_value');
         if (this.checked) {
           input.value = 'true';
         } else {
@@ -314,7 +328,7 @@ function one_metabox_save( $post_id ) {
     'one_instagram_data_1',
     'one_instagram_data_2',
     'one_podcast_tag_value',
-    'one_podcast_highlight_value',
+    'one_event_highlight_value',
     'one_game_cover_url',
     'one_game_info_year',
     'one_game_info_publisher',

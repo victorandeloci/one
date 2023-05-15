@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= bloginfo('name') ?></title>
+    <title><?= !empty(get_the_ID()) ? (get_the_title() . ' | Player Select') : bloginfo('name') ?></title>
 
     <?php wp_head(); ?>
 

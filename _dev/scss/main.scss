@@ -57,6 +57,15 @@ html {
       &.dark {
         color: var(--darkGrey);
       }
+      &.center {
+        text-align: center;
+        border-left: none;
+        border-bottom: solid 2px var(--orange);
+        padding-left: 0;
+        padding-bottom: .2rem;
+        width: min-content;
+        margin: 0 auto 1rem auto;
+      }
     }
     .tags-container {
       width: 100%;
@@ -393,8 +402,40 @@ html {
         }
       }
       &#podcast {
-        padding: 3rem 0;
+        padding: 1rem 0 3rem 0;
         .container {
+          .podcast-links {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            a {
+              text-decoration: none;
+              &.spotify {
+                svg {
+                  fill: #1ed760;
+                }
+              }
+              &.google {
+                svg {
+                  fill: #4285f4;
+                }
+              }
+              &.rss {
+                svg {
+                  fill: #f8991c;
+                }
+              }
+              &.apple {
+                svg {
+                  fill: #AB4CDE;
+                }
+              }
+              svg {
+                height: 2rem;
+              }
+            }
+          }
           .selector {
             display: flex;
             align-items: center;
@@ -466,13 +507,13 @@ html {
       }
       &.highlight-event {
         background-color: var(--brown);
-        padding: 3em 0;
+        margin-bottom: 1rem;
         border-top: solid 2px var(--orange);
         border-bottom: solid 2px var(--orange);
-        .container {
-          a {
-            text-decoration: none;
-          }
+        a.container {
+          display: block;
+          padding: 3em 0;
+          text-decoration: none;
           h2 {
             text-align: center;
             font-size: 150%;
@@ -509,7 +550,7 @@ html {
         }
       }
       &#social {
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
         .container {
           .sb_youtube {
             .sby_items_wrap {
@@ -531,6 +572,101 @@ html {
       &.post {
         background-color: var(--white);
         padding: 2rem 0 1rem 0;
+        &.page {
+          .container {
+            .content {
+              padding: 0;
+              h1 {
+                border-left: solid 2px var(--orange);
+                padding-left: .5rem;
+              }
+            }
+          }
+        }
+        &.about-team {
+          padding-bottom: 0;
+          #team {
+            padding-bottom: 1rem;
+            background-color: var(--darkGrey);
+            .team-title {
+              background-color: var(--white);
+              padding-bottom: 1rem;
+              .container {
+                h2 {
+                  margin-bottom: 0;
+                }
+              }
+            }
+            .container {
+              &.team-container {
+                padding: 2rem 0 1rem 0;
+              }
+              h2 {
+                &.subtitle {
+                  color: var(--darkGrey);
+                }
+              }
+              .team-list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 4%;
+                .team-member {
+                  width: 48%;
+                  display: grid;
+                  place-items: center;
+                  margin-bottom: 1rem;
+                  img {
+                    width: 80%;
+                    height: auto;
+                    border-radius: 50%;
+                  }
+                  h4 {
+                    text-align: center;
+                    font-family: Agency;
+                    font-weight: lighter;
+                    text-transform: uppercase;
+                  }
+                  hr {
+                    margin-top: 0;
+                    margin-bottom: 1em;
+                    width: 2em;
+                    height: 2px;
+                    background-color: var(--orange);
+                    border: none;
+                  }
+                  p {
+                    margin: 0;
+                    text-align: center;
+                    opacity: .75;
+                    font-size: 90%;
+                  }
+                  .links {
+                    margin-top: 1rem;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 1rem;
+                    a {
+                      opacity: .75;
+                      svg {
+                        height: 1rem;
+                        fill: var(--white);
+                      }
+                    }
+                  }
+                }
+              } 
+            }
+            .thumb {
+              width: 100%;
+              height: 11rem;
+              background-size: cover;
+              background-position: center;
+            }                    
+          }
+        }
         .container {
           .details {
             margin-bottom: 1rem;

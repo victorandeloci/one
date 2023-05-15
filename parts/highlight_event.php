@@ -4,7 +4,7 @@
     'order' => 'DESC',
     'meta_query'  => [
       [
-        'key' => 'one_podcast_highlight_value',
+        'key' => 'one_event_highlight_value',
         'value' => 'true'
       ]
     ]
@@ -15,15 +15,11 @@
     $post = $query->posts[0];
 ?>
   <section class="highlight-event">
-    <div class="container">
-      <a href="<?= get_permalink($post->ID) ?>">
-        <h2><i class="fas fa-map-marker-alt"></i> <?= $post->post_title ?></h2>
-      </a>
+    <a class="container" href="<?= get_permalink($post->ID) ?>">
+      <h2><i class="fas fa-map-marker-alt"></i> <?= $post->post_title ?></h2>
       <hr>
-      <a href="<?= get_permalink($post->ID) ?>">
-        <p class="description">Acompanhe a cobertura do evento!</p>
-      </a>
-    </div>
+      <p class="description">Acompanhe a cobertura do evento!</p>
+    </a>
   </section>
 <?php
   endif;
