@@ -628,14 +628,7 @@ html {
                     font-family: Agency;
                     font-weight: lighter;
                     text-transform: uppercase;
-                  }
-                  hr {
-                    margin-top: 0;
-                    margin-bottom: 1em;
-                    width: 2em;
-                    height: 2px;
-                    background-color: var(--orange);
-                    border: none;
+                    margin-bottom: 0;
                   }
                   p {
                     margin: 0;
@@ -644,15 +637,17 @@ html {
                     font-size: 90%;
                   }
                   .links {
-                    margin-top: 1rem;
+                    margin: 1rem 0;
                     display: flex;
                     flex-wrap: nowrap;
                     gap: 1rem;
                     a {
                       opacity: .75;
+                      display: grid;
+                      place-items: center;
                       svg {
                         height: 1rem;
-                        fill: var(--white);
+                        fill: var(--orange);
                       }
                     }
                   }

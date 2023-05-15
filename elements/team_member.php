@@ -1,8 +1,6 @@
 <div class="team-member">
     <img src="<?= get_the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
     <h4><?= get_the_title() ?></h4>
-    <hr>
-    <p><?= get_the_excerpt() ?></p>
     <div class="links">
         <?php if (!empty(get_post_meta(get_the_ID(), 'instagram', true))) : ?>
             <a href="<?= get_post_meta(get_the_ID(), 'instagram', true) ?>" target="_blank" rel="noopener noreferrer">
@@ -20,4 +18,5 @@
             </a>
         <?php endif; ?>
     </div>
+    <p><?= get_the_excerpt() ?></p>    
 </div>
