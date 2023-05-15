@@ -71,8 +71,18 @@
                     endif;
                 endif;
             ?>            
-            <?= get_the_content() ?>
+            <?= get_the_content() ?>            
         </div>
+        <?php if (in_category('analises-games', get_the_ID()) && !empty(get_post_meta(get_the_ID(), 'one_game_review_score_value', true))): ?>
+            <div class="game-score">
+                <div class="score-container" style="background-image: url(<?= get_template_directory_uri() . '/assets/img/logo_base_empty.png' ?>);">
+                    <span><?= get_post_meta(get_the_ID(), 'one_game_review_score_value', true) ?></span>
+                </div>
+                <div class="score-definition">
+                    <p><?= getGRSD(get_post_meta(get_the_ID(), 'one_game_review_score_value', true)) ?></p>
+                </div>
+            </div>
+        <?php endif; ?>
         <?php get_template_part('parts/comments'); ?>
     </div>
 </main>

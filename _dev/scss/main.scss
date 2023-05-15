@@ -176,7 +176,7 @@ html {
     .info-board {
       width: 100%;
       background-color: var(--darkGrey);
-      border-right: solid 5px var(--orange);
+      border-right: solid 2px var(--orange);
       border-radius: .5rem;
       padding: 1rem;
       h1 {
@@ -561,6 +561,40 @@ html {
             h1 {
               font-size: 180%;
               margin-top: .5rem;
+            }
+          }
+          .game-score {
+            margin: 1rem 0;
+            padding: .5rem 1rem;
+            border-left: solid 2px var(--orange);
+            border-radius: .5rem;
+            background-color: #e7e7e7;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .score-container {
+              width: 3rem;
+              height: 3rem;
+              background-size: cover;
+              background-position: center;
+              display: grid;
+              place-items: center;
+              span {
+                color: var(--white);
+                text-align: center;
+                font-size: 100%;
+                padding-top: .2rem;
+                padding-left: .2rem;
+                user-select: none;
+                font-family: Agency;
+              }
+            }
+            .score-definition {
+              p {
+                color: var(--darkGrey);
+                font-style: italic;
+                font-weight: lighter;
+              }
             }
           }
         }
