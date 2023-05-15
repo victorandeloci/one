@@ -1,12 +1,13 @@
 <?php 
     get_header();
-    $search = filter_var($_GET['s'], FILTER_SANITIZE_STRING) ?? '';
+    $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $tag = explode('/', substr($url, strpos($url, 'tag/') + 4))[0];
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 ?>
 
-<main id="search">
+<main id="tag">
     <div class="container">
-        <h2 class="subtitle"><?= $search ?></h2>
+        <h2 class="subtitle"><?= $tag ?></h2>
         <div class="post-list-container">
             <?php
                 wp_reset_query();
@@ -17,8 +18,8 @@
                     'paged' => $paged
                 ];
 
-                if (!empty($search))
-                    $args['s'] = $search;
+                if (!empty($tag))
+                    $args['s'] = $tag;
 
                 $query = new WP_Query( $args );
 

@@ -69,7 +69,7 @@ html {
         background-color: var(--pink);
         padding: .1rem .5rem;
         border-radius: .5rem;
-        font-size: 85%;
+        font-size: 75%;
       }
     }
     .social-links {
@@ -213,17 +213,71 @@ html {
       }
     }
     .post-list-container {
+      width: 100%;
       .post-card {
         display: block;
         width: 100%;
-        img {
+        margin-bottom: 1rem;
+        &.podcast-ep {
+          a.thumb {
+            display: inline-block;
+            height: 0;
+            padding-top: 100%;
+          }
+          .content {
+            top: -.5rem;
+            position: relative;
+          }
+        }
+        a.thumb {
+          display: block;
           width: 100%;
-          height: auto;
+          height: 12rem;
           border-top-left-radius: .5rem;
           border-top-right-radius: .5rem;
+          background-position: center;
+          background-size: cover;
         }
         .content {
-
+          background-color: var(--white);
+          color: var(--darkGrey);
+          border-bottom-left-radius: .5rem;
+          border-bottom-right-radius: .5rem;
+          a {
+            h2 {
+              margin-bottom: 0;
+              margin-top: .5rem;
+              color: var(--darkGrey);
+            }
+          }
+        }
+      }
+    }
+    #pagination {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      a {
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: var(--white);
+        background-color: var(--orange);
+        padding: .5rem;
+        border-radius: 2rem;
+        span {
+          width: .75rem;
+          height: auto;
+          &.pagination-before {
+            content: url(assets/img/arrow-left.svg);            
+          }
+          &.pagination-next {
+            content: url(assets/img/arrow-right.svg);            
+          }
         }
       }
     }
@@ -389,6 +443,11 @@ html {
                   border-bottom-left-radius: 0;
                   border-bottom-right-radius: 0;
                 }
+                .content {
+                  h2 {
+                    margin-top: .5rem;
+                  }
+                }
               }
               a {
                 &.podcast-ep {
@@ -501,9 +560,16 @@ html {
             padding: 1rem 0 0 0;
             h1 {
               font-size: 180%;
+              margin-top: .5rem;
             }
           }
         }
+      }
+      &#search {
+        padding: 1rem 0;
+      }
+      &#tag {
+        padding: 1rem 0;
       }
     }
     footer {
