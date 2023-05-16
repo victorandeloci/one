@@ -1,12 +1,13 @@
+<?php wp_reset_query(); ?>
 <nav id="mainNav">
     <a  href="<?= bloginfo('url') ?>/category/textos" 
-        class="<?= (!is_home() && is_single() && !empty(get_the_ID()) && in_category('analises-games', get_the_ID()))
+        class="<?= (!is_home() && ((is_single() && !empty(get_the_ID()) && in_category('textos', get_the_ID())) || is_category(['textos', 'analises-games', 'filmes-series', 'artigos'])))
                         ? 'active' 
                         : '' ?>">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"/></svg>
     </a>
     <a  href="<?= bloginfo('url') ?>/podcasts" 
-        class="<?= (!is_home() && (is_page('podcasts') || (is_single() && !empty(get_the_ID()) && in_category('podcast', get_the_ID()))))
+        class="<?= (!is_home() && (is_page('podcasts') || (is_single() && !empty(get_the_ID()) && in_category(['podcast', 'playercast', 'bkp', 'senpai-me-notou', 'psnews'], get_the_ID())) || is_category(['podcast', 'playercast', 'bkp', 'senpai-me-notou', 'psnews'])))
                         ? 'active' 
                         : '' ?>">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 6a2 2 0 1 1 4 0h-1a1 1 0 1 0 0 2h1v2h-1a1 1 0 1 0 0 2h1v1a2 2 0 1 1-4 0V6Zm2-4a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-5 9a1 1 0 1 0-2 0v2a7 7 0 0 0 6 7v1H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-1a7 7 0 0 0 6-7v-2a1 1 0 1 0-2 0v2a5 5 0 0 1-10 0v-2Z"/></svg>

@@ -55,7 +55,7 @@
 
             if ($query->have_posts()):
         ?>
-                <div id="podcastList" class="items">
+                <div id="podcastList" class="podcast-items">
                     <?php
                         $i = 0;
                         while ($query->have_posts()) {
