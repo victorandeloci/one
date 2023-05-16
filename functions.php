@@ -450,3 +450,39 @@ function excerpt($limit, $postId = null) {
   $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
   return $excerpt;
 }
+
+register_rest_field( 'post', 'metadata', [
+  'get_callback' => function ( $data ) {
+    return get_post_meta( $data['id'], '', '' );
+  }
+]);
+
+function post_featured_image_json( $data, $post, $context ) {
+  $featured_image_id = $data->data['featured_media'];
+  $featured_image_url = wp_get_attachment_image_src( $featured_image_id, 'large' );
+
+  if( $featured_image_url ) {
+    $data->data['featured_image_url'] = $featured_image_url[0];
+  }
+
+  return $data;
+}
+add_filter( 'rest_prepare_post', 'post_featured_image_json', 10, 3 );
+
+function rest_filter_by_custom_taxonomy( $args, $request ) {
+
+  if ( isset($request['category_slug']) ) {
+    $category_slug = sanitize_text_field($request['category_slug']);
+    $args['tax_query'] = [
+      [
+        'taxonomy' => 'category',
+        'field'    => 'slug',
+        'terms'    => $category_slug,
+      ]
+    ];
+  }
+  
+  return $args;
+  
+}
+add_filter('rest_post_query', 'rest_filter_by_custom_taxonomy', 10, 3);

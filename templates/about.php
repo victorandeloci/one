@@ -21,7 +21,9 @@
                         <h2 class="subtitle"><?= $team->post_title ?></h2>
                     </div>
                 </div>
-                <div class="thumb" style="background-image: url(<?= get_the_post_thumbnail_url($team->ID) ?>);"></div>
+                <div class="thumb" style="background-image: url(<?= get_the_post_thumbnail_url($team->ID) ?>);">
+                    <div class="decoration"></div>
+                </div>
                 <?php
                     wp_reset_query();
 

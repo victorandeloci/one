@@ -1,21 +1,20 @@
 <?php 
     get_header();
-    $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    $tag = explode('/', substr($url, strpos($url, 'tag/') + 4))[0];
+    $term = get_queried_object();
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 ?>
 
-<main id="tag">
+<main id="category">
     <div class="container">
-        <h2 class="subtitle"><?= $tag ?></h2>
+        <h2 class="subtitle"><?= $term->name ?></h2>
         <div class="post-list-container">
             <?php
                 wp_reset_query();
 
                 $args = [
                     'post_type' => 'post',
-                    'tag' => $tag,
                     'posts_per_page' => 16,
+                    'category_name' => $term->slug,
                     'paged' => $paged
                 ];
 

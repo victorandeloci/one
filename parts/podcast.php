@@ -55,40 +55,21 @@
 
             if ($query->have_posts()):
         ?>
-                <div class="items">
+                <div id="podcastList" class="items">
                     <?php
                         $i = 0;
-                        while ($query->have_posts()):
+                        while ($query->have_posts()) {
                             $query->the_post();
-                    ?>
-                        <div class="podcast-item">
-                            <?php 
-                                $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
-                                $postThumb = get_the_post_thumbnail_url(get_the_ID(), ($i == 0) ? 'large' : 'medium');
-                            ?>
-                            <a 
-                                href="<?= get_permalink() ?>" 
-                                class="podcast-ep"
-                                title="<?= get_the_title() ?>"
-                                style="background-image: url(<?= !empty($podcast_mp3_thumb) 
-                                                                    ? $podcast_mp3_thumb
-                                                                    : (!empty($postThumb)
-                                                                        ? $postThumb
-                                                                        : get_template_directory_uri() . '/assets/img/default-image.png') ?>);"
-                            ></a>
-                            <?php if ($i == 0): ?>
-                                <div class="content">
-                                    <?php get_template_part('elements/tags_container'); ?>
-                                    <h2><?= get_the_title() ?></h2>
-                                    <?= get_the_content() ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php
+                            get_template_part('elements/podcast_item', null, [
+                                'index' => $i
+                            ]);
                             $i++; 
-                        endwhile;
+                        }
                     ?>
                 </div>
         <?php endif; ?>
+        <div class="pagination-container">
+            <button id="podcastLoadMore">Carregar mais</button>
+        </div>
     </div>
 </section>

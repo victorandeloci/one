@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= !empty(get_the_ID()) ? (get_the_title() . ' | Player Select') : bloginfo('name') ?></title>
+    <title><?= wp_title() ?></title>
 
     <?php wp_head(); ?>
 
@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=2.0.0">
 
     <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=2.0.0" charset="utf-8" defer></script>
+    <script type="text/javascript">
+      const siteUrl = '<?= get_site_url() ?>';
+      const apiUrl = '<?= get_site_url() ?>/wp-admin/admin-ajax.php';
+    </script>
     <script src="<?= get_template_directory_uri() ?>/main.min.js?v=2.0.0" charset="utf-8" defer></script>
   </head>
   <body>

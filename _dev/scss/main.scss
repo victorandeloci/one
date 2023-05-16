@@ -123,6 +123,7 @@ html {
       h1, h2, h3, h4 {
         font-family: Agency;
         text-transform: uppercase;
+        font-weight: lighter;
       }
       h2, h3, h4 {
         opacity: .85;
@@ -287,6 +288,29 @@ html {
           &.pagination-next {
             content: url(assets/img/arrow-right.svg);            
           }
+        }
+      }
+    }
+    .loader {
+      .lds-dual-ring {
+        display: inline-block;
+      }
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: .75rem;
+        height: .75rem;
+        border-radius: 50%;
+        border: 2px solid var(--white);
+        border-color: var(--white) transparent var(--white) transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     }
@@ -503,6 +527,27 @@ html {
               }                            
             }
           }
+          .pagination-container {
+            width: 100%;
+            display: grid;
+            place-items: center;
+            margin-top: 1rem;
+            button {
+              min-width: 10rem;
+              padding: .5rem 1rem;
+              background-color: var(--orange);
+              border-radius: 2rem;
+              border: none;
+              color: var(--white);
+              display: grid;
+              place-items: center;
+              cursor: pointer;
+              transition: ease-in-out .2s;
+              &:hover {
+                background-color: var(--pink);
+              }
+            }
+          }
         }
       }
       &.highlight-event {
@@ -659,6 +704,15 @@ html {
               height: 11rem;
               background-size: cover;
               background-position: center;
+              position: relative;
+              .decoration {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to top, var(--darkGrey), transparent 15%);
+              }
             }                    
           }
         }
@@ -734,6 +788,9 @@ html {
         padding: 1rem 0;
       }
       &#tag {
+        padding: 1rem 0;
+      }
+      &#category {
         padding: 1rem 0;
       }
     }
