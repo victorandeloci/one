@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.0.0
+  Version: 2.0.1
 */
 
 @font-face {
@@ -441,7 +441,8 @@ html {
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: rgba(0, 0, 0, 0.5);
+                background: rgba(0, 0, 0, 0.5);
+                background: linear-gradient(to top, #000, transparent);
                 z-index: 1;
                 border-radius: .5rem;
               }
@@ -458,10 +459,11 @@ html {
                   margin-top: 0;
                   font-family: Agency;
                   text-transform: uppercase;
+                  opacity: 1;
                 }
                 p {
                   margin: 0;
-                  opacity: .7;
+                  opacity: .75;
                 }
               }
             }
