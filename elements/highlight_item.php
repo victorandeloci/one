@@ -2,6 +2,7 @@
 <a 
     href="<?= get_permalink() ?>"
     class="highlight-item"
+    draggable="false" 
     style="background-image: url(<?= !empty($thumbnail) 
                                         ? $thumbnail
                                         : (get_template_directory_uri() . '/assets/img/default-image.png') ?>);">

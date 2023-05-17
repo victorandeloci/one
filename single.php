@@ -3,7 +3,7 @@
     $post = get_post();
 ?>
 
-<main class="post">
+<main class="post <?= in_category('analises-games', get_the_ID()) ? 'review' : '' ?>">
     <div class="container">
         <?php 
             $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));

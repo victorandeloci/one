@@ -15,11 +15,14 @@
     $post = $query->posts[0];
 ?>
   <section class="highlight-event">
-    <a class="container" href="<?= get_permalink($post->ID) ?>">
-      <h2><i class="fas fa-map-marker-alt"></i> <?= $post->post_title ?></h2>
-      <hr>
-      <p class="description">Acompanhe a cobertura do evento!</p>
-    </a>
+    <div class="container">
+      <h2 class="subtitle">Eventos</h2>
+      <a class="event-container" href="<?= get_permalink($post->ID) ?>" style="background-image: url(<?= get_the_post_thumbnail_url($post->ID) ?>);">
+        <h2><i class="fas fa-map-marker-alt"></i> <?= $post->post_title ?></h2>
+        <hr>
+        <p class="description">Acompanhe a cobertura do evento!</p>
+      </a>
+    </div>    
   </section>
 <?php
   endif;
