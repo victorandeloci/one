@@ -13,7 +13,7 @@
 
                 $args = [
                     'post_type' => 'post',
-                    'posts_per_page' => 16,
+                    'posts_per_page' => 18,
                     'category_name' => $term->slug,
                     'paged' => $paged
                 ];
