@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.0.1
+  Version: 2.0.2
 */
 
 @font-face {
@@ -80,8 +80,10 @@ html {
         border-radius: .5rem;
         font-size: 75%;
         text-decoration: none;
+        transition: ease-in-out .2s;
         &:hover {
           text-decoration: none;
+          background-color: #c75f68;
         }
       }
     }
@@ -258,6 +260,9 @@ html {
           border-bottom-left-radius: .5rem;
           border-bottom-right-radius: .5rem;
           a {
+            &:hover {
+              text-decoration: none;
+            }
             h2 {
               margin-bottom: 0;
               margin-top: .5rem;
