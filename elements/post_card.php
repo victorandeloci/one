@@ -1,6 +1,6 @@
 <?php 
     $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
-    $postThumb = get_the_post_thumbnail_url(get_the_ID(), ($i == 0) ? 'large' : 'medium');
+    $postThumb = get_the_post_thumbnail_url(get_the_ID(), (isset($i) && $i == 0) ? 'large' : 'medium');
 ?>
 <div class="post-card <?= !empty($podcast_mp3_thumb) ? 'podcast-ep' : '' ?>">    
     <a 

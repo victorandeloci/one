@@ -15,7 +15,7 @@
                 $args = [
                     'post_type' => 'post',
                     'tag' => $tag,
-                    'posts_per_page' => 16,
+                    'posts_per_page' => 18,
                     'paged' => $paged
                 ];
 
