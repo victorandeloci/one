@@ -6,8 +6,10 @@
 <main class="post <?= in_category('analises-games', get_the_ID()) ? 'review' : '' ?>">
     <div class="container">
         <?php 
-            $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
             $postThumb = get_the_post_thumbnail_url(get_the_ID());
+            $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
+                if (empty($podcast_mp3_thumb) && empty($postThumb))
+                    $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'episode_cover', true));
         ?>
         <div class="details">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
@@ -23,29 +25,29 @@
                 <img class="game-cover" src="<?= get_post_meta(get_the_ID(), 'one_game_cover_url', true) ?>" alt="Cover">
                 <div class="info-content">
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_year', true))): ?>
-                    <span>Ano</span>
-                    <p><?= get_post_meta(get_the_ID(), 'one_game_info_year', true) ?></p>
-                    <hr>
+                        <span>Ano</span>
+                        <p><?= get_post_meta(get_the_ID(), 'one_game_info_year', true) ?></p>
+                        <hr>
                     <?php endif; ?>
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_publisher', true))): ?>
-                    <span>Publisher</span>
-                    <p><?= get_post_meta(get_the_ID(), 'one_game_info_publisher', true) ?></p>
-                    <hr>
+                        <span>Publisher</span>
+                        <p><?= get_post_meta(get_the_ID(), 'one_game_info_publisher', true) ?></p>
+                        <hr>
                     <?php endif; ?>
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_developer', true))): ?>
-                    <span>Developer</span>
-                    <p><?= get_post_meta(get_the_ID(), 'one_game_info_developer', true) ?></p>
-                    <hr>
+                        <span>Developer</span>
+                        <p><?= get_post_meta(get_the_ID(), 'one_game_info_developer', true) ?></p>
+                        <hr>
                     <?php endif; ?>
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_genre', true))): ?>
-                    <span>Gênero</span>
-                    <p><?= get_post_meta(get_the_ID(), 'one_game_info_genre', true) ?></p>
-                    <hr>
+                        <span>Gênero</span>
+                        <p><?= get_post_meta(get_the_ID(), 'one_game_info_genre', true) ?></p>
+                        <hr>
                     <?php endif; ?>
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_platforms', true))): ?>
-                    <span>Plataformas</span>
-                    <p><?= get_post_meta(get_the_ID(), 'one_game_info_platforms', true) ?></p>
-                    <hr>
+                        <span>Plataformas</span>
+                        <p><?= get_post_meta(get_the_ID(), 'one_game_info_platforms', true) ?></p>
+                        <hr>
                     <?php endif; ?>
                 </div>
             </div>        
@@ -60,18 +62,10 @@
                 <h1><?= get_the_title() ?></h1>
             <?php endif; ?>
             <?php
-                if (in_category('podcast', $postId)) :
-                    $anchorMp3 = trim(get_post_meta(get_the_ID(), 'anchor_mp3_url', true)) ?? null;                
-                    if (strpos($post->post_content, 'podcasters.spotify.com') != true && !empty($anchorMp3)) :
+                if (in_category('podcast', get_the_ID()))
+                    get_template_part('elements/podcast_player');
             ?>
-                        <audio controls>
-                            <source src="<?= $anchorMp3 ?>">
-                        </audio>
-            <?php
-                    endif;
-                endif;
-            ?>            
-            <?= get_the_content() ?>            
+            <?= get_the_content() ?>
         </div>
         <?php if (in_category('analises-games', get_the_ID()) && !empty(get_post_meta(get_the_ID(), 'one_game_review_score_value', true))): ?>
             <div class="game-score">

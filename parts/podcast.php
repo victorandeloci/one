@@ -68,10 +68,8 @@
                     ?>
                 </div>
         <?php endif; ?>
-        <?php if (!is_home()) : ?>
-            <div class="pagination-container">
-                <button id="podcastLoadMore">Carregar mais</button>
-            </div>
-        <?php endif; ?>
+        <div class="pagination-container">
+            <button id="podcastLoadMore">Carregar mais</button>
+        </div>
     </div>
 </section>
