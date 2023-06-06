@@ -215,6 +215,7 @@
                             .highlight-item {
                                 width: 20rem;
                                 height: 60vh;
+                                transition: ease-in-out 0.3s;
                                 &:first-child {
                                     margin-left: 8rem;
                                 }
@@ -222,9 +223,7 @@
                                     margin-right: 8rem;
                                 }
                                 &:hover {
-                                    .overlay {
-                                        background-color: rgba(0,0,0,.8);
-                                    }
+                                    background-size: auto 120%;
                                 }
                                 .overlay {
                                     transition: ease-in-out .3s;

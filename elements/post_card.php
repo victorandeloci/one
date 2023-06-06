@@ -1,13 +1,15 @@
 <?php 
+    $postThumb = get_the_post_thumbnail_url(get_the_ID(), (isset($args['index']) && $args['index'] == 0) ? 'large' : 'medium');
     $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
-    $postThumb = get_the_post_thumbnail_url(get_the_ID(), (isset($i) && $i == 0) ? 'large' : 'medium');
+        if (empty($podcast_mp3_thumb))
+            $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'episode_cover', true));
 ?>
-<div class="post-card <?= !empty($podcast_mp3_thumb) ? 'podcast-ep' : '' ?>">    
+<div class="post-card <?= !empty($podcast_mp3_thumb) ? 'podcast-ep' : '' ?>">
     <a 
-        href="<?= get_permalink() ?>" 
+        href="<?= get_permalink() ?>"
         class="thumb"
         title="<?= get_the_title() ?>"
-        style="background-image: url(<?= !empty($podcast_mp3_thumb) 
+        style="background-image: url(<?= !empty($podcast_mp3_thumb)
                                             ? $podcast_mp3_thumb
                                             : (!empty($postThumb)
                                                 ? $postThumb
