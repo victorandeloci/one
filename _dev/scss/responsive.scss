@@ -216,17 +216,18 @@
                                 width: 20rem;
                                 height: 60vh;
                                 transition: ease-in-out 0.3s;
+                                &:hover {
+                                    .content {
+                                        hr {
+                                            width: 5rem;
+                                        }
+                                    }
+                                }
                                 &:first-child {
                                     margin-left: 8rem;
                                 }
                                 &:last-child {
                                     margin-right: 8rem;
-                                }
-                                &:hover {
-                                    background-size: auto 120%;
-                                }
-                                .overlay {
-                                    transition: ease-in-out .3s;
                                 }
                                 .content {
                                     padding: 2rem;
