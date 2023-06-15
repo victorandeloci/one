@@ -15,6 +15,7 @@
     <script type="text/javascript">
       const siteUrl = '<?= get_site_url() ?>';
       const apiUrl = '<?= get_site_url() ?>/wp-admin/admin-ajax.php';
+      const themeDirUrl = '<?= get_template_directory_uri(); ?>';
     </script>
     <script src="<?= get_template_directory_uri() ?>/main.min.js?v=<?= ONE_VERSION ?>" charset="utf-8" defer></script>
   </head>

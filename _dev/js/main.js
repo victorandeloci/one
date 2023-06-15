@@ -10,25 +10,6 @@ function docReady(fn) {
   }
 }
 
-function inputHandler(masks, max, event) {
-  let c = event.target;
-  let v = c.value.replace(/\D/g, '');
-  let m = c.value.length > max ? 1 : 0;
-  VMasker(c).unMask();
-  VMasker(c).maskPattern(masks[m]);
-  c.value = VMasker.toPattern(v, masks[m]);
-}
-
-function getFormValues(element) {
-  let formData = new FormData();
-
-  element.querySelectorAll('input, textarea, select').forEach((item, i) => {
-    formData.append(item.getAttribute('name'), item.value);
-  });
-
-  return formData;
-}
-
 async function sendByAction(method, action, formData = null, params = null) {
   let response = '';
   if (method == 'GET' || method == 'get') {
@@ -76,7 +57,7 @@ docReady(function() {
       podcastLoadMoreBtn.innerHTML = '<div class="loader"><div class="lds-dual-ring"></div></div>';
 
       page++;
-      fetch((siteUrl + '/wp-json/wp/v2/posts?page=' + page + '&category_slug=podcast&per_page=12'), {
+      fetch((siteUrl + '/wp-json/wp/v2/posts?page=' + page + '&category_slug=podcast&per_page=14'), {
         method: 'GET'
       })
       .then(function(response) {
@@ -91,7 +72,13 @@ docReady(function() {
   
             let thumb = (ep.metadata.podcast_mp3_thumb != null && ep.metadata.podcast_mp3_thumb != '')
                           ? ep.metadata.podcast_mp3_thumb
-                          : ep.featured_image_url;
+                          : (ep.metadata.one_podcast_cover_url != null && ep.metadata.one_podcast_cover_url != '')
+                              ? ep.metadata.one_podcast_cover_url
+                              : (ep.metadata.episode_cover != null && ep.metadata.episode_cover != '')
+                                  ? ep.metadata.episode_cover
+                                  : (ep.featured_image_url != null && ep.featured_image_url != '')
+                                      ? ep.featured_image_url
+                                      : themeDirUrl + '/assets/img/default-image.png';
             let podcastItemLink = document.createElement('a');
             podcastItemLink.classList.add('podcast-ep');
             podcastItemLink.setAttribute('title', ep.title.rendered);
@@ -108,32 +95,14 @@ docReady(function() {
     });
   }
 
-  // highlights horizontal scroll grab
-  const slider = document.querySelector('.highlight-container');
-  if (slider) {
-    let mouseDown = false;
-    let startX, scrollLeft;
-  
-    let startDragging = function (e) {
-      mouseDown = true;
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    };
-    let stopDragging = function (event) {
-      mouseDown = false;
-    };
-  
-    slider.addEventListener('mousemove', (e) => {
-      e.preventDefault();
-      if(!mouseDown) { return; }
-      const x = e.pageX - slider.offsetLeft;
-      const scroll = x - startX;
-      slider.scrollLeft = scrollLeft - scroll;
+  // highlights controllers
+  if (document.getElementById('highlights')) {
+    let slider = document.querySelector('.highlight-container');
+    document.getElementById('hlLeftBtn').addEventListener('click', function() {
+      slider.scrollLeft -= 500;
     });
-  
-    // Add the event listeners
-    slider.addEventListener('mousedown', startDragging, false);
-    slider.addEventListener('mouseup', stopDragging, false);
-    slider.addEventListener('mouseleave', stopDragging, false);
+    document.getElementById('hlRightBtn').addEventListener('click', function() {
+      slider.scrollLeft += 500;
+    });
   }
 });
