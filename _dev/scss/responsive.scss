@@ -1,4 +1,4 @@
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 680px) {
     html {
         body {
             .container {
@@ -210,13 +210,50 @@
             }
             section {
                 &#highlights {
+                    .title {
+                        display: flex;
+                        gap: 2rem;
+                        .highlight-controllers {
+                            display: block;
+                            padding-top: .5rem;
+                            display: flex;
+                            gap: 1rem;
+                            button {
+                                height: max-content;
+                                background-color: transparent;
+                                border: none;
+                                display: grid;
+                                place-items: center;
+                                cursor: pointer;
+                                &:hover {
+                                    svg {
+                                        fill: var(--pink);
+                                    }
+                                }
+                                svg {
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    fill: var(--orange);
+                                    transition: ease-in-out .3s;
+                                }
+                            }
+                        }
+                    }
                     .highlight-container {
+                        &.block-pointer-events {
+                            a {
+                                pointer-events: none;
+                            }
+                        }
                         .items {
                             .highlight-item {
                                 width: 20rem;
                                 height: 60vh;
                                 transition: ease-in-out 0.3s;
                                 &:hover {
+                                    .overlay {
+                                        opacity: 1;
+                                    }
                                     .content {
                                         hr {
                                             width: 5rem;
@@ -240,6 +277,10 @@
                     .container {
                         a.event-container {
                             padding: 5em 0;
+                            &:hover {
+                                background-color: rgba(0, 0, 0, 0.65);
+                                background-size: 110% auto;
+                            }
                         }
                     }
                 }
@@ -266,7 +307,7 @@
                                 &:first-child {
                                     width: auto;
                                     height: min-content;
-                                    grid-area: 1 / 1 / 7 / 3;
+                                    grid-area: 1 / 1 / 6 / 3;
                                 }
                                 &:not(:first-child) {
                                     &:hover {
