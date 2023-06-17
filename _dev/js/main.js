@@ -105,4 +105,29 @@ docReady(function() {
       slider.scrollLeft += 500;
     });
   }
+
+  // wp gallery
+  let wpGalleries = document.querySelectorAll('.wp-block-gallery');
+  if (wpGalleries != null && wpGalleries.length > 0) {
+    wpGalleries.forEach((wpGallery) => {
+      wpGallery.querySelectorAll('.wp-block-image').forEach((image) => {
+        image.classList.add('splide__slide');        
+      });
+      wpGallery.classList.add('splide__list');
+
+      let splideTrack = document.createElement('div');
+      splideTrack.classList.add('splide__track');
+      splideTrack.innerHTML = wpGallery.outerHTML;
+
+      let splideWrap = document.createElement('div');
+      splideWrap.classList.add('splide');
+      splideWrap.appendChild(splideTrack);
+
+      // render
+      wpGallery.replaceWith(splideWrap);
+
+      // start splide
+      new Splide(splideWrap).mount();
+    });
+  }
 });

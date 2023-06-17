@@ -7,8 +7,8 @@
         if ($i <= 3 || is_single()) :
   ?>
           <a
-            href="<?= get_home_url() ?>/tag/<?= str_replace(' ', '-', $tag->name) ?>"
-            tag="<?= str_replace(' ', '-', $tag->name) ?>"
+            href="<?= get_home_url() ?>/tag/<?= str_replace(' ', '-', iconv('UTF-8', 'ASCII//TRANSLIT', $tag->name)) ?>"
+            tag="<?= str_replace(' ', '-', iconv('UTF-8', 'ASCII//TRANSLIT', $tag->name)) ?>"
             class="tag"
           >
             #<?= $tag->name ?>
