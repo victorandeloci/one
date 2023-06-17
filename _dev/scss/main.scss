@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.1.1
+  Version: 2.2.0
 */
 
 @font-face {
@@ -248,7 +248,7 @@ html {
         a.thumb {
           display: block;
           width: 100%;
-          height: 12rem;
+          height: 14rem;
           border-top-left-radius: .5rem;
           border-top-right-radius: .5rem;
           background-position: center;
@@ -597,6 +597,7 @@ html {
               color: #fff;
               text-decoration: none;
               font-family: Agency;
+              text-transform: uppercase;
             }
             hr {
               margin-bottom: 2em;
@@ -840,6 +841,9 @@ html {
             height: auto;
             user-select: none;
             border-radius: .5rem;
+            &.size-thumbnail {
+              width: auto;
+            }
           }
           .content {
             color: var(--darkGrey);
@@ -851,6 +855,14 @@ html {
             figcaption {
               opacity: .5;
               font-size: 85%;
+            }
+            .wp-block-image {
+              a {
+                pointer-events: none;
+              }
+            }
+            .splide {
+              margin-bottom: 1rem;
             }
           }
           .game-score {
@@ -901,7 +913,7 @@ html {
     }
     footer {
       background-color: #000;
-      padding: 2rem 0 5rem 0;
+      padding: 2rem 0;
       .container {
         #searchform {
           display: flex;
