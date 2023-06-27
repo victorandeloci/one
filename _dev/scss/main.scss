@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.2.1
+  Version: 2.2.2
 */
 
 @font-face {
@@ -228,6 +228,23 @@ html {
         }
       }
     }
+    .post-details {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      gap: .5rem;
+      opacity: .5;
+      span {
+        color: var(--darkGrey);
+        margin-right: 1rem;
+        line-height: 0.5;
+      }
+      svg {
+        width: 0.75rem;
+        fill: var(--darkGrey);
+      }
+    }
     .post-list-container {
       width: 100%;
       .post-card {
@@ -268,6 +285,9 @@ html {
               margin-top: .5rem;
               color: var(--darkGrey);
             }
+          }
+          .post-details {
+            margin-top: 1rem;
           }
         }
       }
@@ -581,10 +601,10 @@ html {
         .container {
           a.event-container {
             display: block;
-            padding: 3em 0;
+            padding: 5em 0;
             text-decoration: none;
             border-radius: .5rem;
-            background-size: 100% auto;
+            background-size: auto 100%;
             background-position: center;
             background-blend-mode: overlay;
             background-color: rgba(0, 0, 0, .5);
@@ -644,6 +664,9 @@ html {
             }
           }
         }
+      }
+      &#reviews {
+        padding: 1rem 0 3rem 0;
       }
     }
     main {
@@ -818,24 +841,7 @@ html {
             }
           }
         }
-        .container {
-          .details {
-            margin-bottom: 1rem;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: flex-end;
-            gap: .5rem;
-            opacity: .5;
-            span {
-              color: var(--darkGrey);
-              margin-right: 1rem;
-              line-height: 0.5;
-            }
-            svg {
-              width: 0.75rem;
-              fill: var(--darkGrey);
-            }
-          }
+        .container {          
           img {
             width: 100%;
             height: auto;
@@ -844,6 +850,10 @@ html {
             &.size-thumbnail {
               width: auto;
             }
+          }
+          iframe {
+            width: 100% !important;
+            height: 28rem !important;
           }
           .content {
             color: var(--darkGrey);
