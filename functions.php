@@ -601,3 +601,20 @@ function rest_filter_by_custom_taxonomy( $args, $request ) {
   
 }
 add_filter('rest_post_query', 'rest_filter_by_custom_taxonomy', 10, 3);
+
+function oneGetYoutubeIdFromUrl($url) {
+  $parts = parse_url($url);
+  if (isset($parts['query'])) {
+      parse_str($parts['query'], $qs);
+      if (isset($qs['v'])) {
+          return $qs['v'];
+      } else if(isset($qs['vi'])) {
+          return $qs['vi'];
+      }
+  }
+  if (isset($parts['path'])) {
+      $path = explode('/', trim($parts['path'], '/'));
+      return $path[count($path)-1];
+  }
+  return false;
+}

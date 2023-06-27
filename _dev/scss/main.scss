@@ -851,6 +851,10 @@ html {
               width: auto;
             }
           }
+          iframe {
+            width: 100% !important;
+            height: 28rem !important;
+          }
           .content {
             color: var(--darkGrey);
             padding: 1rem 0 0 0;
