@@ -4,7 +4,7 @@
     <?php get_template_part('elements/social_links'); ?>
   </div>
   <div class="container videos">
-    <h2 class="subtitle">Vídeos & Transmissões</h2>
+    <h2 class="subtitle">Vídeos & Lives</h2>
     <?php echo do_shortcode( '[youtube-feed]' ); ?>
   </div>
 </section>

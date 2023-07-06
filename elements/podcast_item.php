@@ -11,11 +11,12 @@
         href="<?= get_permalink() ?>" 
         class="podcast-ep"
         title="<?= get_the_title() ?>"
-        style="background-image: url(<?= !empty($podcast_mp3_thumb) 
-                                            ? $podcast_mp3_thumb
-                                            : (!empty($postThumb)
-                                                ? $postThumb
-                                                : get_template_directory_uri() . '/assets/img/default-image.png') ?>);"
+        lazy-load-background="<?= !empty($podcast_mp3_thumb) 
+                                    ? $podcast_mp3_thumb
+                                    : (!empty($postThumb)
+                                        ? $postThumb
+                                        : get_template_directory_uri() . '/assets/img/default-image.png') ?>"
+        style="background-image: url(<?= get_template_directory_uri() . '/assets/img/default-image.png' ?>);"
     ></a>
     <?php if (isset($args['index']) && $args['index'] == 0) : ?>
         <div class="content">

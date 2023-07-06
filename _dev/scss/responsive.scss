@@ -4,6 +4,7 @@
             .container {
                 width: 80%;
             }
+
             header {
                 &.back-filled {
                     .custom-logo-link {
@@ -12,45 +13,56 @@
                         }
                     }
                 }
+
                 .custom-logo-link {
                     img {
                         width: 50%;
                     }
                 }
             }
+
             #mainNav {
                 a {
                     padding: 1rem 0;
+
                     svg {
                         height: 2rem;
                     }
                 }
             }
+
             .content {
                 padding: 2rem;
             }
+
             .post-list-container {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 3%;
+
                 .post-card {
                     width: 48.5%;
+
                     .content {
                         padding: 1rem;
                     }
                 }
             }
+
             #pagination {
                 padding: 1rem 0;
             }
+
             .subtitle {
                 font-size: 200%;
             }
+
             .info-board {
                 h1 {
                     font-size: 220%;
                 }
             }
+
             section {
                 &#highlights {
                     .highlight-container {
@@ -58,12 +70,15 @@
                             .highlight-item {
                                 width: 30rem;
                                 height: 58vh;
+
                                 &:first-child {
                                     margin-left: 5rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 5rem;
                                 }
+
                                 .content {
                                     padding: 2rem;
                                 }
@@ -71,10 +86,12 @@
                         }
                     }
                 }
+
                 &#podcast {
                     padding-top: 2rem;
                 }
             }
+
             main {
                 &.post {
                     &.about-team {
@@ -82,12 +99,14 @@
                             .thumb {
                                 height: 24rem;
                             }
+
                             .container {
                                 .team-list {
                                     .team-member {
                                         img {
                                             width: 50%;
                                         }
+
                                         .links {
                                             a {
                                                 svg {
@@ -100,12 +119,14 @@
                             }
                         }
                     }
+
                     &.event {
                         .container {
                             .event-details {
                                 .event-logo {
                                     height: 6rem;
                                 }
+
                                 .event-post-details {
                                     h1 {
                                         font-size: 220%;
@@ -114,6 +135,7 @@
                             }
                         }
                     }
+
                     .container {
                         .content {
                             h1 {
@@ -123,12 +145,14 @@
                     }
                 }
             }
+
             footer {
                 .container {
                     .menu {
                         flex-direction: row;
                         flex-wrap: wrap;
                         align-items: flex-start;
+
                         li {
                             width: 50%;
                         }
@@ -142,28 +166,33 @@
 @media screen and (min-width: 1024px) {
     html {
         body {
-            background: linear-gradient(to bottom,#000,var(--darkGrey) 2%);
+            background: linear-gradient(to bottom, #000, var(--darkGrey) 2%);
+
             .container {
-                width: 80%;                
+                width: 80%;
             }
+
             header {
                 &.back-filled {
                     position: sticky;
                     top: 0;
                     left: 0;
                     z-index: 998;
+
                     .custom-logo-link {
                         img {
                             width: 20%;
                         }
                     }
                 }
+
                 .custom-logo-link {
                     img {
                         width: 20%;
                     }
                 }
             }
+
             #mainNav {
                 width: auto;
                 height: 70vh;
@@ -172,49 +201,61 @@
                 flex-direction: column;
                 border-top-left-radius: 0;
                 border-bottom-right-radius: .5rem;
-                box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+
                 a {
                     padding: 0 .5rem;
-                    svg {
-                        height: 1.5rem;
-                        transition: ease-in-out .3s;
-                        &:hover {
+
+                    &:hover {
+                        svg {
                             fill: var(--pink);
                         }
                     }
+
+                    svg {
+                        height: 1.5rem;
+                        transition: ease-in-out .3s;
+                    }
                 }
             }
-            .content {
 
-            }
+            .content {}
+
             .post-list-container {
                 gap: 2%;
+
                 .post-card {
                     width: 32%;
                     transition: ease-in-out .3s;
+
                     &:hover {
                         transform: scale(1.05);
                     }
                 }
             }
+
             #pagination {
                 a {
                     transition: ease-in-out .3s;
+
                     &:hover {
                         background-color: var(--pink);
                     }
                 }
             }
+
             section {
                 &#highlights {
                     .title {
                         display: flex;
                         gap: 2rem;
+
                         .highlight-controllers {
                             display: block;
                             padding-top: .5rem;
                             display: flex;
                             gap: 1rem;
+
                             button {
                                 height: max-content;
                                 background-color: transparent;
@@ -222,11 +263,13 @@
                                 display: grid;
                                 place-items: center;
                                 cursor: pointer;
+
                                 &:hover {
                                     svg {
                                         fill: var(--pink);
                                     }
                                 }
+
                                 svg {
                                     width: 1.5rem;
                                     height: 1.5rem;
@@ -236,33 +279,40 @@
                             }
                         }
                     }
+
                     .highlight-container {
                         &.block-pointer-events {
                             a {
                                 pointer-events: none;
                             }
                         }
+
                         .items {
                             .highlight-item {
                                 width: 20rem;
                                 height: 60vh;
                                 transition: ease-in-out 0.3s;
+
                                 &:hover {
                                     .overlay {
                                         opacity: 1;
                                     }
+
                                     .content {
                                         hr {
                                             width: 5rem;
                                         }
                                     }
                                 }
+
                                 &:first-child {
                                     margin-left: 8rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 8rem;
                                 }
+
                                 .content {
                                     padding: 2rem;
                                 }
@@ -270,11 +320,13 @@
                         }
                     }
                 }
+
                 &.highlight-event {
                     .container {
                         a.event-container {
                             padding: 5em 0;
                             background-size: 100% auto;
+
                             &:hover {
                                 background-color: rgba(0, 0, 0, 0.65);
                                 background-size: 110% auto;
@@ -282,12 +334,15 @@
                         }
                     }
                 }
+
                 &#podcast {
                     padding-top: 2rem;
+
                     .container {
                         .selector {
                             max-width: 50%;
                         }
+
                         .podcast-items {
                             display: grid;
                             grid-template-columns: repeat(4, 1fr);
@@ -297,33 +352,39 @@
                             justify-content: unset;
                             gap: unset;
                             grid-gap: 1rem;
+
                             .podcast-item {
                                 width: 100%;
                                 height: min-content;
                                 transition: ease-in-out .3s;
                                 margin-bottom: 0;
+
                                 &:first-child {
                                     width: auto;
                                     height: min-content;
                                     grid-area: 1 / 1 / 6 / 3;
                                 }
+
                                 &:not(:first-child) {
                                     &:hover {
                                         transform: scale(1.05);
                                     }
                                 }
                             }
-                        }  
+                        }
+
                         .pagination-container {
                             margin-top: 3rem;
-                        }                      
+                        }
                     }
                 }
+
                 &#social {
                     .container {
                         .sb_youtube {
                             .sby_items_wrap {
                                 gap: 2% !important;
+
                                 .sby_item {
                                     width: 32% !important;
                                 }
@@ -332,41 +393,53 @@
                     }
                 }
             }
+
             main {
                 min-height: 60vh;
+
                 &.post {
                     background-color: var(--darkGrey);
                     padding: 2rem 0;
+
                     &.about-team {
                         #team {
                             .team-title {
                                 background-color: transparent;
+
                                 .container {
                                     background-color: transparent;
+
                                     .subtitle {
                                         color: var(--white);
                                     }
                                 }
                             }
+
                             .thumb {
                                 height: 35rem;
                             }
+
                             .team-container {
                                 width: 80%;
                                 background-color: transparent;
+
                                 .team-list {
                                     gap: 2%;
+
                                     .team-member {
                                         width: 32%;
                                         margin-bottom: 2rem;
+
                                         p {
                                             width: 70%;
                                         }
+
                                         .links {
                                             a {
                                                 svg {
                                                     height: 1.5rem;
                                                     transition: ease-in-out .3s;
+
                                                     &:hover {
                                                         fill: var(--pink);
                                                     }
@@ -375,18 +448,23 @@
                                         }
                                     }
                                 }
+
                                 .subtitle.center {
                                     font-size: 150%;
                                 }
                             }
                         }
                     }
+
                     &.event {
                         background-size: 100% auto;
+
                         .container {
                             background-color: transparent;
+
                             .content {
                                 padding: 2rem;
+
                                 .podcast-items {
                                     .podcast-item {
                                         &:first-child {
@@ -394,10 +472,12 @@
                                         }
                                     }
                                 }
+
                                 .instagram-posts {
                                     display: flex;
                                     flex-wrap: wrap;
                                     justify-content: space-between;
+
                                     iframe {
                                         width: 48.5% !important;
                                     }
@@ -405,9 +485,11 @@
                             }
                         }
                     }
+
                     &.review {
                         .container {
                             margin-left: 12.5%;
+
                             .info-board {
                                 position: absolute;
                                 right: -50%;
@@ -417,36 +499,41 @@
                             }
                         }
                     }
+
                     &.page {
                         .container {
                             background-color: transparent;
+
                             .content {
                                 color: var(--white);
                             }
                         }
                     }
+
                     .container {
                         background-color: var(--white);
                         width: 50%;
                         padding: 2rem;
                         border-radius: .5rem;
                         position: relative;
-                        .content {
-                            h1 {
 
-                            }
+                        .content {
+                            h1 {}
                         }
                     }
                 }
             }
+
             footer {
                 padding: 2rem 0;
+
                 .container {
                     .menu {
                         flex-direction: row;
                         flex-wrap: nowrap;
                         align-items: flex-start;
                         justify-content: space-between;
+
                         li {
                             .sub-menu {
                                 li {
@@ -476,6 +563,7 @@
                                 &:first-child {
                                     margin-left: 8.5rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 8.5rem;
                                 }
@@ -484,6 +572,7 @@
                     }
                 }
             }
+
             main {
                 &.post {
                     &.about-team {
@@ -505,25 +594,31 @@
             .container {
                 width: 70%;
             }
+
             #mainNav {
                 height: 60vh;
                 top: 20vh;
+
                 a {
                     padding: 0 .5rem;
+
                     svg {
                         height: 1.5rem;
                     }
                 }
             }
+
             section {
                 &#highlights {
                     .highlight-container {
                         .items {
                             .highlight-item {
                                 height: 50vh;
+
                                 &:first-child {
                                     margin-left: 15.5rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 15.5rem;
                                 }
@@ -531,12 +626,14 @@
                         }
                     }
                 }
+
                 &.highlight-event {
                     .container {
                         a.event-container {
                             h2 {
                                 font-size: 200%;
                             }
+
                             p.description {
                                 font-size: 100%;
                             }
@@ -544,6 +641,7 @@
                     }
                 }
             }
+
             main {
                 &.post {
                     &.about-team {
@@ -551,6 +649,7 @@
                             .thumb {
                                 height: 48rem;
                             }
+
                             .team-container {
                                 width: 70%;
                             }
@@ -568,6 +667,7 @@
             .container {
                 width: 60%;
             }
+
             header {
                 &.back-filled {
                     .custom-logo-link {
@@ -576,12 +676,14 @@
                         }
                     }
                 }
+
                 .custom-logo-link {
                     img {
                         width: 15%;
                     }
                 }
             }
+
             section {
                 &#highlights {
                     .highlight-container {
@@ -590,6 +692,7 @@
                                 &:first-child {
                                     margin-left: 24rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 24rem;
                                 }
@@ -598,6 +701,7 @@
                     }
                 }
             }
+
             main {
                 &.post {
                     &.about-team {
@@ -605,16 +709,19 @@
                             .thumb {
                                 height: 55rem;
                             }
+
                             .team-container {
                                 width: 60%;
                             }
                         }
                     }
+
                     &.review {
                         .container {
                             margin-left: 20%;
                         }
                     }
+
                     .container {
                         width: 40%;
                     }
@@ -630,11 +737,13 @@
             .container {
                 width: 50%;
             }
+
             #mainNav {
                 a {
                     padding: 0 1rem;
                 }
             }
+
             header {
                 &.back-filled {
                     .custom-logo-link {
@@ -643,12 +752,14 @@
                         }
                     }
                 }
+
                 .custom-logo-link {
                     img {
                         width: 10%;
                     }
                 }
             }
+
             section {
                 &#highlights {
                     .highlight-container {
@@ -656,9 +767,11 @@
                             .highlight-item {
                                 width: 28rem;
                                 height: 60vh;
+
                                 &:first-child {
                                     margin-left: 32rem;
                                 }
+
                                 &:last-child {
                                     margin-right: 32rem;
                                 }
@@ -667,6 +780,7 @@
                     }
                 }
             }
+
             main {
                 &.post {
                     &.about-team {
@@ -674,11 +788,13 @@
                             .thumb {
                                 height: 75rem;
                             }
+
                             .team-container {
                                 width: 50%;
                             }
                         }
                     }
+
                     .container {
                         width: 40%;
                     }
