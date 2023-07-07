@@ -1,4 +1,4 @@
-<div class="podcast-item">
+<div class="podcast-item <?= !empty($args['class']) ? $args['class'] : '' ?>">
     <?php 
         $postThumb = get_the_post_thumbnail_url(get_the_ID(), (isset($args['index']) && $args['index'] == 0) ? 'large' : 'medium');
         $podcast_mp3_thumb = trim(get_post_meta(get_the_ID(), 'podcast_mp3_thumb', true));
