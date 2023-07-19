@@ -219,8 +219,6 @@
                 }
             }
 
-            .content {}
-
             .post-list-container {
                 gap: 2%;
 
@@ -379,7 +377,7 @@
                     }
                 }
 
-                &#social {
+                &#videos {
                     .container {
                         .sb_youtube {
                             .sby_items_wrap {
@@ -387,6 +385,26 @@
 
                                 .sby_item {
                                     width: 32% !important;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &#podcast_category_highlight {
+                    .container {
+                        padding: 2rem;
+
+                        .podcast-items {
+                            gap: 0;
+                            justify-content: space-between;
+
+                            .podcast-item {
+                                width: 19%;
+                                transition: ease-in-out .3s;
+
+                                &:hover {
+                                    transform: scale(1.05);
                                 }
                             }
                         }

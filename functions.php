@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.2.5');
+define('ONE_VERSION', '2.2.6');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -339,8 +339,14 @@ function one_podcast_cover() {
               var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
 
               // Sends the attachment URL to our custom image input field.
-              document.querySelector('#one_podcast_cover_url').value = media_attachment.url;
-              document.querySelector('#one_podcast_cover_show').setAttribute('src', media_attachment.url);
+              if (media_attachment.sizes.large.url) {
+                document.querySelector('#one_podcast_cover_url').value = media_attachment.sizes.large.url;
+                document.querySelector('#one_podcast_cover_show').setAttribute('src', media_attachment.sizes.large.url);
+              } else {
+                document.querySelector('#one_podcast_cover_url').value = media_attachment.url;
+                document.querySelector('#one_podcast_cover_show').setAttribute('src', media_attachment.url);
+              }
+              
             });
 
             // Opens the media library frame.
@@ -398,8 +404,13 @@ function one_highlight_thumb() {
               var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
 
               // Sends the attachment URL to our custom image input field.
-              document.querySelector('#one_highlight_thumb_url').value = media_attachment.url;
-              document.querySelector('#one_highlight_thumb_show').setAttribute('src', media_attachment.url);
+              if (media_attachment.sizes.large.url) {
+                document.querySelector('#one_highlight_thumb_url').value = media_attachment.sizes.large.url;
+                document.querySelector('#one_highlight_thumb_show').setAttribute('src', media_attachment.sizes.large.url);
+              } else {
+                document.querySelector('#one_highlight_thumb_url').value = media_attachment.url;
+                document.querySelector('#one_highlight_thumb_show').setAttribute('src', media_attachment.url);
+              }
             });
 
             // Opens the media library frame.
