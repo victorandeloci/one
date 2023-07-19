@@ -139,7 +139,7 @@ docReady(function () {
     let currentScroll = document.scrollingElement.scrollTop;
 
     elementsIndexes.forEach((element, i) => {
-      if ((currentScroll > element.getBoundingClientRect().top - 150)) {
+      if ((currentScroll > element.getBoundingClientRect().top - 250)) {
         let background = element.getAttribute('lazy-load-background');
         element.style.backgroundImage = "url('" + background + "')";
         elementsIndexes.splice(i, 1);
