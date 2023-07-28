@@ -3,7 +3,12 @@
   "version": "2.2.6",
   "main": "index.php",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass-dev": "node-sass --output-style=expanded _dev/scss/main.scss style.css",
+    "sass-prod": "node-sass --output-style=compressed _dev/scss/main.scss style.css",
+    "prefix": "postcss style.css --use=autoprefixer --map=false --output=style.css",
+    "compile-js": "uglifyjs-folder _dev --output main.min.js --pattern '**/*.js'",
+    "dev": "watch 'npm run sass-dev && npm run compile-js' _dev/*",
+    "build": "npm run sass-prod && npm run prefix && npm run compile-js"
   },
   "repository": {
     "type": "git",
@@ -15,18 +20,12 @@
     "url": "https://github.com/victorandeloci/one/issues"
   },
   "homepage": "https://github.com/victorandeloci/one#readme",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-notify": "^4.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-watch": "^5.0.1",
-    "sass": "^1.43.2"
-  },
   "dependencies": {
-    "gulp-babel-minify": "^0.5.1"
+    "autoprefixer": "^10.4.14",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "uglifyjs-folder": "^3.3.0",
+    "watch": "^1.0.2"
   }
 }

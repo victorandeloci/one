@@ -1,8 +1,9 @@
 name: Build WP theme package & Release
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
+    types: [closed]
 
   workflow_dispatch:
 
@@ -18,13 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Gulp Setup & Run
+      - name: NPM build
         run: |
           sudo apt-get install nodejs
           sudo apt-get install npm
-          sudo apt-get install gulp
           npm install
-          gulp build
+          npm run build
 
       - name: Zip build
         run: |

@@ -5,6 +5,9 @@
   Version: 2.2.6
 */
 
+@import '../plugins/css/normalize';
+@import '../plugins/css/splide.min';
+
 @font-face {
   font-family: Agency;
   src: url(assets/fonts/agency.ttf);
@@ -1254,3 +1257,5 @@ html {
     }
   }
 }
+
+@import './responsive';
