@@ -8,10 +8,8 @@
 
     <?php wp_head(); ?>
 
-    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/plugins.min.css?v=<?= ONE_VERSION ?>">
     <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=<?= ONE_VERSION ?>">
 
-    <script src="<?= get_template_directory_uri() ?>/plugins.min.js?v=<?= ONE_VERSION ?>" charset="utf-8" defer></script>
     <script type="text/javascript">
       const siteUrl = '<?= get_site_url() ?>';
       const apiUrl = '<?= get_site_url() ?>/wp-admin/admin-ajax.php';

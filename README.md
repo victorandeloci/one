@@ -1,15 +1,22 @@
 # One - WordPress theme for a gaming blog / podcast 
-![Screenshot](screenshot.png "Screenshot")
+![Screenshot](screenshot.png)
 
 ## Desenvolvimento
-**Requer Node, NPM e GULP**  
+**Requer Node e NPM**  
 ```
 sudo apt install nodejs
 sudo apt install npm
-sudo apt install gulp
 ```
-Instalar dependências e rodar o **Gulp**:  
+Instalar dependências e rodar em **dev**:  
 ```
 npm install
-gulp
+npm run dev
 ```
+
+## Instalação
+Compilar pacote do tema:  
+```
+npm run build
+```
+
+Arquivo <code>.zip</code> da última versão (disponível [aqui](https://github.com/victorandeloci/one/releases)) ou arquivos locais pós <code>build</code>
