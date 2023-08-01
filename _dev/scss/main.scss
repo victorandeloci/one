@@ -2,11 +2,12 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.2.6
+  Version: 2.3.0
 */
 
 @import '../plugins/css/normalize';
 @import '../plugins/css/splide.min';
+@import '../plugins/css/plyr';
 
 @font-face {
   font-family: Agency;
@@ -153,6 +154,7 @@ html {
     .content {
       padding: 1rem;
       line-height: 1.35;
+      --plyr-color-main: var(--orange);
 
       h1,
       h2,
@@ -190,6 +192,17 @@ html {
       audio {
         width: 100% !important;
         margin-bottom: 1rem;
+      }
+
+      .plyr {
+        width: 100% !important;
+        margin-bottom: 1rem;
+
+        .plyr__controls {
+          padding-left: 0;
+          padding-right: 0;
+          background-color: transparent;
+        }
       }
     }
 

@@ -156,4 +156,7 @@ docReady(function () {
         initVisibleBackgrounds();
     }, false);
   }
+
+  // plyr audio player
+  const player = new Plyr('#player');
 });
