@@ -10,6 +10,7 @@
             <h1><?= get_the_title() ?></h1>
             <?= get_the_content() ?>            
         </div>
+        <?php get_template_part('elements/social_links'); ?>
     </div>
     <?php
         $team = get_page_by_path('equipe', OBJECT, 'page');

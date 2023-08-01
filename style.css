@@ -2239,6 +2239,10 @@ html body .social-links a.telegram svg {
   fill: #0088cc !important;
 }
 
+html body .social-links a.tiktok svg {
+  fill: #ddd !important;
+}
+
 html body .social-links a svg {
   height: 2rem;
 }
