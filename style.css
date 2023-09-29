@@ -2125,6 +2125,16 @@ a.plyr__control:before {
   src: url(assets/fonts/MyriadPro-Regular.otf);
 }
 
+@font-face {
+  font-family: Champagne;
+  src: url(assets/fonts/Champagne_Limousines.ttf);
+}
+
+@font-face {
+  font-family: ChampagneBold;
+  src: url(assets/fonts/Champagne_Limousines_Bold.ttf);
+}
+
 :root {
   --orange: #ff8f57;
   --darkGrey: #1C1C1C;
@@ -3174,6 +3184,88 @@ html body main#tag {
 
 html body main#category {
   padding: 1rem 0;
+}
+
+html body main#rpg .banner {
+  width: 100%;
+  min-height: 60vh;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+html body main#rpg .banner .decoration {
+  width: 100%;
+  height: 8rem;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+html body main#rpg .banner .decoration.top {
+  top: 0;
+  left: 0;
+  background-position: top;
+  filter: drop-shadow(2px 8px 1rem rgba(0, 0, 0, 0.5));
+}
+
+html body main#rpg .banner .decoration.top::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background: linear-gradient(to bottom, #000, #da7b52);
+}
+
+html body main#rpg .banner .decoration.bottom {
+  bottom: 0;
+  left: 0;
+  background-position: bottom;
+  filter: drop-shadow(2px -8px 1rem rgba(0, 0, 0, 0.5));
+}
+
+html body main#rpg .banner img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(2px 8px 1rem #000);
+}
+
+html body main#rpg .logo-container {
+  width: 100%;
+  padding-bottom: 2rem;
+  background-color: #322428;
+  position: relative;
+}
+
+html body main#rpg .logo-container h1 {
+  font-family: Champagne;
+  color: #fff;
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
+  font-size: 300%;
+  margin: 0;
+  position: relative;
+  top: -1rem;
+}
+
+html body main#rpg .logo-container h1 span {
+  font-family: ChampagneBold;
+  color: var(--orange);
+}
+
+html body main#rpg .logo-container::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background: linear-gradient(to top, #000, #322428);
 }
 
 html body footer {

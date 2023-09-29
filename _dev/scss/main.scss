@@ -19,6 +19,16 @@
   src: url(assets/fonts/MyriadPro-Regular.otf);
 }
 
+@font-face {
+  font-family: Champagne;
+  src: url(assets/fonts/Champagne_Limousines.ttf);
+}
+
+@font-face {
+  font-family: ChampagneBold;
+  src: url(assets/fonts/Champagne_Limousines_Bold.ttf);
+}
+
 :root {
   --orange: #ff8f57;
   --darkGrey: #1C1C1C;
@@ -1164,6 +1174,90 @@ html {
 
       &#category {
         padding: 1rem 0;
+      }
+
+      &#rpg {
+        .banner {
+          width: 100%;
+          min-height: 60vh;
+          position: relative;
+          background-position: center;
+          background-size: cover;
+          display: grid;
+          place-items: center;
+
+          .decoration {
+            width: 100%;
+            height: 8rem;
+            position: absolute;
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+            &.top {
+              top: 0;
+              left: 0;
+              background-position: top;
+              filter: drop-shadow(2px 8px 1rem rgba(0, 0, 0, 0.5));
+
+              &::before {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1rem;
+                background: linear-gradient(to bottom, #000, #da7b52);
+              }
+            }
+
+            &.bottom {
+              bottom: 0;
+              left: 0;
+              background-position: bottom;
+              filter: drop-shadow(2px -8px 1rem rgba(0, 0, 0, 0.5));
+            }
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(2px 8px 1rem #000);
+          }
+        }
+
+        .logo-container {
+          width: 100%;
+          padding-bottom: 2rem;
+          background-color: #322428;
+          position: relative;
+
+          h1 {
+            font-family: Champagne;
+            color: #fff;
+            font-weight: lighter;
+            width: 100%;
+            text-align: center;
+            font-size: 300%;
+            margin: 0;
+            position: relative;
+            top: -1rem;
+
+            span {
+              font-family: ChampagneBold;
+              color: var(--orange);
+            }
+          }
+
+          &::after {
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background: linear-gradient(to top, #000, #322428);
+          }
+        }
       }
     }
 
