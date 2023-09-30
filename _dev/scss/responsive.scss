@@ -648,6 +648,7 @@
                             margin: 0;
                             margin-left: 10%;
                             background-color: transparent;
+                            padding: 0;
 
                             .content {
                                 color: var(--white);
@@ -663,6 +664,14 @@
                             }
                         }
                     }
+                }
+            }
+
+            #image_show {
+                img {
+                    height: 80%;
+                    width: auto;
+                    max-height: unset;
                 }
             }
 

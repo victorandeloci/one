@@ -3240,7 +3240,6 @@ html body main .page-content .container .content .splide {
 html body main.post .container .content .splide .wp-block-image,
 html body main .page-content .container .content .splide .wp-block-image {
   max-height: 20rem;
-  cursor: zoom-in;
 }
 
 html body main.post .container .game-score,
@@ -3415,6 +3414,7 @@ html body #image_show {
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
   place-items: center;
+  cursor: zoom-out;
 }
 
 html body #image_show.show {
@@ -3965,6 +3965,7 @@ html body footer .container .social-container .social-links {
     margin: 0;
     margin-left: 10%;
     background-color: transparent;
+    padding: 0;
   }
   html body main#rpg .page-content .container .content {
     color: var(--white);
@@ -3975,6 +3976,11 @@ html body footer .container .social-container .social-links {
   html body main#rpg .page-content .container .content p,
   html body main#rpg .page-content .container .content li {
     color: var(--white);
+  }
+  html body #image_show img {
+    height: 80%;
+    width: auto;
+    max-height: unset;
   }
   html body footer {
     padding: 2rem 0;

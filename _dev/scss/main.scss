@@ -1187,7 +1187,6 @@ html {
 
               .wp-block-image {
                 max-height: 20rem;
-                cursor: zoom-in;
               }
             }
           }
@@ -1371,6 +1370,7 @@ html {
       background-color: rgba(0, 0, 0, .7);
       display: none;
       place-items: center;
+      cursor: zoom-out;
 
       &.show {
         display: grid;
