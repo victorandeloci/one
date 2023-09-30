@@ -2592,6 +2592,10 @@ html body header.back-filled .custom-logo-link img {
   width: 60%;
 }
 
+html body header.orange {
+  background-color: #da7b52;
+}
+
 html body header .custom-logo-link {
   display: grid;
   place-items: center;
@@ -3207,18 +3211,9 @@ html body main#rpg .banner .decoration {
 html body main#rpg .banner .decoration.top {
   top: 0;
   left: 0;
-  background-position: top;
-  filter: drop-shadow(2px 8px 1rem rgba(0, 0, 0, 0.5));
-}
-
-html body main#rpg .banner .decoration.top::before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1rem;
-  background: linear-gradient(to bottom, #000, #da7b52);
+  height: 2.5rem;
+  background-position: 100% bottom;
+  filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.5));
 }
 
 html body main#rpg .banner .decoration.bottom {

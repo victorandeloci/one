@@ -18,6 +18,14 @@
     <script src="<?= get_template_directory_uri() ?>/main.min.js?v=<?= ONE_VERSION ?>" charset="utf-8" defer></script>
   </head>
   <body>
-    <header class="<?= (is_single() || is_page() || is_404()) ? 'back-filled' : '' ?>">
-      <?php the_custom_logo(); ?>
+    <header class="<?= (is_single() || is_page() || is_404()) ? 'back-filled' : '' ?> <?= (!empty($args['schema'])) ? $args['schema'] : '' ?>">
+      <?php if (!empty($args['schema']) && $args['schema'] == 'orange') : ?>
+        <a href="<?= get_site_url() ?>" class="custom-logo-link">
+          <img src="<?= get_template_directory_uri() ?>/assets/img/logo_h_dark.png" alt="Logo Alt" class="custom-logo">
+        </a>
+      <?php 
+        else : 
+          the_custom_logo();
+        endif;
+      ?>
     </header>

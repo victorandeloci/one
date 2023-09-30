@@ -1,6 +1,6 @@
 <?php 
     /* Template Name: RPG */
-    get_header();
+    get_header(null, ['schema' => 'orange']);
 ?>
 
 <main id="rpg">

@@ -522,6 +522,10 @@ html {
         }
       }
 
+      &.orange {
+        background-color: #da7b52;
+      }
+
       .custom-logo-link {
         display: grid;
         place-items: center;
@@ -1196,18 +1200,9 @@ html {
             &.top {
               top: 0;
               left: 0;
-              background-position: top;
-              filter: drop-shadow(2px 8px 1rem rgba(0, 0, 0, 0.5));
-
-              &::before {
-                content: " ";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 1rem;
-                background: linear-gradient(to bottom, #000, #da7b52);
-              }
+              height: 2.5rem;
+              background-position: 100% bottom;
+              filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.5));
             }
 
             &.bottom {
