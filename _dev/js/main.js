@@ -166,4 +166,18 @@ docReady(function () {
         : ['play', 'progress', 'current-time', 'mute', 'settings']
     });
   }
+
+  // gallery image view
+  document.querySelectorAll('.splide .wp-block-image').forEach((imgBlock) => {
+    imgBlock.addEventListener('click', function () {
+      let imageViewer = document.getElementById('image_show');
+      imageViewer.querySelector('img').setAttribute('src', imgBlock.querySelector('img').getAttribute('src'));
+      imageViewer.classList.add('show');
+    });
+  });
+
+  document.getElementById('image_show').addEventListener('click', function () {
+    this.classList.remove('show');
+    this.querySelector('img').setAttribute('src', '');
+  });
 });
