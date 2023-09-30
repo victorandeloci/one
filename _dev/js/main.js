@@ -158,5 +158,12 @@ docReady(function () {
   }
 
   // plyr audio player
-  const player = new Plyr('#player');
+  let playerElement = document.getElementById('player');
+  if (playerElement) {
+    const player = new Plyr(playerElement, {
+      controls: (playerElement.getAttribute('hide-controls') == 'true')
+        ? ['play', 'progress', 'mute', 'settings']
+        : ['play', 'progress', 'current-time', 'mute', 'settings']
+    });
+  }
 });

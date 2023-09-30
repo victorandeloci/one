@@ -48,10 +48,7 @@ html {
     color: var(--white);
     overflow-x: hidden;
     font-family: Myriad;
-
-    a {
-      color: var(--orange);
-    }
+    --plyr-color-main: var(--orange);
 
     .container {
       width: 90%;
@@ -64,6 +61,26 @@ html {
       .column {
         width: 50%;
       }
+    }
+
+    audio {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+
+    .plyr {
+      width: 100% !important;
+      margin-bottom: 1rem;
+
+      .plyr__controls {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: transparent;
+      }
+    }
+
+    a {
+      color: var(--orange);
     }
 
     .subtitle {
@@ -203,22 +220,6 @@ html {
 
       iframe {
         width: 100% !important;
-      }
-
-      audio {
-        width: 100% !important;
-        margin-bottom: 1rem;
-      }
-
-      .plyr {
-        width: 100% !important;
-        margin-bottom: 1rem;
-
-        .plyr__controls {
-          padding-left: 0;
-          padding-right: 0;
-          background-color: transparent;
-        }
       }
     }
 
@@ -508,6 +509,61 @@ html {
       }
     }
 
+    .card-player {
+      width: 90%;
+      margin: 0 auto;
+      background-color: var(--white);
+      border-radius: .5rem;
+      color: var(--darkGrey);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+
+      .row {
+        width: 100%;
+        border-radius: .5rem;
+        gap: .5rem;
+
+        .column {
+          &:nth-child(1) {
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+            width: 6rem;
+            height: 6rem;
+            background-size: cover;
+            background-position: center;
+          }
+
+          &:nth-child(2) {
+            width: calc(100% - 6rem);
+            padding: .5rem .5rem .5rem 0;
+            display: grid;
+            place-items: center;
+
+            .tags-container {
+              display: none;
+            }
+
+            h3 {
+              width: 100%;
+              font-family: Agency;
+              text-transform: uppercase;
+              font-weight: lighter;
+              font-size: 110%;
+              margin: 0 0 .5rem 0;
+            }
+
+            .plyr,
+            audio {
+              margin-bottom: 0;
+
+              .plyr__controls {
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
     header {
       padding: 1rem 0;
 
@@ -524,6 +580,7 @@ html {
 
       &.orange {
         background-color: #da7b52;
+        padding-bottom: 0;
       }
 
       .custom-logo-link {
@@ -780,7 +837,7 @@ html {
             padding: 5em 0;
             text-decoration: none;
             border-radius: .5rem;
-            background-size: auto 100%;
+            background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
             background-color: rgba(0, 0, 0, .5);
@@ -882,7 +939,9 @@ html {
     }
 
     main {
-      &.post {
+
+      &.post,
+      .page-content {
         background-color: var(--white);
         padding: 2rem 0 1rem 0;
 
@@ -1125,6 +1184,10 @@ html {
 
             .splide {
               margin-bottom: 1rem;
+
+              .wp-block-image {
+                max-height: 20rem;
+              }
             }
           }
 
@@ -1187,6 +1250,7 @@ html {
           position: relative;
           background-position: center;
           background-size: cover;
+          background-attachment: fixed;
           display: grid;
           place-items: center;
 
@@ -1202,7 +1266,7 @@ html {
               left: 0;
               height: 2.5rem;
               background-position: 100% bottom;
-              filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.5));
+              filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.3));
             }
 
             &.bottom {
@@ -1216,13 +1280,15 @@ html {
           img {
             width: 100%;
             height: auto;
+            position: relative;
+            top: -1rem;
             filter: drop-shadow(2px 8px 1rem #000);
           }
         }
 
         .logo-container {
           width: 100%;
-          padding-bottom: 2rem;
+          padding-bottom: 1rem;
           background-color: #322428;
           position: relative;
 
@@ -1243,6 +1309,24 @@ html {
             }
           }
 
+          .container {
+            width: 90%;
+            margin: 0 auto;
+
+            p {
+              margin: 0;
+              text-align: center;
+              opacity: 0.85;
+            }
+          }
+        }
+
+        .main-post-container {
+          width: 100%;
+          padding: 1rem 0 3rem 0;
+          position: relative;
+          background-color: #322428;
+
           &::after {
             content: " ";
             position: absolute;
@@ -1252,6 +1336,26 @@ html {
             height: 1rem;
             background: linear-gradient(to top, #000, #322428);
           }
+        }
+
+        .post-list {
+          position: relative;
+          background-color: #000;
+          padding: 2rem 0 1rem 0;
+
+          .podcast-items {
+            .podcast-item {
+              &:first-child {
+                width: 48.5%;
+                margin-bottom: .5rem;
+                background-color: unset;
+              }
+            }
+          }
+        }
+
+        .page-content {
+          padding-top: 0;
         }
       }
     }
