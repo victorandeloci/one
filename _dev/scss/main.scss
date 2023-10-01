@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.3.0
+  Version: 2.3.1
 */
 
 @import '../plugins/css/normalize';
@@ -17,6 +17,16 @@
 @font-face {
   font-family: Myriad;
   src: url(assets/fonts/MyriadPro-Regular.otf);
+}
+
+@font-face {
+  font-family: Champagne;
+  src: url(assets/fonts/Champagne_Limousines.ttf);
+}
+
+@font-face {
+  font-family: ChampagneBold;
+  src: url(assets/fonts/Champagne_Limousines_Bold.ttf);
 }
 
 :root {
@@ -38,10 +48,7 @@ html {
     color: var(--white);
     overflow-x: hidden;
     font-family: Myriad;
-
-    a {
-      color: var(--orange);
-    }
+    --plyr-color-main: var(--orange);
 
     .container {
       width: 90%;
@@ -54,6 +61,26 @@ html {
       .column {
         width: 50%;
       }
+    }
+
+    audio {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+
+    .plyr {
+      width: 100% !important;
+      margin-bottom: 1rem;
+
+      .plyr__controls {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: transparent;
+      }
+    }
+
+    a {
+      color: var(--orange);
     }
 
     .subtitle {
@@ -157,6 +184,51 @@ html {
       }
     }
 
+    .podcast-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      a {
+        text-decoration: none;
+
+        &.spotify {
+          svg {
+            fill: #1ed760;
+          }
+        }
+
+        &.google {
+          svg {
+            fill: #4285f4;
+          }
+        }
+
+        &.rss {
+          svg {
+            fill: #f8991c;
+          }
+        }
+
+        &.apple {
+          svg {
+            fill: #AB4CDE;
+          }
+        }
+
+        &.deezer {
+          svg {
+            fill: #ef5466;
+          }
+        }
+
+        svg {
+          height: 2rem;
+        }
+      }
+    }
+
     .content {
       padding: 1rem;
       line-height: 1.35;
@@ -193,22 +265,6 @@ html {
 
       iframe {
         width: 100% !important;
-      }
-
-      audio {
-        width: 100% !important;
-        margin-bottom: 1rem;
-      }
-
-      .plyr {
-        width: 100% !important;
-        margin-bottom: 1rem;
-
-        .plyr__controls {
-          padding-left: 0;
-          padding-right: 0;
-          background-color: transparent;
-        }
       }
     }
 
@@ -498,6 +554,60 @@ html {
       }
     }
 
+    .card-player {
+      width: 90%;
+      margin: 0 auto;
+      background-color: var(--white);
+      border-radius: .5rem;
+      color: var(--darkGrey);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+
+      .row {
+        width: 100%;
+        border-radius: .5rem;
+        gap: .5rem;
+
+        .column {
+          &:nth-child(1) {
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+            width: 6rem;
+            background-size: cover;
+            background-position: center;
+          }
+
+          &:nth-child(2) {
+            width: calc(100% - 6rem);
+            padding: .5rem .5rem .5rem 0;
+            display: grid;
+            place-items: center;
+
+            .tags-container {
+              display: none;
+            }
+
+            h3 {
+              width: 100%;
+              font-family: Agency;
+              text-transform: uppercase;
+              font-weight: lighter;
+              font-size: 110%;
+              margin: 0 0 .5rem 0;
+            }
+
+            .plyr,
+            audio {
+              margin-bottom: 0;
+
+              .plyr__controls {
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
     header {
       padding: 1rem 0;
 
@@ -510,6 +620,11 @@ html {
             width: 60%;
           }
         }
+      }
+
+      &.orange {
+        background-color: #da7b52;
+        padding-bottom: 0;
       }
 
       .custom-logo-link {
@@ -653,51 +768,6 @@ html {
         padding: 1rem 0 3rem 0;
 
         .container {
-          .podcast-links {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-
-            a {
-              text-decoration: none;
-
-              &.spotify {
-                svg {
-                  fill: #1ed760;
-                }
-              }
-
-              &.google {
-                svg {
-                  fill: #4285f4;
-                }
-              }
-
-              &.rss {
-                svg {
-                  fill: #f8991c;
-                }
-              }
-
-              &.apple {
-                svg {
-                  fill: #AB4CDE;
-                }
-              }
-
-              &.deezer {
-                svg {
-                  fill: #ef5466;
-                }
-              }
-
-              svg {
-                height: 2rem;
-              }
-            }
-          }
-
           .selector {
             display: flex;
             align-items: center;
@@ -766,7 +836,7 @@ html {
             padding: 5em 0;
             text-decoration: none;
             border-radius: .5rem;
-            background-size: auto 100%;
+            background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
             background-color: rgba(0, 0, 0, .5);
@@ -868,7 +938,9 @@ html {
     }
 
     main {
-      &.post {
+
+      &.post,
+      .page-content {
         background-color: var(--white);
         padding: 2rem 0 1rem 0;
 
@@ -1111,6 +1183,10 @@ html {
 
             .splide {
               margin-bottom: 1rem;
+
+              .wp-block-image {
+                max-height: 20rem;
+              }
             }
           }
 
@@ -1164,6 +1240,157 @@ html {
 
       &#category {
         padding: 1rem 0;
+      }
+
+      &#rpg {
+        .banner {
+          width: 100%;
+          min-height: 60vh;
+          position: relative;
+          background-position: center;
+          background-size: cover;
+          background-attachment: fixed;
+          display: grid;
+          place-items: center;
+
+          .decoration {
+            width: 100%;
+            height: 8rem;
+            position: absolute;
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+            &.top {
+              top: 0;
+              left: 0;
+              height: 2.5rem;
+              background-position: 100% bottom;
+              filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.3));
+            }
+
+            &.bottom {
+              bottom: 0;
+              left: 0;
+              background-position: bottom;
+              filter: drop-shadow(2px -8px 1rem rgba(0, 0, 0, 0.5));
+            }
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            top: -1rem;
+            filter: drop-shadow(2px 8px 1rem #000);
+          }
+        }
+
+        .logo-container {
+          width: 100%;
+          padding-bottom: 1rem;
+          background-color: #322428;
+          position: relative;
+
+          h1 {
+            font-family: Champagne;
+            color: #fff;
+            font-weight: lighter;
+            width: 100%;
+            text-align: center;
+            font-size: 300%;
+            margin: 0;
+            position: relative;
+            top: -1rem;
+
+            span {
+              font-family: ChampagneBold;
+              color: var(--orange);
+            }
+          }
+
+          .podcast-links {
+            justify-content: center;
+          }
+
+          .container {
+            width: 90%;
+            margin: 0 auto;
+
+            p {
+              margin: 0;
+              text-align: center;
+              opacity: 0.85;
+            }
+          }
+        }
+
+        .main-post-container {
+          width: 100%;
+          padding: 1rem 0 3rem 0;
+          position: relative;
+          background-color: #322428;
+
+          &::after {
+            content: " ";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            background: linear-gradient(to top, #000, #322428);
+          }
+        }
+
+        .post-list {
+          position: relative;
+          background-color: #000;
+          padding: 2rem 0 1rem 0;
+
+          .subtitle {
+            &:not(:first-child) {
+              margin-top: 2rem;
+            }
+          }
+
+          .podcast-items {
+            .podcast-item {
+              &:first-child {
+                width: 48.5%;
+                margin-bottom: .5rem;
+                background-color: unset;
+              }
+            }
+          }
+        }
+
+        .page-content {
+          padding-top: 0;
+        }
+      }
+    }
+
+    #image_show {
+      position: fixed;
+      z-index: 999;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, .7);
+      display: none;
+      place-items: center;
+      cursor: zoom-out;
+
+      &.show {
+        display: grid;
+      }
+
+      img {
+        width: 90%;
+        height: auto;
+        max-height: 85vh;
+        object-fit: cover;
+        border-radius: .5rem;
       }
     }
 

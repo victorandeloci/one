@@ -1,4 +1,5 @@
     <?php get_template_part('elements/main_nav'); ?>
+    <div id="image_show"><img src="" alt="Image visualizer"></div>
     <footer>
       <div class="container">
         <?php

@@ -1,7 +1,7 @@
 <div class="tags-container">
   <?php
     $i = 0;
-    $tags = get_the_tags(get_the_id());
+    $tags = get_the_tags((!empty($args['post_id']) ? $args['post_id'] : get_the_ID()));
     if ($tags) :
       foreach ($tags as $tag) :
         if ($i <= 2 || is_single()) :

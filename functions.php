@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.3.0');
+define('ONE_VERSION', '2.3.1');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -339,7 +339,7 @@ function one_podcast_cover() {
               var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
 
               // Sends the attachment URL to our custom image input field.
-              if (media_attachment.sizes.large.url) {
+              if (media_attachment.sizes != null && media_attachment.sizes.large != null && media_attachment.sizes.large.url) {
                 document.querySelector('#one_podcast_cover_url').value = media_attachment.sizes.large.url;
                 document.querySelector('#one_podcast_cover_show').setAttribute('src', media_attachment.sizes.large.url);
               } else {

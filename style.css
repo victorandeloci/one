@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.3.0
+  Version: 2.3.1
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2125,6 +2125,16 @@ a.plyr__control:before {
   src: url(assets/fonts/MyriadPro-Regular.otf);
 }
 
+@font-face {
+  font-family: Champagne;
+  src: url(assets/fonts/Champagne_Limousines.ttf);
+}
+
+@font-face {
+  font-family: ChampagneBold;
+  src: url(assets/fonts/Champagne_Limousines_Bold.ttf);
+}
+
 :root {
   --orange: #ff8f57;
   --darkGrey: #1C1C1C;
@@ -2143,10 +2153,7 @@ html body {
   color: var(--white);
   overflow-x: hidden;
   font-family: Myriad;
-}
-
-html body a {
-  color: var(--orange);
+  --plyr-color-main: var(--orange);
 }
 
 html body .container {
@@ -2160,6 +2167,26 @@ html body .row {
 
 html body .row .column {
   width: 50%;
+}
+
+html body audio {
+  width: 100% !important;
+  margin-bottom: 1rem;
+}
+
+html body .plyr {
+  width: 100% !important;
+  margin-bottom: 1rem;
+}
+
+html body .plyr .plyr__controls {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
+}
+
+html body a {
+  color: var(--orange);
 }
 
 html body .subtitle {
@@ -2247,6 +2274,41 @@ html body .social-links a svg {
   height: 2rem;
 }
 
+html body .podcast-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+html body .podcast-links a {
+  text-decoration: none;
+}
+
+html body .podcast-links a.spotify svg {
+  fill: #1ed760;
+}
+
+html body .podcast-links a.google svg {
+  fill: #4285f4;
+}
+
+html body .podcast-links a.rss svg {
+  fill: #f8991c;
+}
+
+html body .podcast-links a.apple svg {
+  fill: #AB4CDE;
+}
+
+html body .podcast-links a.deezer svg {
+  fill: #ef5466;
+}
+
+html body .podcast-links a svg {
+  height: 2rem;
+}
+
 html body .content {
   padding: 1rem;
   line-height: 1.35;
@@ -2284,22 +2346,6 @@ html body .content a:hover {
 
 html body .content iframe {
   width: 100% !important;
-}
-
-html body .content audio {
-  width: 100% !important;
-  margin-bottom: 1rem;
-}
-
-html body .content .plyr {
-  width: 100% !important;
-  margin-bottom: 1rem;
-}
-
-html body .content .plyr .plyr__controls {
-  padding-left: 0;
-  padding-right: 0;
-  background-color: transparent;
 }
 
 html body #commentsContainer {
@@ -2569,6 +2615,59 @@ html body .podcast-items .podcast-item a.podcast-ep {
   border-radius: .5rem;
 }
 
+html body .card-player {
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: .5rem;
+  color: var(--darkGrey);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+html body .card-player .row {
+  width: 100%;
+  border-radius: .5rem;
+  gap: .5rem;
+}
+
+html body .card-player .row .column:nth-child(1) {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  width: 6rem;
+  background-size: cover;
+  background-position: center;
+}
+
+html body .card-player .row .column:nth-child(2) {
+  width: calc(100% - 6rem);
+  padding: .5rem .5rem .5rem 0;
+  display: grid;
+  place-items: center;
+}
+
+html body .card-player .row .column:nth-child(2) .tags-container {
+  display: none;
+}
+
+html body .card-player .row .column:nth-child(2) h3 {
+  width: 100%;
+  font-family: Agency;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 110%;
+  margin: 0 0 .5rem 0;
+}
+
+html body .card-player .row .column:nth-child(2) .plyr,
+html body .card-player .row .column:nth-child(2) audio {
+  margin-bottom: 0;
+}
+
+html body .card-player .row .column:nth-child(2) .plyr .plyr__controls,
+html body .card-player .row .column:nth-child(2) audio .plyr__controls {
+  padding: 0;
+}
+
 html body header {
   padding: 1rem 0;
 }
@@ -2580,6 +2679,11 @@ html body header.back-filled {
 
 html body header.back-filled .custom-logo-link img {
   width: 60%;
+}
+
+html body header.orange {
+  background-color: #da7b52;
+  padding-bottom: 0;
 }
 
 html body header .custom-logo-link {
@@ -2717,41 +2821,6 @@ html body section#podcast {
   padding: 1rem 0 3rem 0;
 }
 
-html body section#podcast .container .podcast-links {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-html body section#podcast .container .podcast-links a {
-  text-decoration: none;
-}
-
-html body section#podcast .container .podcast-links a.spotify svg {
-  fill: #1ed760;
-}
-
-html body section#podcast .container .podcast-links a.google svg {
-  fill: #4285f4;
-}
-
-html body section#podcast .container .podcast-links a.rss svg {
-  fill: #f8991c;
-}
-
-html body section#podcast .container .podcast-links a.apple svg {
-  fill: #AB4CDE;
-}
-
-html body section#podcast .container .podcast-links a.deezer svg {
-  fill: #ef5466;
-}
-
-html body section#podcast .container .podcast-links a svg {
-  height: 2rem;
-}
-
 html body section#podcast .container .selector {
   display: flex;
   align-items: center;
@@ -2818,7 +2887,7 @@ html body section.highlight-event .container a.event-container {
   padding: 5em 0;
   text-decoration: none;
   border-radius: .5rem;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.5);
@@ -2910,51 +2979,62 @@ html body section#podcast_category_highlight .container .category-description {
   margin-bottom: 2rem;
 }
 
-html body main.post {
+html body main.post,
+html body main .page-content {
   background-color: var(--white);
   padding: 2rem 0 1rem 0;
 }
 
-html body main.post.page.not-found #highlights .subtitle {
+html body main.post.page.not-found #highlights .subtitle,
+html body main .page-content.page.not-found #highlights .subtitle {
   color: var(--darkGrey);
 }
 
-html body main.post.page .container .content {
+html body main.post.page .container .content,
+html body main .page-content.page .container .content {
   padding: 0;
 }
 
-html body main.post.page .container .content h1 {
+html body main.post.page .container .content h1,
+html body main .page-content.page .container .content h1 {
   border-left: solid 2px var(--orange);
   padding-left: .5rem;
 }
 
-html body main.post.about-team {
+html body main.post.about-team,
+html body main .page-content.about-team {
   padding-bottom: 0;
 }
 
-html body main.post.about-team #team {
+html body main.post.about-team #team,
+html body main .page-content.about-team #team {
   padding-bottom: 1rem;
   background-color: var(--darkGrey);
 }
 
-html body main.post.about-team #team .team-title {
+html body main.post.about-team #team .team-title,
+html body main .page-content.about-team #team .team-title {
   background-color: var(--white);
   padding-bottom: 1rem;
 }
 
-html body main.post.about-team #team .team-title .container h2 {
+html body main.post.about-team #team .team-title .container h2,
+html body main .page-content.about-team #team .team-title .container h2 {
   margin-bottom: 0;
 }
 
-html body main.post.about-team #team .container.team-container {
+html body main.post.about-team #team .container.team-container,
+html body main .page-content.about-team #team .container.team-container {
   padding: 2rem 0 1rem 0;
 }
 
-html body main.post.about-team #team .container h2.subtitle {
+html body main.post.about-team #team .container h2.subtitle,
+html body main .page-content.about-team #team .container h2.subtitle {
   color: var(--darkGrey);
 }
 
-html body main.post.about-team #team .container .team-list {
+html body main.post.about-team #team .container .team-list,
+html body main .page-content.about-team #team .container .team-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2963,20 +3043,23 @@ html body main.post.about-team #team .container .team-list {
   gap: 4%;
 }
 
-html body main.post.about-team #team .container .team-list .team-member {
+html body main.post.about-team #team .container .team-list .team-member,
+html body main .page-content.about-team #team .container .team-list .team-member {
   width: 48%;
   display: grid;
   place-items: center;
   margin-bottom: 1rem;
 }
 
-html body main.post.about-team #team .container .team-list .team-member img {
+html body main.post.about-team #team .container .team-list .team-member img,
+html body main .page-content.about-team #team .container .team-list .team-member img {
   width: 80%;
   height: auto;
   border-radius: 50%;
 }
 
-html body main.post.about-team #team .container .team-list .team-member h4 {
+html body main.post.about-team #team .container .team-list .team-member h4,
+html body main .page-content.about-team #team .container .team-list .team-member h4 {
   text-align: center;
   font-family: Agency;
   font-weight: lighter;
@@ -2984,32 +3067,37 @@ html body main.post.about-team #team .container .team-list .team-member h4 {
   margin-bottom: 0;
 }
 
-html body main.post.about-team #team .container .team-list .team-member p {
+html body main.post.about-team #team .container .team-list .team-member p,
+html body main .page-content.about-team #team .container .team-list .team-member p {
   margin: 0;
   text-align: center;
   opacity: .75;
   font-size: 90%;
 }
 
-html body main.post.about-team #team .container .team-list .team-member .links {
+html body main.post.about-team #team .container .team-list .team-member .links,
+html body main .page-content.about-team #team .container .team-list .team-member .links {
   margin: 1rem 0;
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
 }
 
-html body main.post.about-team #team .container .team-list .team-member .links a {
+html body main.post.about-team #team .container .team-list .team-member .links a,
+html body main .page-content.about-team #team .container .team-list .team-member .links a {
   opacity: .75;
   display: grid;
   place-items: center;
 }
 
-html body main.post.about-team #team .container .team-list .team-member .links a svg {
+html body main.post.about-team #team .container .team-list .team-member .links a svg,
+html body main .page-content.about-team #team .container .team-list .team-member .links a svg {
   height: 1rem;
   fill: var(--orange);
 }
 
-html body main.post.about-team #team .thumb {
+html body main.post.about-team #team .thumb,
+html body main .page-content.about-team #team .thumb {
   width: 100%;
   height: 11rem;
   background-size: cover;
@@ -3017,7 +3105,8 @@ html body main.post.about-team #team .thumb {
   position: relative;
 }
 
-html body main.post.about-team #team .thumb .decoration {
+html body main.post.about-team #team .thumb .decoration,
+html body main .page-content.about-team #team .thumb .decoration {
   position: absolute;
   top: 0;
   left: 0;
@@ -3026,7 +3115,8 @@ html body main.post.about-team #team .thumb .decoration {
   background: linear-gradient(to top, var(--darkGrey), transparent 15%);
 }
 
-html body main.post.event {
+html body main.post.event,
+html body main .page-content.event {
   background-blend-mode: overlay;
   background-color: transparent;
   background-attachment: fixed;
@@ -3035,19 +3125,22 @@ html body main.post.event {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-html body main.post.event .container .event-details .event-logo {
+html body main.post.event .container .event-details .event-logo,
+html body main .page-content.event .container .event-details .event-logo {
   height: 3rem;
   width: auto;
 }
 
-html body main.post.event .container .event-details .event-post-details h1 {
+html body main.post.event .container .event-details .event-post-details h1,
+html body main .page-content.event .container .event-details .event-post-details h1 {
   font-size: 150%;
   font-family: Agency;
   font-weight: lighter;
   text-transform: uppercase;
 }
 
-html body main.post.event .container .event-details .event-post-details hr {
+html body main.post.event .container .event-details .event-post-details hr,
+html body main .page-content.event .container .event-details .event-post-details hr {
   margin-bottom: 1em;
   margin-left: 0;
   width: 3em;
@@ -3056,79 +3149,100 @@ html body main.post.event .container .event-details .event-post-details hr {
   border: none;
 }
 
-html body main.post.event .container .event-details .event-post-details p {
+html body main.post.event .container .event-details .event-post-details p,
+html body main .page-content.event .container .event-details .event-post-details p {
   line-height: 1.35;
 }
 
-html body main.post.event .container .content {
+html body main.post.event .container .content,
+html body main .page-content.event .container .content {
   margin-top: 2rem;
   padding: 1rem;
   border-radius: .5rem;
   background-color: var(--white);
 }
 
-html body main.post.event .container .content .subtitle {
+html body main.post.event .container .content .subtitle,
+html body main .page-content.event .container .content .subtitle {
   margin-top: 2rem;
 }
 
-html body main.post.event .container .content .event-podcast-content.podcast-items .podcast-item:first-child a.podcast-ep {
+html body main.post.event .container .content .event-podcast-content.podcast-items .podcast-item:first-child a.podcast-ep,
+html body main .page-content.event .container .content .event-podcast-content.podcast-items .podcast-item:first-child a.podcast-ep {
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
 }
 
-html body main.post.event .container .content .instagram-posts {
+html body main.post.event .container .content .instagram-posts,
+html body main .page-content.event .container .content .instagram-posts {
   width: 100%;
 }
 
-html body main.post.event .container .content .instagram-posts iframe {
+html body main.post.event .container .content .instagram-posts iframe,
+html body main .page-content.event .container .content .instagram-posts iframe {
   width: 100% !important;
   min-width: unset !important;
   max-width: unset !important;
 }
 
-html body main.post .container img {
+html body main.post .container img,
+html body main .page-content .container img {
   width: 100%;
   height: auto;
   user-select: none;
   border-radius: .5rem;
 }
 
-html body main.post .container img.size-thumbnail {
+html body main.post .container img.size-thumbnail,
+html body main .page-content .container img.size-thumbnail {
   width: auto;
 }
 
-html body main.post .container iframe {
+html body main.post .container iframe,
+html body main .page-content .container iframe {
   width: 100% !important;
 }
 
-html body main.post .container iframe.embed-video {
+html body main.post .container iframe.embed-video,
+html body main .page-content .container iframe.embed-video {
   height: 28rem !important;
 }
 
-html body main.post .container .content {
+html body main.post .container .content,
+html body main .page-content .container .content {
   color: var(--darkGrey);
   padding: 1rem 0 0 0;
 }
 
-html body main.post .container .content h1 {
+html body main.post .container .content h1,
+html body main .page-content .container .content h1 {
   font-size: 180%;
   margin-top: .5rem;
 }
 
-html body main.post .container .content figcaption {
+html body main.post .container .content figcaption,
+html body main .page-content .container .content figcaption {
   opacity: .5;
   font-size: 85%;
 }
 
-html body main.post .container .content .wp-block-image a {
+html body main.post .container .content .wp-block-image a,
+html body main .page-content .container .content .wp-block-image a {
   pointer-events: none;
 }
 
-html body main.post .container .content .splide {
+html body main.post .container .content .splide,
+html body main .page-content .container .content .splide {
   margin-bottom: 1rem;
 }
 
-html body main.post .container .game-score {
+html body main.post .container .content .splide .wp-block-image,
+html body main .page-content .container .content .splide .wp-block-image {
+  max-height: 20rem;
+}
+
+html body main.post .container .game-score,
+html body main .page-content .container .game-score {
   margin: 1rem 0;
   padding: .5rem 1rem;
   border-left: solid 2px var(--orange);
@@ -3139,7 +3253,8 @@ html body main.post .container .game-score {
   gap: 1rem;
 }
 
-html body main.post .container .game-score .score-container {
+html body main.post .container .game-score .score-container,
+html body main .page-content .container .game-score .score-container {
   width: 3rem;
   height: 3rem;
   background-size: cover;
@@ -3148,7 +3263,8 @@ html body main.post .container .game-score .score-container {
   place-items: center;
 }
 
-html body main.post .container .game-score .score-container span {
+html body main.post .container .game-score .score-container span,
+html body main .page-content .container .game-score .score-container span {
   color: var(--white);
   text-align: center;
   font-size: 100%;
@@ -3158,7 +3274,8 @@ html body main.post .container .game-score .score-container span {
   font-family: Agency;
 }
 
-html body main.post .container .game-score .score-definition p {
+html body main.post .container .game-score .score-definition p,
+html body main .page-content .container .game-score .score-definition p {
   color: var(--darkGrey);
   font-style: italic;
   font-weight: lighter;
@@ -3174,6 +3291,149 @@ html body main#tag {
 
 html body main#category {
   padding: 1rem 0;
+}
+
+html body main#rpg .banner {
+  width: 100%;
+  min-height: 60vh;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  place-items: center;
+}
+
+html body main#rpg .banner .decoration {
+  width: 100%;
+  height: 8rem;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+html body main#rpg .banner .decoration.top {
+  top: 0;
+  left: 0;
+  height: 2.5rem;
+  background-position: 100% bottom;
+  filter: drop-shadow(2px 1rem 4px rgba(0, 0, 0, 0.3));
+}
+
+html body main#rpg .banner .decoration.bottom {
+  bottom: 0;
+  left: 0;
+  background-position: bottom;
+  filter: drop-shadow(2px -8px 1rem rgba(0, 0, 0, 0.5));
+}
+
+html body main#rpg .banner img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: -1rem;
+  filter: drop-shadow(2px 8px 1rem #000);
+}
+
+html body main#rpg .logo-container {
+  width: 100%;
+  padding-bottom: 1rem;
+  background-color: #322428;
+  position: relative;
+}
+
+html body main#rpg .logo-container h1 {
+  font-family: Champagne;
+  color: #fff;
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
+  font-size: 300%;
+  margin: 0;
+  position: relative;
+  top: -1rem;
+}
+
+html body main#rpg .logo-container h1 span {
+  font-family: ChampagneBold;
+  color: var(--orange);
+}
+
+html body main#rpg .logo-container .podcast-links {
+  justify-content: center;
+}
+
+html body main#rpg .logo-container .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+html body main#rpg .logo-container .container p {
+  margin: 0;
+  text-align: center;
+  opacity: 0.85;
+}
+
+html body main#rpg .main-post-container {
+  width: 100%;
+  padding: 1rem 0 3rem 0;
+  position: relative;
+  background-color: #322428;
+}
+
+html body main#rpg .main-post-container::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background: linear-gradient(to top, #000, #322428);
+}
+
+html body main#rpg .post-list {
+  position: relative;
+  background-color: #000;
+  padding: 2rem 0 1rem 0;
+}
+
+html body main#rpg .post-list .subtitle:not(:first-child) {
+  margin-top: 2rem;
+}
+
+html body main#rpg .post-list .podcast-items .podcast-item:first-child {
+  width: 48.5%;
+  margin-bottom: .5rem;
+  background-color: unset;
+}
+
+html body main#rpg .page-content {
+  padding-top: 0;
+}
+
+html body #image_show {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  place-items: center;
+  cursor: zoom-out;
+}
+
+html body #image_show.show {
+  display: grid;
+}
+
+html body #image_show img {
+  width: 90%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: cover;
+  border-radius: .5rem;
 }
 
 html body footer {
@@ -3292,6 +3552,25 @@ html body footer .container .social-container .social-links {
   html body header .custom-logo-link img {
     width: 50%;
   }
+  html body .card-player {
+    width: 80%;
+  }
+  html body .card-player .row {
+    gap: 1rem;
+  }
+  html body .card-player .row .column:nth-child(1) {
+    width: 12rem;
+  }
+  html body .card-player .row .column:nth-child(2) {
+    width: calc(100% - 12rem);
+    padding: 1rem 1rem 1rem 0;
+  }
+  html body .card-player .row .column:nth-child(2) .tags-container {
+    display: flex;
+  }
+  html body .card-player .row .column:nth-child(2) h3 {
+    font-size: 200%;
+  }
   html body #mainNav a {
     padding: 1rem 0;
   }
@@ -3355,6 +3634,19 @@ html body footer .container .social-container .social-links {
   html body main.post .container .content h1 {
     font-size: 220%;
   }
+  html body main#rpg .banner .decoration.top {
+    height: 5rem;
+  }
+  html body main#rpg .banner .decoration.bottom {
+    background-position: 100% top;
+    height: 7rem;
+  }
+  html body main#rpg .banner img {
+    width: 85%;
+  }
+  html body main#rpg .logo-container .container {
+    width: 80%;
+  }
   html body footer .container .menu {
     flex-direction: row;
     flex-wrap: wrap;
@@ -3380,6 +3672,9 @@ html body footer .container .social-container .social-links {
   }
   html body header.back-filled .custom-logo-link img {
     width: 20%;
+  }
+  html body header.orange {
+    position: relative;
   }
   html body header .custom-logo-link img {
     width: 20%;
@@ -3534,88 +3829,164 @@ html body footer .container .social-container .social-links {
   html body main {
     min-height: 60vh;
   }
-  html body main.post {
+  html body main.post,
+  html body main .page-content {
     background-color: var(--darkGrey);
     padding: 2rem 0;
   }
-  html body main.post.about-team #team .team-title {
+  html body main.post.about-team #team .team-title,
+  html body main .page-content.about-team #team .team-title {
     background-color: transparent;
   }
-  html body main.post.about-team #team .team-title .container {
+  html body main.post.about-team #team .team-title .container,
+  html body main .page-content.about-team #team .team-title .container {
     background-color: transparent;
   }
-  html body main.post.about-team #team .team-title .container .subtitle {
+  html body main.post.about-team #team .team-title .container .subtitle,
+  html body main .page-content.about-team #team .team-title .container .subtitle {
     color: var(--white);
   }
-  html body main.post.about-team #team .thumb {
+  html body main.post.about-team #team .thumb,
+  html body main .page-content.about-team #team .thumb {
     height: 35rem;
   }
-  html body main.post.about-team #team .team-container {
+  html body main.post.about-team #team .team-container,
+  html body main .page-content.about-team #team .team-container {
     width: 80%;
     background-color: transparent;
   }
-  html body main.post.about-team #team .team-container .team-list {
+  html body main.post.about-team #team .team-container .team-list,
+  html body main .page-content.about-team #team .team-container .team-list {
     gap: 2%;
   }
-  html body main.post.about-team #team .team-container .team-list .team-member {
+  html body main.post.about-team #team .team-container .team-list .team-member,
+  html body main .page-content.about-team #team .team-container .team-list .team-member {
     width: 32%;
     margin-bottom: 2rem;
   }
-  html body main.post.about-team #team .team-container .team-list .team-member p {
+  html body main.post.about-team #team .team-container .team-list .team-member p,
+  html body main .page-content.about-team #team .team-container .team-list .team-member p {
     width: 70%;
   }
-  html body main.post.about-team #team .team-container .team-list .team-member .links a svg {
+  html body main.post.about-team #team .team-container .team-list .team-member .links a svg,
+  html body main .page-content.about-team #team .team-container .team-list .team-member .links a svg {
     height: 1.5rem;
     transition: ease-in-out .3s;
   }
-  html body main.post.about-team #team .team-container .team-list .team-member .links a svg:hover {
+  html body main.post.about-team #team .team-container .team-list .team-member .links a svg:hover,
+  html body main .page-content.about-team #team .team-container .team-list .team-member .links a svg:hover {
     fill: var(--pink);
   }
-  html body main.post.about-team #team .team-container .subtitle.center {
+  html body main.post.about-team #team .team-container .subtitle.center,
+  html body main .page-content.about-team #team .team-container .subtitle.center {
     font-size: 150%;
   }
-  html body main.post.event {
+  html body main.post.event,
+  html body main .page-content.event {
     background-size: 100% auto;
   }
-  html body main.post.event .container {
+  html body main.post.event .container,
+  html body main .page-content.event .container {
     background-color: transparent;
   }
-  html body main.post.event .container .content {
+  html body main.post.event .container .content,
+  html body main .page-content.event .container .content {
     padding: 2rem;
   }
-  html body main.post.event .container .content .podcast-items .podcast-item:first-child {
+  html body main.post.event .container .content .podcast-items .podcast-item:first-child,
+  html body main .page-content.event .container .content .podcast-items .podcast-item:first-child {
     width: 48.5%;
   }
-  html body main.post.event .container .content .instagram-posts {
+  html body main.post.event .container .content .instagram-posts,
+  html body main .page-content.event .container .content .instagram-posts {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  html body main.post.event .container .content .instagram-posts iframe {
+  html body main.post.event .container .content .instagram-posts iframe,
+  html body main .page-content.event .container .content .instagram-posts iframe {
     width: 48.5% !important;
   }
-  html body main.post.review .container {
+  html body main.post.review .container,
+  html body main .page-content.review .container {
     margin-left: 12.5%;
   }
-  html body main.post.review .container .info-board {
+  html body main.post.review .container .info-board,
+  html body main .page-content.review .container .info-board {
     position: absolute;
     right: -50%;
     width: 45%;
     top: 0;
     background-color: #000;
   }
-  html body main.post.page .container {
+  html body main.post.page .container,
+  html body main .page-content.page .container {
     background-color: transparent;
   }
-  html body main.post.page .container .content {
+  html body main.post.page .container .content,
+  html body main .page-content.page .container .content {
     color: var(--white);
   }
-  html body main.post .container {
+  html body main.post .container,
+  html body main .page-content .container {
     background-color: var(--white);
     width: 50%;
     padding: 2rem;
     border-radius: .5rem;
     position: relative;
+  }
+  html body main.post .container .content .splide .wp-block-image,
+  html body main .page-content .container .content .splide .wp-block-image {
+    max-height: 30rem;
+  }
+  html body main#rpg .banner {
+    min-height: 85vh;
+  }
+  html body main#rpg .banner .decoration.top {
+    height: 7.5rem;
+  }
+  html body main#rpg .banner .decoration.bottom {
+    height: 8rem;
+  }
+  html body main#rpg .banner img {
+    width: 70%;
+  }
+  html body main#rpg .logo-container {
+    padding-top: 2rem;
+  }
+  html body main#rpg .post-list .podcast-items {
+    gap: 1.333%;
+  }
+  html body main#rpg .post-list .podcast-items .podcast-item {
+    width: 24%;
+  }
+  html body main#rpg .post-list .podcast-items .podcast-item:first-child {
+    width: 24%;
+  }
+  html body main#rpg .page-content {
+    background-color: #000;
+  }
+  html body main#rpg .page-content .container {
+    width: 50%;
+    margin: 0;
+    margin-left: 10%;
+    background-color: transparent;
+    padding: 0;
+  }
+  html body main#rpg .page-content .container .content {
+    color: var(--white);
+  }
+  html body main#rpg .page-content .container .content .subtitle {
+    color: var(--white) !important;
+  }
+  html body main#rpg .page-content .container .content p,
+  html body main#rpg .page-content .container .content li {
+    color: var(--white);
+  }
+  html body #image_show img {
+    height: 80%;
+    width: auto;
+    max-height: unset;
   }
   html body footer {
     padding: 2rem 0;
@@ -3641,9 +4012,15 @@ html body footer .container .social-container .social-links {
   html body main.post.about-team #team .thumb {
     height: 40rem;
   }
+  html body main#rpg .banner {
+    min-height: 90vh;
+  }
 }
 
 @media screen and (min-width: 1600px) {
+  html body .card-player {
+    width: 70%;
+  }
   html body .container {
     width: 70%;
   }
@@ -3678,9 +4055,21 @@ html body footer .container .social-container .social-links {
   html body main.post.about-team #team .team-container {
     width: 70%;
   }
+  html body main#rpg .banner .decoration.top {
+    height: 9rem;
+  }
+  html body main#rpg .banner .decoration.bottom {
+    height: 10rem;
+  }
+  html body main#rpg .page-content .container {
+    margin-left: 15%;
+  }
 }
 
 @media screen and (min-width: 1890px) {
+  html body .card-player {
+    width: 60%;
+  }
   html body .container {
     width: 60%;
   }
@@ -3708,9 +4097,25 @@ html body footer .container .social-container .social-links {
   html body main.post .container {
     width: 40%;
   }
+  html body main#rpg .banner .decoration.top {
+    height: 10.5rem;
+  }
+  html body main#rpg .banner .decoration.bottom {
+    height: 11.5rem;
+  }
+  html body main#rpg .banner img {
+    width: 60%;
+  }
+  html body main#rpg .page-content .container {
+    width: 40%;
+    margin-left: 20%;
+  }
 }
 
 @media screen and (min-width: 2500px) {
+  html body .card-player {
+    width: 50%;
+  }
   html body .container {
     width: 50%;
   }
@@ -3728,7 +4133,7 @@ html body footer .container .social-container .social-links {
     height: 60vh;
   }
   html body section#highlights .highlight-container .items .highlight-item:first-child {
-    margin-left: 32rem;
+    margin-left: 40rem;
   }
   html body section#highlights .highlight-container .items .highlight-item:last-child {
     margin-right: 32rem;
@@ -3741,5 +4146,21 @@ html body footer .container .social-container .social-links {
   }
   html body main.post .container {
     width: 40%;
+  }
+  html body main#rpg .banner {
+    min-height: 100vh;
+  }
+  html body main#rpg .banner .decoration.top {
+    height: 14rem;
+  }
+  html body main#rpg .banner .decoration.bottom {
+    height: 15.5rem;
+  }
+  html body main#rpg .banner img {
+    width: 50%;
+  }
+  html body main#rpg .page-content .container {
+    width: 35%;
+    margin-left: 25%;
   }
 }

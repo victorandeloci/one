@@ -21,6 +21,33 @@
                 }
             }
 
+            .card-player {
+                width: 80%;
+
+                .row {
+                    gap: 1rem;
+
+                    .column {
+                        &:nth-child(1) {
+                            width: 12rem;
+                        }
+
+                        &:nth-child(2) {
+                            width: calc(100% - 12rem);
+                            padding: 1rem 1rem 1rem 0;
+
+                            .tags-container {
+                                display: flex;
+                            }
+
+                            h3 {
+                                font-size: 200%;
+                            }
+                        }
+                    }
+                }
+            }
+
             #mainNav {
                 a {
                     padding: 1rem 0;
@@ -144,6 +171,31 @@
                         }
                     }
                 }
+
+                &#rpg {
+                    .banner {
+                        .decoration {
+                            &.top {
+                                height: 5rem;
+                            }
+
+                            &.bottom {
+                                background-position: 100% top;
+                                height: 7rem;
+                            }
+                        }
+
+                        img {
+                            width: 85%;
+                        }
+                    }
+
+                    .logo-container {
+                        .container {
+                            width: 80%;
+                        }
+                    }
+                }
             }
 
             footer {
@@ -184,6 +236,10 @@
                             width: 20%;
                         }
                     }
+                }
+
+                &.orange {
+                    position: relative;
                 }
 
                 .custom-logo-link {
@@ -415,7 +471,8 @@
             main {
                 min-height: 60vh;
 
-                &.post {
+                &.post,
+                .page-content {
                     background-color: var(--darkGrey);
                     padding: 2rem 0;
 
@@ -536,9 +593,84 @@
                         position: relative;
 
                         .content {
-                            h1 {}
+                            .splide {
+                                .wp-block-image {
+                                    max-height: 30rem;
+                                }
+                            }
                         }
                     }
+                }
+
+                &#rpg {
+                    .banner {
+                        min-height: 85vh;
+
+                        .decoration {
+                            &.top {
+                                height: 7.5rem;
+                            }
+
+                            &.bottom {
+                                height: 8rem;
+                            }
+                        }
+
+                        img {
+                            width: 70%;
+                        }
+                    }
+
+                    .logo-container {
+                        padding-top: 2rem;
+                    }
+
+                    .post-list {
+                        .podcast-items {
+                            gap: 1.333%;
+
+                            .podcast-item {
+                                width: 24%;
+
+                                &:first-child {
+                                    width: 24%;
+                                }
+                            }
+                        }
+                    }
+
+                    .page-content {
+                        background-color: #000;
+
+                        .container {
+                            width: 50%;
+                            margin: 0;
+                            margin-left: 10%;
+                            background-color: transparent;
+                            padding: 0;
+
+                            .content {
+                                color: var(--white);
+
+                                .subtitle {
+                                    color: var(--white) !important;
+                                }
+
+                                p,
+                                li {
+                                    color: var(--white);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #image_show {
+                img {
+                    height: 80%;
+                    width: auto;
+                    max-height: unset;
                 }
             }
 
@@ -601,6 +733,12 @@
                         }
                     }
                 }
+
+                &#rpg {
+                    .banner {
+                        min-height: 90vh;
+                    }
+                }
             }
         }
     }
@@ -609,6 +747,10 @@
 @media screen and (min-width: 1600px) {
     html {
         body {
+            .card-player {
+                width: 70%;
+            }
+
             .container {
                 width: 70%;
             }
@@ -674,6 +816,26 @@
                         }
                     }
                 }
+
+                &#rpg {
+                    .banner {
+                        .decoration {
+                            &.top {
+                                height: 9rem;
+                            }
+
+                            &.bottom {
+                                height: 10rem;
+                            }
+                        }
+                    }
+
+                    .page-content {
+                        .container {
+                            margin-left: 15%;
+                        }
+                    }
+                }
             }
         }
     }
@@ -682,6 +844,10 @@
 @media screen and (min-width: 1890px) {
     html {
         body {
+            .card-player {
+                width: 60%;
+            }
+
             .container {
                 width: 60%;
             }
@@ -744,6 +910,31 @@
                         width: 40%;
                     }
                 }
+
+                &#rpg {
+                    .banner {
+                        .decoration {
+                            &.top {
+                                height: 10.5rem;
+                            }
+
+                            &.bottom {
+                                height: 11.5rem;
+                            }
+                        }
+
+                        img {
+                            width: 60%;
+                        }
+                    }
+
+                    .page-content {
+                        .container {
+                            width: 40%;
+                            margin-left: 20%;
+                        }
+                    }
+                }
             }
         }
     }
@@ -752,6 +943,10 @@
 @media screen and (min-width: 2500px) {
     html {
         body {
+            .card-player {
+                width: 50%;
+            }
+
             .container {
                 width: 50%;
             }
@@ -787,7 +982,7 @@
                                 height: 60vh;
 
                                 &:first-child {
-                                    margin-left: 32rem;
+                                    margin-left: 40rem;
                                 }
 
                                 &:last-child {
@@ -815,6 +1010,33 @@
 
                     .container {
                         width: 40%;
+                    }
+                }
+
+                &#rpg {
+                    .banner {
+                        min-height: 100vh;
+
+                        .decoration {
+                            &.top {
+                                height: 14rem;
+                            }
+
+                            &.bottom {
+                                height: 15.5rem;
+                            }
+                        }
+
+                        img {
+                            width: 50%;
+                        }
+                    }
+
+                    .page-content {
+                        .container {
+                            width: 35%;
+                            margin-left: 25%;
+                        }
                     }
                 }
             }
