@@ -2274,6 +2274,41 @@ html body .social-links a svg {
   height: 2rem;
 }
 
+html body .podcast-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+html body .podcast-links a {
+  text-decoration: none;
+}
+
+html body .podcast-links a.spotify svg {
+  fill: #1ed760;
+}
+
+html body .podcast-links a.google svg {
+  fill: #4285f4;
+}
+
+html body .podcast-links a.rss svg {
+  fill: #f8991c;
+}
+
+html body .podcast-links a.apple svg {
+  fill: #AB4CDE;
+}
+
+html body .podcast-links a.deezer svg {
+  fill: #ef5466;
+}
+
+html body .podcast-links a svg {
+  height: 2rem;
+}
+
 html body .content {
   padding: 1rem;
   line-height: 1.35;
@@ -2599,7 +2634,6 @@ html body .card-player .row .column:nth-child(1) {
   border-top-left-radius: .5rem;
   border-bottom-left-radius: .5rem;
   width: 6rem;
-  height: 6rem;
   background-size: cover;
   background-position: center;
 }
@@ -2785,41 +2819,6 @@ html body section#highlights .highlight-container .items .highlight-item .conten
 
 html body section#podcast {
   padding: 1rem 0 3rem 0;
-}
-
-html body section#podcast .container .podcast-links {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-html body section#podcast .container .podcast-links a {
-  text-decoration: none;
-}
-
-html body section#podcast .container .podcast-links a.spotify svg {
-  fill: #1ed760;
-}
-
-html body section#podcast .container .podcast-links a.google svg {
-  fill: #4285f4;
-}
-
-html body section#podcast .container .podcast-links a.rss svg {
-  fill: #f8991c;
-}
-
-html body section#podcast .container .podcast-links a.apple svg {
-  fill: #AB4CDE;
-}
-
-html body section#podcast .container .podcast-links a.deezer svg {
-  fill: #ef5466;
-}
-
-html body section#podcast .container .podcast-links a svg {
-  height: 2rem;
 }
 
 html body section#podcast .container .selector {
@@ -3360,6 +3359,10 @@ html body main#rpg .logo-container h1 span {
   color: var(--orange);
 }
 
+html body main#rpg .logo-container .podcast-links {
+  justify-content: center;
+}
+
 html body main#rpg .logo-container .container {
   width: 90%;
   margin: 0 auto;
@@ -3392,6 +3395,10 @@ html body main#rpg .post-list {
   position: relative;
   background-color: #000;
   padding: 2rem 0 1rem 0;
+}
+
+html body main#rpg .post-list .subtitle:not(:first-child) {
+  margin-top: 2rem;
 }
 
 html body main#rpg .post-list .podcast-items .podcast-item:first-child {
@@ -3553,7 +3560,6 @@ html body footer .container .social-container .social-links {
   }
   html body .card-player .row .column:nth-child(1) {
     width: 12rem;
-    height: 12rem;
   }
   html body .card-player .row .column:nth-child(2) {
     width: calc(100% - 12rem);
