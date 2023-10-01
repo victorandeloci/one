@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.0
+  Version: 2.4.1
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2634,6 +2634,7 @@ html body .card-player .row .column:nth-child(1) {
   border-top-left-radius: .5rem;
   border-bottom-left-radius: .5rem;
   width: 6rem;
+  min-height: 6rem;
   background-size: cover;
   background-position: center;
 }
@@ -3220,15 +3221,29 @@ html body main .page-content .container .content h1 {
   margin-top: .5rem;
 }
 
-html body main.post .container .content figcaption,
-html body main .page-content .container .content figcaption {
-  opacity: .5;
-  font-size: 85%;
+html body main.post .container .content .wp-block-image,
+html body main .page-content .container .content .wp-block-image {
+  border-radius: .5rem;
+  overflow: hidden;
+  background-color: #e7e7e7;
+}
+
+html body main.post .container .content .wp-block-image img,
+html body main .page-content .container .content .wp-block-image img {
+  border-radius: 0;
 }
 
 html body main.post .container .content .wp-block-image a,
 html body main .page-content .container .content .wp-block-image a {
   pointer-events: none;
+}
+
+html body main.post .container .content .wp-block-image figcaption,
+html body main .page-content .container .content .wp-block-image figcaption {
+  opacity: .5;
+  font-size: 85%;
+  margin: 0;
+  padding: 1rem;
 }
 
 html body main.post .container .content .splide,
@@ -3560,6 +3575,7 @@ html body footer .container .social-container .social-links {
   }
   html body .card-player .row .column:nth-child(1) {
     width: 12rem;
+    min-height: 12rem;
   }
   html body .card-player .row .column:nth-child(2) {
     width: calc(100% - 12rem);
