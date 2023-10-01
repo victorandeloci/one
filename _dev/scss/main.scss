@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.0
+  Version: 2.4.1
 */
 
 @import '../plugins/css/normalize';
@@ -572,6 +572,7 @@ html {
             border-top-left-radius: .5rem;
             border-bottom-left-radius: .5rem;
             width: 6rem;
+            min-height: 6rem;
             background-size: cover;
             background-position: center;
           }
@@ -1170,14 +1171,24 @@ html {
               margin-top: .5rem;
             }
 
-            figcaption {
-              opacity: .5;
-              font-size: 85%;
-            }
-
             .wp-block-image {
+              border-radius: .5rem;
+              overflow: hidden;
+              background-color: #e7e7e7;
+
+              img {
+                border-radius: 0;
+              }
+
               a {
                 pointer-events: none;
+              }
+
+              figcaption {
+                opacity: .5;
+                font-size: 85%;
+                margin: 0;
+                padding: 1rem;
               }
             }
 

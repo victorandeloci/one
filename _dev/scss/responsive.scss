@@ -30,6 +30,7 @@
                     .column {
                         &:nth-child(1) {
                             width: 12rem;
+                            min-height: 12rem;
                         }
 
                         &:nth-child(2) {
