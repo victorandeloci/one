@@ -738,6 +738,10 @@
                 &#rpg {
                     .banner {
                         min-height: 90vh;
+
+                        img {
+                            width: 60%;
+                        }
                     }
                 }
             }
@@ -925,7 +929,7 @@
                         }
 
                         img {
-                            width: 60%;
+                            width: 50%;
                         }
                     }
 
