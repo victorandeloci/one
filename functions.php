@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.4.1');
+define('ONE_VERSION', '2.4.2');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -94,7 +94,8 @@ function create_posttype() {
       'has_archive' => true,
       'rewrite' => ['slug' => 'event'],
       'show_in_rest' => true,
-      'supports' => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields']
+      'supports' => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields'],
+      'menu_icon' => 'dashicons-location'
     ]
   );
 
@@ -105,10 +106,27 @@ function create_posttype() {
         'singular_name' => __( 'Equipe' )
       ],
       'public' => true,
+      'publicly_queryable'  => false,
       'has_archive' => true,
       'rewrite' => ['slug' => 'team'],
       'show_in_rest' => true,
-      'supports' => [ 'title', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields']
+      'supports' => [ 'title', 'excerpt', 'thumbnail', 'custom-fields'],
+      'menu_icon' => 'dashicons-admin-users'
+    ]
+  );
+
+  register_post_type( 'fixed_highlight',
+    [
+      'labels' => [
+        'name' => __( 'Destaques fixos' ),
+        'singular_name' => __( 'Destaques fixos' )
+      ],
+      'public' => true,
+      'publicly_queryable'  => false,
+      'has_archive' => true,
+      'rewrite' => ['slug' => 'fixed_highlight'],
+      'show_in_rest' => true,
+      'supports' => [ 'title', 'excerpt', 'thumbnail', 'custom-fields']
     ]
   );
 }
