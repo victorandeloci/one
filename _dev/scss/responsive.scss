@@ -632,9 +632,14 @@
 
                             .podcast-item {
                                 width: 24%;
+                                transition: ease-in-out .3s;
 
                                 &:first-child {
                                     width: 24%;
+                                }
+
+                                &:hover {
+                                    transform: scale(1.05);
                                 }
                             }
                         }
