@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.3
+  Version: 2.4.4
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2154,6 +2154,7 @@ html body {
   overflow-x: hidden;
   font-family: Myriad;
   --plyr-color-main: var(--orange);
+  --plyr-audio-control-color: #7d8594;
 }
 
 html body .container {
@@ -2782,19 +2783,30 @@ html body section#highlights .highlight-container .items .highlight-item .overla
   z-index: 1;
   border-radius: .5rem;
   transition: ease-in-out .3s;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 html body section#highlights .highlight-container .items .highlight-item .overlay.fixed {
   background: linear-gradient(130deg, #000, transparent);
 }
 
-html body section#highlights .highlight-container .items .highlight-item svg {
+html body section#highlights .highlight-container .items .highlight-item .icon-container {
   position: absolute;
   top: 1rem;
   left: 1rem;
+  width: 2rem;
+  height: 2rem;
   z-index: 2;
+  display: grid;
+  place-items: center;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+html body section#highlights .highlight-container .items .highlight-item .icon-container svg {
   fill: var(--white);
+  width: 1rem;
+  height: 1rem;
 }
 
 html body section#highlights .highlight-container .items .highlight-item .content {
@@ -3781,7 +3793,7 @@ html body footer .container .social-container .social-links {
   }
   html body section#highlights .highlight-container .items .highlight-item {
     width: 20rem;
-    height: 60vh;
+    height: 70vh;
     transition: ease-in-out 0.3s;
   }
   html body section#highlights .highlight-container .items .highlight-item:hover .overlay {

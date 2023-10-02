@@ -158,12 +158,14 @@ docReady(function () {
   }
 
   // plyr audio player
-  let playerElement = document.getElementById('player');
-  if (playerElement) {
-    const player = new Plyr(playerElement, {
-      controls: (playerElement.getAttribute('hide-controls') == 'true')
-        ? ['play', 'progress', 'mute', 'settings']
-        : ['play', 'progress', 'current-time', 'mute', 'settings']
+  let playerElements = document.querySelectorAll('audio');
+  if (playerElements) {
+    playerElements.forEach((audioElement) => {
+      let player = new Plyr(audioElement, {
+        controls: (audioElement.getAttribute('hide-controls') == 'true')
+          ? ['play', 'progress', 'mute', 'settings']
+          : ['play', 'progress', 'current-time', 'mute', 'settings']
+      });
     });
   }
 

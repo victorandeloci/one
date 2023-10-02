@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.3
+  Version: 2.4.4
 */
 
 @import '../plugins/css/normalize';
@@ -49,6 +49,7 @@ html {
     overflow-x: hidden;
     font-family: Myriad;
     --plyr-color-main: var(--orange);
+    --plyr-audio-control-color: #7d8594;
 
     .container {
       width: 90%;
@@ -725,19 +726,30 @@ html {
                 z-index: 1;
                 border-radius: .5rem;
                 transition: ease-in-out .3s;
-                opacity: 0.85;
+                opacity: 0.75;
 
                 &.fixed {
                   background: linear-gradient(130deg, #000, transparent);
                 }
               }
 
-              svg {
+              .icon-container {
                 position: absolute;
                 top: 1rem;
                 left: 1rem;
+                width: 2rem;
+                height: 2rem;
                 z-index: 2;
-                fill: var(--white);
+                display: grid;
+                place-items: center;
+                border-radius: 2rem;
+                background-color: rgba(0, 0, 0, .5);
+
+                svg {
+                  fill: var(--white);
+                  width: 1rem;
+                  height: 1rem;
+                }
               }
 
               .content {
