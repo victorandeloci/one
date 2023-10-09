@@ -3,8 +3,13 @@
     $i = 0;
     $tags = get_the_tags((!empty($args['post_id']) ? $args['post_id'] : get_the_ID()));
     if ($tags) :
+
+      usort( $tags, function( $a, $b ) {
+        return $a->count - $b->count;
+      });
+
       foreach ($tags as $tag) :
-        if ($i <= 2 || is_single()) :
+        if ($i <= 2 || (is_single() && $i <= 6)) :
   ?>
           <a
             href="<?= get_home_url() ?>/tag/<?= str_replace(' ', '-', iconv('UTF-8', 'ASCII//TRANSLIT', $tag->name)) ?>"
