@@ -49,7 +49,6 @@
                     <?php if (!empty(get_post_meta(get_the_ID(), 'one_game_info_platforms', true))): ?>
                         <span>Plataformas</span>
                         <p><?= get_post_meta(get_the_ID(), 'one_game_info_platforms', true) ?></p>
-                        <hr>
                     <?php endif; ?>
                 </div>
             </div>        
