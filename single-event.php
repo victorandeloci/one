@@ -20,11 +20,6 @@
             </div>
         </div>
         <div class="content">      
-            <?php if (!empty($eventPost->post_content)) : ?>
-                <div class="event-post-content">
-                    <?= $eventPost->post_content ?>
-                </div>
-            <?php endif; ?>
             <?php
                 $podcastTag = get_post_meta($eventPost->ID, 'one_podcast_tag_value', true);
                 if (!empty($podcastTag)):
@@ -54,6 +49,11 @@
                     endif;
                 endif;
             ?>
+            <?php if (!empty($eventPost->post_content)) : ?>
+                <div class="event-post-content">
+                    <?= $eventPost->post_content ?>
+                </div>
+            <?php endif; ?>
             <?php
                 $instagramEmbed_1 = get_post_meta($eventPost->ID, 'one_instagram_data_1', true);
                 $instagramEmbed_2 = get_post_meta($eventPost->ID, 'one_instagram_data_2', true);
