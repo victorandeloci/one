@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.6
+  Version: 2.4.7
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2352,6 +2352,7 @@ html body .content a:hover {
 html body .content iframe {
   width: 100% !important;
   max-width: unset !important;
+  min-width: unset !important;
 }
 
 html body #commentsContainer {
@@ -3192,8 +3193,8 @@ html body main .page-content.event .container .content {
   background-color: var(--white);
 }
 
-html body main.post.event .container .content .subtitle,
-html body main .page-content.event .container .content .subtitle {
+html body main.post.event .container .content .subtitle:not(:first-child),
+html body main .page-content.event .container .content .subtitle:not(:first-child) {
   margin-top: 2rem;
 }
 
