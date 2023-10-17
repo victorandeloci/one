@@ -3990,6 +3990,10 @@ html body footer .container .social-container .social-links {
   html body main .page-content .container .content .splide .wp-block-image {
     max-height: 30rem;
   }
+  html body main.post .container .content .wp-block-columns,
+  html body main .page-content .container .content .wp-block-columns {
+    gap: 1rem;
+  }
   html body main#rpg .banner {
     min-height: 85vh;
   }

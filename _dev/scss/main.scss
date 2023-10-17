@@ -270,7 +270,8 @@ html {
         }
       }
 
-      iframe {
+      iframe,
+      blockquote {
         width: 100% !important;
         max-width: unset !important;
         min-width: unset !important;
