@@ -444,6 +444,12 @@
                                 }
                             }
                         }
+
+                        .yotu-playlist {
+                            >div {
+                                height: 26rem;
+                            }
+                        }
                     }
                 }
 
@@ -730,6 +736,16 @@
                         }
                     }
                 }
+
+                &#videos {
+                    .container {
+                        .yotu-playlist {
+                            >div {
+                                height: 28rem;
+                            }
+                        }
+                    }
+                }
             }
 
             main {
@@ -809,6 +825,16 @@
 
                             p.description {
                                 font-size: 100%;
+                            }
+                        }
+                    }
+                }
+
+                &#videos {
+                    .container {
+                        .yotu-playlist {
+                            >div {
+                                height: 30rem;
                             }
                         }
                     }

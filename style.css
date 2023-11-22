@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.4.7
+  Version: 2.5.0
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2349,7 +2349,8 @@ html body .content a:hover {
   text-decoration: underline;
 }
 
-html body .content iframe {
+html body .content iframe,
+html body .content blockquote {
   width: 100% !important;
   max-width: unset !important;
   min-width: unset !important;
@@ -2982,6 +2983,20 @@ html body section#videos .container .sb_youtube .sby_items_wrap .sby_item {
   width: 48%;
   padding: 0 !important;
   margin-bottom: 1rem;
+}
+
+html body section#videos .container .yotu-playlist {
+  padding: 0;
+}
+
+html body section#videos .container .yotu-playlist > div {
+  height: 80rem;
+  position: relative;
+  display: block;
+}
+
+html body section#videos .container .yotu-playlist > div .yotu-videos {
+  padding: 0;
 }
 
 html body section#reviews {
@@ -3863,6 +3878,9 @@ html body footer .container .social-container .social-links {
   html body section#videos .container .sb_youtube .sby_items_wrap .sby_item {
     width: 32% !important;
   }
+  html body section#videos .container .yotu-playlist > div {
+    height: 26rem;
+  }
   html body section#podcast_category_highlight .container {
     padding: 2rem;
   }
@@ -4068,6 +4086,9 @@ html body footer .container .social-container .social-links {
   html body section#highlights .highlight-container .items .highlight-item:last-child {
     margin-right: 8.5rem;
   }
+  html body section#videos .container .yotu-playlist > div {
+    height: 28rem;
+  }
   html body main.post.about-team #team .thumb {
     height: 40rem;
   }
@@ -4110,6 +4131,9 @@ html body footer .container .social-container .social-links {
   }
   html body section.highlight-event .container a.event-container p.description {
     font-size: 100%;
+  }
+  html body section#videos .container .yotu-playlist > div {
+    height: 30rem;
   }
   html body main.post.about-team #team .thumb {
     height: 48rem;
