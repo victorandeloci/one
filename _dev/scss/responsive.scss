@@ -444,6 +444,12 @@
                                 }
                             }
                         }
+
+                        .yotu-playlist {
+                            >div {
+                                height: 26rem;
+                            }
+                        }
                     }
                 }
 
@@ -598,6 +604,10 @@
                                     max-height: 30rem;
                                 }
                             }
+
+                            .wp-block-columns {
+                                gap: 1rem;
+                            }
                         }
                     }
                 }
@@ -726,6 +736,16 @@
                         }
                     }
                 }
+
+                &#videos {
+                    .container {
+                        .yotu-playlist {
+                            >div {
+                                height: 28rem;
+                            }
+                        }
+                    }
+                }
             }
 
             main {
@@ -805,6 +825,16 @@
 
                             p.description {
                                 font-size: 100%;
+                            }
+                        }
+                    }
+                }
+
+                &#videos {
+                    .container {
+                        .yotu-playlist {
+                            >div {
+                                height: 30rem;
                             }
                         }
                     }
