@@ -74,7 +74,7 @@
 
                 $args = [
                     'post_type' => 'post',
-                    'order' => 'ASC',
+                    'order' => 'DESC',
                     's' => $term,
                     'posts_per_page' => 2
                 ];
