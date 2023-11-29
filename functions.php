@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.5.0');
+define('ONE_VERSION', '2.5.1');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -209,6 +209,14 @@ function one_podcast_tag() {
 
   ?>
     <input type="text" name="one_podcast_tag_value" value="<?= $tag ?>" id="one_podcast_tag_value" class="components-text-control__input">
+  <?php
+}
+
+function one_event_term() {
+  $term = (get_post_meta(get_the_ID(), 'one_event_term_value', true)) ?? '';
+
+  ?>
+    <input type="text" name="one_event_term_value" value="<?= $term ?>" id="one_event_term_value" class="components-text-control__input">
   <?php
 }
 
@@ -492,6 +500,15 @@ function one_add_custom_meta_boxes() {
   );
 
   add_meta_box(
+    'one_event_term',
+    'Termo para linkar posts',
+    'one_event_term',
+    'event',
+    'side',
+    'high'
+  );
+
+  add_meta_box(
     'one_podcast_highlight',
     'Destacar na home',
     'one_podcast_highlight',
@@ -540,6 +557,7 @@ function one_metabox_save( $post_id ) {
     'one_instagram_data_1',
     'one_instagram_data_2',
     'one_podcast_tag_value',
+    'one_event_term_value',
     'one_event_highlight_value',
     'one_game_cover_url',
     'one_game_info_year',

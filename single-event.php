@@ -36,7 +36,7 @@
 
                     if ($query->have_posts()) :
             ?>
-                        <h2 class="subtitle">Últimos episódios</h2>
+                        <h2 class="subtitle">Episódios marcados em <span>#<?= $podcastTag ?></span></h2>
                         <div class="podcast-items event-podcast-content">
                             <?php
                                 while($query->have_posts()) {
@@ -67,6 +67,37 @@
                         </div>
             <?php endif; ?>
         </div>
+
+        <?php
+            $term = get_post_meta($eventPost->ID, 'one_event_term_value', true);
+            if (!empty($term)):
+
+                $args = [
+                    'post_type' => 'post',
+                    'order' => 'ASC',
+                    's' => $term,
+                    'posts_per_page' => 2
+                ];
+
+                $query = new WP_Query($args);
+
+                if ($query->have_posts()) :
+        ?>
+                    <section class="event-linked-posts">
+                        <h2 class="subtitle">Veja também</h2>
+                        <div class="post-list-container">
+                            <?php
+                                while ($query->have_posts()) {
+                                    $query->the_post();
+                                    get_template_part( 'elements/post_card' );
+                                }
+                            ?>
+                        </div>
+                    </section>
+        <?php
+                endif;
+            endif;
+        ?>
     </div>
 </main>
 
