@@ -542,6 +542,7 @@
 
                         .container {
                             background-color: transparent;
+                            padding: 0;
 
                             .content {
                                 padding: 2rem;
@@ -561,6 +562,16 @@
 
                                     iframe {
                                         width: 48.5% !important;
+                                    }
+                                }
+                            }
+
+                            .event-linked-posts {
+                                .post-list-container {
+                                    gap: 4%;
+
+                                    .post-card {
+                                        width: 48%;
                                     }
                                 }
                             }
@@ -607,6 +618,10 @@
 
                             .wp-block-columns {
                                 gap: 1rem;
+                            }
+
+                            iframe {
+                                min-height: 21rem;
                             }
                         }
                     }
@@ -757,6 +772,14 @@
                             }
                         }
                     }
+
+                    .container {
+                        .content {
+                            iframe {
+                                min-height: 22rem;
+                            }
+                        }
+                    }
                 }
 
                 &#rpg {
@@ -854,6 +877,14 @@
                             }
                         }
                     }
+
+                    .container {
+                        .content {
+                            iframe {
+                                min-height: 28rem;
+                            }
+                        }
+                    }
                 }
 
                 &#rpg {
@@ -947,6 +978,12 @@
 
                     .container {
                         width: 40%;
+
+                        .content {
+                            iframe {
+                                min-height: 26rem;
+                            }
+                        }
                     }
                 }
 
