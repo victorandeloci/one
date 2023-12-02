@@ -621,7 +621,9 @@
                             }
 
                             iframe {
-                                min-height: 21rem;
+                                &[title='YouTube video player'] {
+                                    min-height: 21rem;
+                                }
                             }
                         }
                     }
@@ -776,7 +778,9 @@
                     .container {
                         .content {
                             iframe {
-                                min-height: 22rem;
+                                &[title='YouTube video player'] {
+                                    min-height: 22rem;
+                                }
                             }
                         }
                     }
@@ -881,7 +885,9 @@
                     .container {
                         .content {
                             iframe {
-                                min-height: 28rem;
+                                &[title='YouTube video player'] {
+                                    min-height: 28rem;
+                                }
                             }
                         }
                     }
@@ -981,7 +987,9 @@
 
                         .content {
                             iframe {
-                                min-height: 26rem;
+                                &[title='YouTube video player'] {
+                                    min-height: 26rem;
+                                }
                             }
                         }
                     }

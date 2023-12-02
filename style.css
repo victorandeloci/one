@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.5.1
+  Version: 2.5.2
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2314,6 +2314,10 @@ html body .podcast-links a.amazon svg {
   fill: #3bd6de;
 }
 
+html body .podcast-links a.youtube svg {
+  fill: #ccc !important;
+}
+
 html body .podcast-links a svg {
   height: 2rem;
 }
@@ -3245,6 +3249,7 @@ html body main .page-content.event .container .event-linked-posts .post-list-con
   margin-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  padding: 1rem;
 }
 
 html body main.post .container img,
@@ -4037,8 +4042,8 @@ html body footer .container .social-container .social-links {
   html body main .page-content .container .content .wp-block-columns {
     gap: 1rem;
   }
-  html body main.post .container .content iframe,
-  html body main .page-content .container .content iframe {
+  html body main.post .container .content iframe[title='YouTube video player'],
+  html body main .page-content .container .content iframe[title='YouTube video player'] {
     min-height: 21rem;
   }
   html body main#rpg .banner {
@@ -4121,7 +4126,7 @@ html body footer .container .social-container .social-links {
   html body main.post.about-team #team .thumb {
     height: 40rem;
   }
-  html body main.post .container .content iframe {
+  html body main.post .container .content iframe[title='YouTube video player'] {
     min-height: 22rem;
   }
   html body main#rpg .banner {
@@ -4173,7 +4178,7 @@ html body footer .container .social-container .social-links {
   html body main.post.about-team #team .team-container {
     width: 70%;
   }
-  html body main.post .container .content iframe {
+  html body main.post .container .content iframe[title='YouTube video player'] {
     min-height: 28rem;
   }
   html body main#rpg .banner .decoration.top {
@@ -4218,7 +4223,7 @@ html body footer .container .social-container .social-links {
   html body main.post .container {
     width: 40%;
   }
-  html body main.post .container .content iframe {
+  html body main.post .container .content iframe[title='YouTube video player'] {
     min-height: 26rem;
   }
   html body main#rpg .banner .decoration.top {
