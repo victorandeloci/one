@@ -27,7 +27,7 @@
                     $args = [
                         'post_type' => 'post',
                         'category_name' => 'podcast',
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                         'tag' => $podcastTag,
                         'posts_per_page' => 3
                     ];
