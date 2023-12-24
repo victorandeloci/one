@@ -157,4 +157,36 @@ docReady(function () {
     this.classList.remove('show');
     this.querySelector('img').setAttribute('src', '');
   });
+
+  // esports load
+  if (document.getElementById('esports')) {
+    let gameBtns = document.querySelectorAll('.game-selector .game');
+    gameBtns.forEach(gameBtn => {
+      gameBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        let slug = gameBtn.getAttribute('slug');
+        let btnLabel = gameBtn.innerHTML;
+        gameBtn.innerHTML = '<div class="loader"><div class="lds-dual-ring"></div></div>';
+        gameBtns.forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        fetch((apiUrl + '?action=one_esports_load&slug=' + slug), {
+          method: 'GET'
+        })
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (text) {
+            if (text != null && text != '') {
+              document.getElementById('eSportsContainer').innerHTML = text;
+            }
+
+            gameBtn.innerHTML = btnLabel;
+            gameBtn.classList.add('active');
+          });
+      });
+    });
+  }
 });
