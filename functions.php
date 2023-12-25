@@ -752,13 +752,14 @@ function oneGetEsportsApiData($slug, $pageId = null) {
   }
 }
 
-function oneGetESportsStats($slug = 'csgo') {
-  $eSportsPage = get_page_by_path('esports', OBJECT, 'page');
+function oneGetESportsStats($slug = 'csgo', $eSportsPage = null) {  
   $statsData = '';
+
+  if (empty($eSportsPage))
+    $eSportsPage = get_page_by_path('esports', OBJECT, 'page');
 
   if (!empty($eSportsPage)) {
     // verify stored data
-    $lastModified = filemtime($file);
     $lastModified = strtotime(get_the_modified_date('Y-m-d H:i:s'), $eSportsPage->ID);
 
     // updated data? (3h)
@@ -770,7 +771,7 @@ function oneGetESportsStats($slug = 'csgo') {
       $statsData = get_post_meta($eSportsPage->ID, 'one_esports_stats_' . $slug, true);
     }
   } else if (empty($eSportsPage) || empty($statsData)) {
-    $statsData = oneGetEsportsApiData($slug, $eSportsPage->ID);
+    $statsData = oneGetEsportsApiData($slug);
   }
 
   return $statsData;

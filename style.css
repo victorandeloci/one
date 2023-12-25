@@ -2685,6 +2685,39 @@ html body .card-player .row .column:nth-child(2) audio .plyr__controls {
   padding: 0;
 }
 
+html body .selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #393939;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+html body .selector select {
+  background-color: transparent;
+  border: none;
+  color: #bbb;
+  padding: .5rem 0;
+  width: 95%;
+  outline: 0;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+html body .selector select option {
+  color: var(--darkGrey);
+}
+
+html body .selector svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #fff;
+}
+
 html body header {
   padding: 1rem 0;
 }
@@ -2861,39 +2894,6 @@ html body section#podcast {
   padding: 1rem 0 3rem 0;
 }
 
-html body section#podcast .container .selector {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #393939;
-  border-radius: 2rem;
-  padding: 0 1rem;
-  margin-bottom: 2rem;
-}
-
-html body section#podcast .container .selector .podcast-select {
-  background-color: transparent;
-  border: none;
-  color: #bbb;
-  padding: .5rem 0;
-  width: 95%;
-  outline: 0;
-  cursor: pointer;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-html body section#podcast .container .selector .podcast-select option {
-  color: var(--darkGrey);
-}
-
-html body section#podcast .container .selector svg {
-  width: 1rem;
-  height: 1rem;
-  fill: #fff;
-}
-
 html body section#podcast .container .pagination-container {
   width: 100%;
   display: grid;
@@ -3038,7 +3038,14 @@ html body section#esports {
 }
 
 html body section#esports .loader-container {
+  display: grid;
+  place-items: center;
   height: 15vh;
+}
+
+html body section#esports .loader-container .loader .lds-dual-ring:after {
+  height: 2rem;
+  width: 2rem;
 }
 
 html body section#esports .game-selector {

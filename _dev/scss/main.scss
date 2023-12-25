@@ -629,6 +629,39 @@ html {
       }
     }
 
+    .selector {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #393939;
+      border-radius: 2rem;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+
+      select {
+        background-color: transparent;
+        border: none;
+        color: #bbb;
+        padding: .5rem 0;
+        width: 95%;
+        outline: 0;
+        cursor: pointer;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+
+        option {
+          color: var(--darkGrey);
+        }
+      }
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        fill: #fff;
+      }
+    }
+
     header {
       padding: 1rem 0;
 
@@ -812,39 +845,6 @@ html {
         padding: 1rem 0 3rem 0;
 
         .container {
-          .selector {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #393939;
-            border-radius: 2rem;
-            padding: 0 1rem;
-            margin-bottom: 2rem;
-
-            .podcast-select {
-              background-color: transparent;
-              border: none;
-              color: #bbb;
-              padding: .5rem 0;
-              width: 95%;
-              outline: 0;
-              cursor: pointer;
-              -moz-appearance: none;
-              -webkit-appearance: none;
-              appearance: none;
-
-              option {
-                color: var(--darkGrey);
-              }
-            }
-
-            svg {
-              width: 1rem;
-              height: 1rem;
-              fill: #fff;
-            }
-          }
-
           .pagination-container {
             width: 100%;
             display: grid;
@@ -998,7 +998,18 @@ html {
         padding: 2rem 0;
 
         .loader-container {
+          display: grid;
+          place-items: center;
           height: 15vh;
+
+          .loader {
+            .lds-dual-ring {
+              &:after {
+                height: 2rem;
+                width: 2rem;
+              }
+            }
+          }
         }
 
         .game-selector {

@@ -160,33 +160,24 @@ docReady(function () {
 
   // esports load
   if (document.getElementById('esports')) {
-    let gameBtns = document.querySelectorAll('.game-selector .game');
-    gameBtns.forEach(gameBtn => {
-      gameBtn.addEventListener('click', function (e) {
-        e.preventDefault();
+    let selector = document.querySelector('#esports .game-selector');
+    let container = document.getElementById('eSportsContainer');
 
-        let slug = gameBtn.getAttribute('slug');
-        let btnLabel = gameBtn.innerHTML;
-        gameBtn.innerHTML = '<div class="loader"><div class="lds-dual-ring"></div></div>';
-        gameBtns.forEach(btn => {
-          btn.classList.remove('active');
-        });
+    selector.addEventListener('change', function (e) {
+      let slug = selector.value;
+      container.innerHTML = '<div class="loader-container"><div class="loader"><div class="lds-dual-ring"></div></div></div>';
 
-        fetch((apiUrl + '?action=one_esports_load&slug=' + slug), {
-          method: 'GET'
+      fetch((apiUrl + '?action=one_esports_load&slug=' + slug), {
+        method: 'GET'
+      })
+        .then(function (response) {
+          return response.text();
         })
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (text) {
-            if (text != null && text != '') {
-              document.getElementById('eSportsContainer').innerHTML = text;
-            }
-
-            gameBtn.innerHTML = btnLabel;
-            gameBtn.classList.add('active');
-          });
-      });
+        .then(function (text) {
+          if (text != null && text != '') {
+            container.innerHTML = text;
+          }
+        });
     });
   }
 });
