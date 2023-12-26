@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.5.3');
+define('ONE_VERSION', '2.6.0');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -665,3 +665,139 @@ function oneGetYoutubeIdFromUrl($url) {
   }
   return false;
 }
+
+if ( !function_exists('one_esports_stats_page') ) {
+  function one_esports_stats_page() {
+    // user permissions
+    if (!current_user_can('manage_options')) {
+      return;
+    }
+
+    wp_add_inline_script(
+      'map-scripts',
+      'const ajax_info = ' . json_encode(array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('one_esports_stats_nonce_handler')
+       )),
+      'before'
+    );
+
+    wp_enqueue_script(
+      'one_esports_stats_admin_js',
+      get_template_directory_uri() . '/admin/js/admin.js',
+      [],
+      '1.0.0',
+      true
+    );
+
+    $options = [
+      'panda_token' => get_option('one_esports_stats_panda_token', '')
+    ];
+
+    // settings 
+    include_once('admin/templates/esports_stats_settings.php');
+  }
+}
+
+function one_esports_stats_save() {
+  try {
+    update_option('one_esports_stats_panda_token', sanitize_text_field($_POST['one_esports_stats_panda_token']));
+
+    echo 'Saved!';
+  } catch (\Throwable $th) {
+    echo 'Error during save... ' . $th;
+  }
+
+  die();
+}
+add_action('wp_ajax_one_esports_stats_save', 'one_esports_stats_save');
+add_action('wp_ajax_nopriv_one_esports_stats_save', 'one_esports_stats_save');
+
+if ( !function_exists('one_esports_stats_menu') ) {
+  function one_esports_stats_menu() {    
+    add_menu_page(
+      'One eSports Stats',
+      'eSports Stats',
+      'manage_options',
+      'one_esports_stats',
+      'one_esports_stats_page',
+      'dashicons-games',
+      28
+    );
+  }
+}
+add_action( 'admin_menu', 'one_esports_stats_menu' );
+
+function oneGetEsportsApiData($slug, $pageId = null) {
+  $token = get_option('one_esports_stats_panda_token', '');
+  if (!empty($token)) {
+    $url = "https://api.pandascore.co/" . $slug . "/matches?filter[finished]=true&page[size]=3&page[number]=1&token=" . $token;
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+  
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    // save data on page meta
+    if (!empty($pageId)) {
+      if (!empty($slug)) {
+        update_post_meta($pageId, 'one_esports_stats_' . $slug, $data);
+      }      
+    }
+  
+    return $data;
+  }
+}
+
+function oneGetESportsStats($slug = 'csgo', $eSportsPage = null) {  
+  $statsData = '';
+
+  if (empty($eSportsPage))
+    $eSportsPage = get_page_by_path('esports', OBJECT, 'page');
+
+  if (!empty($eSportsPage)) {
+    // verify stored data
+    $lastModified = strtotime(get_the_modified_date('Y-m-d H:i:s'), $eSportsPage->ID);
+
+    // updated data? (3h)
+    if (($lastModified + 10800) < time()) {
+      // not updated
+      $statsData = oneGetEsportsApiData($slug, $eSportsPage->ID);
+    } else {
+      // updated
+      $statsData = get_post_meta($eSportsPage->ID, 'one_esports_stats_' . $slug, true);
+    }
+  } else if (empty($eSportsPage) || empty($statsData)) {
+    $statsData = oneGetEsportsApiData($slug);
+  }
+
+  return $statsData;
+}
+
+function one_str_lreplace($search, $replace, $subject) {
+  $pos = strrpos($subject, $search);
+
+  if ($pos !== false) {
+      $subject = substr_replace($subject, $replace, $pos, strlen($search));
+  }
+
+  return $subject;
+}
+
+function one_esports_load() {
+  $slug = sanitize_text_field($_GET['slug']);
+
+  $statsData = oneGetESportsStats($slug);
+  $obj = json_decode($statsData);
+
+  get_template_part('elements/esports_stats_table', null, [
+    'obj' => $obj
+  ]);
+
+  die();
+}
+add_action('wp_ajax_one_esports_load', 'one_esports_load');
+add_action('wp_ajax_nopriv_one_esports_load', 'one_esports_load');

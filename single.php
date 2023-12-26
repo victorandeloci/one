@@ -51,9 +51,9 @@
                         <p><?= get_post_meta(get_the_ID(), 'one_game_info_platforms', true) ?></p>
                     <?php endif; ?>
                 </div>
-            </div>        
+            </div>            
         <?php 
-            elseif(!empty(trim(get_post_meta(get_the_ID(), 'fvideoUrl', true)))) :
+            elseif (!empty(trim(get_post_meta(get_the_ID(), 'fvideoUrl', true)))) :
                 $fvideoUrl = trim(get_post_meta(get_the_ID(), 'fvideoUrl', true));
                 $ytVideoId = oneGetYoutubeIdFromUrl($fvideoUrl);
         ?>

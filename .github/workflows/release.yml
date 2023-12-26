@@ -15,7 +15,7 @@ jobs:
     env:
       PACKAGE_LABEL: One
       PACKAGE_NAME: one
-      RELEASE_TAG: 2.5.3
+      RELEASE_TAG: 2.6.0
     steps:
       - uses: actions/checkout@v2
 

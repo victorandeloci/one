@@ -157,4 +157,27 @@ docReady(function () {
     this.classList.remove('show');
     this.querySelector('img').setAttribute('src', '');
   });
+
+  // esports load
+  if (document.getElementById('esports')) {
+    let selector = document.querySelector('#esports .game-selector');
+    let container = document.getElementById('eSportsContainer');
+
+    selector.addEventListener('change', function (e) {
+      let slug = selector.value;
+      container.innerHTML = '<div class="loader-container"><div class="loader"><div class="lds-dual-ring"></div></div></div>';
+
+      fetch((apiUrl + '?action=one_esports_load&slug=' + slug), {
+        method: 'GET'
+      })
+        .then(function (response) {
+          return response.text();
+        })
+        .then(function (text) {
+          if (text != null && text != '') {
+            container.innerHTML = text;
+          }
+        });
+    });
+  }
 });

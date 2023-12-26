@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.5.3
+  Version: 2.6.0
 */
 
 @import '../plugins/css/normalize';
@@ -629,6 +629,39 @@ html {
       }
     }
 
+    .selector {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #393939;
+      border-radius: 2rem;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+
+      select {
+        background-color: transparent;
+        border: none;
+        color: #bbb;
+        padding: .5rem 0;
+        width: 95%;
+        outline: 0;
+        cursor: pointer;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+
+        option {
+          color: var(--darkGrey);
+        }
+      }
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        fill: #fff;
+      }
+    }
+
     header {
       padding: 1rem 0;
 
@@ -812,39 +845,6 @@ html {
         padding: 1rem 0 3rem 0;
 
         .container {
-          .selector {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #393939;
-            border-radius: 2rem;
-            padding: 0 1rem;
-            margin-bottom: 2rem;
-
-            .podcast-select {
-              background-color: transparent;
-              border: none;
-              color: #bbb;
-              padding: .5rem 0;
-              width: 95%;
-              outline: 0;
-              cursor: pointer;
-              -moz-appearance: none;
-              -webkit-appearance: none;
-              appearance: none;
-
-              option {
-                color: var(--darkGrey);
-              }
-            }
-
-            svg {
-              width: 1rem;
-              height: 1rem;
-              fill: #fff;
-            }
-          }
-
           .pagination-container {
             width: 100%;
             display: grid;
@@ -854,9 +854,9 @@ html {
             button {
               min-width: 10rem;
               padding: .5rem 1rem;
-              background-color: var(--orange);
+              border: solid 2px var(--orange);
+              background-color: transparent;
               border-radius: 2rem;
-              border: none;
               color: var(--white);
               display: grid;
               place-items: center;
@@ -864,7 +864,7 @@ html {
               transition: ease-in-out .3s;
 
               &:hover {
-                background-color: var(--pink);
+                background-color: var(--orange);
               }
             }
           }
@@ -990,6 +990,110 @@ html {
             font-size: 90%;
             margin-top: 0;
             margin-bottom: 2rem;
+          }
+        }
+      }
+
+      &#esports {
+        padding: 2rem 0;
+
+        .loader-container {
+          display: grid;
+          place-items: center;
+          height: 15vh;
+
+          .loader {
+            .lds-dual-ring {
+              &:after {
+                height: 2rem;
+                width: 2rem;
+              }
+            }
+          }
+        }
+
+        .game-selector {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+
+          .game {
+            padding: .5rem 1rem;
+            border: solid 2px var(--orange);
+            background-color: transparent;
+            color: white;
+            border-radius: 2rem;
+            cursor: pointer;
+
+            &.active {
+              border-color: var(--pink);
+            }
+          }
+        }
+
+        table {
+          margin: 0;
+          width: 100%;
+
+          tr {
+            display: flex;
+
+            td {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 50%;
+
+              &.x {
+                svg {
+                  fill: #aaa;
+                }
+              }
+
+              &.winner {
+                span {
+                  color: var(--orange);
+                }
+              }
+
+              span {
+                font-size: 120%;
+              }
+
+              p {
+                text-align: center;
+                font-size: 85%;
+                padding: .5rem;
+              }
+
+              img {
+                width: 3rem;
+                margin: 0 .5rem;
+              }
+            }
+
+            .full {
+              width: 100%;
+            }
+
+            .date {
+              width: 100%;
+
+              p {
+                margin: 0;
+                margin-bottom: 1rem;
+                color: #6a6a6a;
+              }
+            }
+
+            .title {
+              width: 100%;
+
+              h3 {
+                text-align: center;
+              }
+            }
           }
         }
       }
