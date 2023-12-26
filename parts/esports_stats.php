@@ -1,6 +1,6 @@
 <?php
   $eSportsPage = get_page_by_path('esports', OBJECT, 'page');
-  $slug = $args['slug'] ?? null;
+  $slug = $args['slug'] ?? 'csgo';
   $statsData = oneGetESportsStats($slug, $eSportsPage);
   $obj = json_decode($statsData);  
 ?>

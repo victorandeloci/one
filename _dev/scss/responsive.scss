@@ -299,6 +299,42 @@
                 }
             }
 
+            .esports-reviews-container {
+                >.container {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+
+                    #esports {
+                        width: 28%;
+
+                        .container {
+                            width: 100%;
+                        }
+                    }
+
+                    #reviews {
+                        width: 65%;
+
+                        .container {
+                            width: 100%;
+
+                            .post-list-container {
+                                gap: 4%;
+
+                                .post-card {
+                                    width: 48%;
+
+                                    &:last-child {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             section {
                 &#highlights {
                     .title {

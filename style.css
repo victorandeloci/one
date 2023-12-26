@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.5.3
+  Version: 2.6.0
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -3898,6 +3898,32 @@ html body footer .container .social-container .social-links {
   }
   html body #pagination a:hover {
     background-color: var(--pink);
+  }
+  html body .esports-reviews-container > .container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  html body .esports-reviews-container > .container #esports {
+    width: 28%;
+  }
+  html body .esports-reviews-container > .container #esports .container {
+    width: 100%;
+  }
+  html body .esports-reviews-container > .container #reviews {
+    width: 65%;
+  }
+  html body .esports-reviews-container > .container #reviews .container {
+    width: 100%;
+  }
+  html body .esports-reviews-container > .container #reviews .container .post-list-container {
+    gap: 4%;
+  }
+  html body .esports-reviews-container > .container #reviews .container .post-list-container .post-card {
+    width: 48%;
+  }
+  html body .esports-reviews-container > .container #reviews .container .post-list-container .post-card:last-child {
+    display: none;
   }
   html body section#highlights .title {
     display: flex;
