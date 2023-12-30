@@ -163,6 +163,20 @@ docReady(function () {
     let selector = document.querySelector('#esports .game-selector');
     let container = document.getElementById('eSportsContainer');
 
+    // default load
+    fetch((apiUrl + '?action=one_esports_load&slug=csgo'), {
+      method: 'GET'
+    })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (text) {
+        if (text != null && text != '') {
+          container.innerHTML = text;
+        }
+      });
+
+    // selector load
     selector.addEventListener('change', function (e) {
       let slug = selector.value;
       container.innerHTML = '<div class="loader-container"><div class="loader"><div class="lds-dual-ring"></div></div></div>';
@@ -179,5 +193,23 @@ docReady(function () {
           }
         });
     });
+  }
+
+  // news load
+  if (document.getElementById('news')) {
+    let container = document.getElementById('news_container');
+
+    // default load
+    fetch((apiUrl + '?action=one_news_load'), {
+      method: 'GET'
+    })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (text) {
+        if (text != null && text != '') {
+          container.innerHTML = text;
+        }
+      });
   }
 });

@@ -3129,6 +3129,17 @@ html body section#esports table tr .title h3 {
   text-align: center;
 }
 
+html body section#news .loader-container {
+  display: grid;
+  place-items: center;
+  height: 15vh;
+}
+
+html body section#news .loader-container .loader .lds-dual-ring:after {
+  height: 2rem;
+  width: 2rem;
+}
+
 html body main.post,
 html body main .page-content {
   background-color: var(--white);

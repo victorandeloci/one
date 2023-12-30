@@ -1097,6 +1097,23 @@ html {
           }
         }
       }
+
+      &#news {
+        .loader-container {
+          display: grid;
+          place-items: center;
+          height: 15vh;
+
+          .loader {
+            .lds-dual-ring {
+              &:after {
+                height: 2rem;
+                width: 2rem;
+              }
+            }
+          }
+        }
+      }
     }
 
     main {
