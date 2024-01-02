@@ -878,7 +878,7 @@ function one_news_load() {
     $rss = simplexml_load_string($data);    
     if ($rss && !empty($rss)) {
       // limited to 3 itens
-      for ($i = 0; $i < 3; $i++) { 
+      for ($i = 0; $i < 4; $i++) { 
         get_template_part('elements/rss_news_item', null, [
           'item' => $rss->channel->item[$i]
         ]);

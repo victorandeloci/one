@@ -3011,6 +3011,10 @@ html body section#reviews {
   padding: 1rem 0 3rem 0;
 }
 
+html body section#reviews .container {
+  width: 100%;
+}
+
 html body section#podcast_category_highlight {
   margin-bottom: 3rem;
 }
@@ -3037,25 +3041,30 @@ html body section#esports {
   padding: 2rem 0;
 }
 
-html body section#esports .loader-container {
+html body section#esports .container {
+  width: 100%;
+}
+
+html body section#esports .container .loader-container {
   display: grid;
   place-items: center;
+  width: 100%;
   height: 15vh;
 }
 
-html body section#esports .loader-container .loader .lds-dual-ring:after {
+html body section#esports .container .loader-container .loader .lds-dual-ring:after {
   height: 2rem;
   width: 2rem;
 }
 
-html body section#esports .game-selector {
+html body section#esports .container .game-selector {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
 
-html body section#esports .game-selector .game {
+html body section#esports .container .game-selector .game {
   padding: .5rem 1rem;
   border: solid 2px var(--orange);
   background-color: transparent;
@@ -3064,80 +3073,120 @@ html body section#esports .game-selector .game {
   cursor: pointer;
 }
 
-html body section#esports .game-selector .game.active {
+html body section#esports .container .game-selector .game.active {
   border-color: var(--pink);
 }
 
-html body section#esports table {
+html body section#esports .container table {
   margin: 0;
   width: 100%;
 }
 
-html body section#esports table tr {
+html body section#esports .container table tr {
   display: flex;
 }
 
-html body section#esports table tr td {
+html body section#esports .container table tr td {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
 }
 
-html body section#esports table tr td.x svg {
+html body section#esports .container table tr td.x svg {
   fill: #aaa;
 }
 
-html body section#esports table tr td.winner span {
+html body section#esports .container table tr td.winner span {
   color: var(--orange);
 }
 
-html body section#esports table tr td span {
+html body section#esports .container table tr td span {
   font-size: 120%;
 }
 
-html body section#esports table tr td p {
+html body section#esports .container table tr td p {
   text-align: center;
   font-size: 85%;
   padding: .5rem;
 }
 
-html body section#esports table tr td img {
+html body section#esports .container table tr td img {
   width: 3rem;
   margin: 0 .5rem;
 }
 
-html body section#esports table tr .full {
+html body section#esports .container table tr .full {
   width: 100%;
 }
 
-html body section#esports table tr .date {
+html body section#esports .container table tr .date {
   width: 100%;
 }
 
-html body section#esports table tr .date p {
+html body section#esports .container table tr .date p {
   margin: 0;
   margin-bottom: 1rem;
   color: #6a6a6a;
 }
 
-html body section#esports table tr .title {
+html body section#esports .container table tr .title {
   width: 100%;
 }
 
-html body section#esports table tr .title h3 {
+html body section#esports .container table tr .title h3 {
   text-align: center;
 }
 
-html body section#news .loader-container {
+html body section#news {
+  padding-top: 2rem;
+}
+
+html body section#news .container .loader-container {
   display: grid;
   place-items: center;
+  width: 100%;
   height: 15vh;
 }
 
-html body section#news .loader-container .loader .lds-dual-ring:after {
+html body section#news .container .loader-container .loader .lds-dual-ring:after {
   height: 2rem;
   width: 2rem;
+}
+
+html body section#news .container #news_container .rss-news-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 90%;
+  margin-bottom: 1rem;
+}
+
+html body section#news .container #news_container .rss-news-item img {
+  width: 34%;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+html body section#news .container #news_container .rss-news-item .content {
+  width: 64%;
+  padding-top: 0;
+}
+
+html body section#news .container #news_container .rss-news-item .content h3 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  color: white;
+}
+
+html body section#news .container #news_container .rss-news-item .content p {
+  margin-bottom: .5rem;
+  font-size: 90%;
+  color: #aaa;
+}
+
+html body section#news .container #news_container .rss-news-item .content a:hover {
+  text-decoration: underline;
 }
 
 html body main.post,
@@ -3811,6 +3860,12 @@ html body footer .container .social-container .social-links {
   html body section#podcast {
     padding-top: 2rem;
   }
+  html body section#news .container #news_container .rss-news-item {
+    margin-bottom: 2rem;
+  }
+  html body section#news .container #news_container .rss-news-item img {
+    height: 8rem;
+  }
   html body main.post.about-team #team .thumb {
     height: 24rem;
   }
@@ -4048,6 +4103,15 @@ html body footer .container .social-container .social-links {
   }
   html body section#podcast_category_highlight .container .podcast-items .podcast-item:hover {
     transform: scale(1.05);
+  }
+  html body section#news .container #news_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+  }
+  html body section#news .container #news_container .rss-news-item {
+    width: 48%;
+    margin-bottom: 1rem;
   }
   html body main {
     min-height: 60vh;
