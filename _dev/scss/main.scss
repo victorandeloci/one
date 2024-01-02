@@ -554,8 +554,17 @@ html {
           }
 
           .content {
+            .post-details {
+              margin: .5rem 0 1rem 0;
+            }
+
             h2 {
-              margin-top: .5rem;
+              margin-top: 0;
+              margin-bottom: .5rem;
+            }
+
+            p {
+              margin-bottom: 0;
             }
           }
         }

@@ -2617,8 +2617,17 @@ html body .podcast-items .podcast-item:first-child a.podcast-ep {
   border-bottom-right-radius: 0;
 }
 
+html body .podcast-items .podcast-item:first-child .content .post-details {
+  margin: .5rem 0 1rem 0;
+}
+
 html body .podcast-items .podcast-item:first-child .content h2 {
-  margin-top: .5rem;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+html body .podcast-items .podcast-item:first-child .content p {
+  margin-bottom: 0;
 }
 
 html body .podcast-items .podcast-item a.podcast-ep {
@@ -4073,7 +4082,7 @@ html body footer .container .social-container .social-links {
   html body section#podcast .container .podcast-items .podcast-item:first-child {
     width: auto;
     height: min-content;
-    grid-area: 1 / 1 / 6 / 3;
+    grid-area: 1 / 1 / 4 / 3;
   }
   html body section#podcast .container .podcast-items .podcast-item:not(:first-child):hover {
     transform: scale(1.05);

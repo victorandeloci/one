@@ -58,7 +58,7 @@ docReady(function () {
       podcastLoadMoreBtn.innerHTML = '<div class="loader"><div class="lds-dual-ring"></div></div>';
 
       page++;
-      fetch((siteUrl + '/wp-json/wp/v2/posts?page=' + page + '&category_slug=podcast&per_page=14'), {
+      fetch((siteUrl + '/wp-json/wp/v2/posts?page=' + page + '&category_slug=podcast&per_page=6'), {
         method: 'GET'
       })
         .then(function (response) {
