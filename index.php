@@ -3,6 +3,7 @@
 
     get_template_part('parts/highlights');
     get_template_part('parts/highlight_event');
+    get_template_part('parts/news');
     get_template_part('parts/podcast');
 ?>
     <div class="esports-reviews-container">

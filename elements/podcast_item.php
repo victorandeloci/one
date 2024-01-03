@@ -20,9 +20,10 @@
     <?php if (isset($args['index']) && $args['index'] == 0) : ?>
         <div class="content">
             <?php get_template_part('elements/tags_container'); ?>
+            <?php get_template_part('elements/post_details'); ?>
             <h2><?= get_the_title() ?></h2>
             <?php get_template_part('elements/podcast_player'); ?>
-            <?= get_the_content() ?>
+            <p><?= get_the_excerpt() ?></p>
         </div>
     <?php endif; ?>
 </div>

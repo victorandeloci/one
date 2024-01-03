@@ -118,6 +118,20 @@
                 &#podcast {
                     padding-top: 2rem;
                 }
+
+                &#news {
+                    .container {
+                        #news_container {
+                            .rss-news-item {
+                                margin-bottom: 2rem;
+
+                                img {
+                                    height: 8rem;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             main {
@@ -452,7 +466,7 @@
                                 &:first-child {
                                     width: auto;
                                     height: min-content;
-                                    grid-area: 1 / 1 / 6 / 3;
+                                    grid-area: 1 / 1 / 4 / 3;
                                 }
 
                                 &:not(:first-child) {
@@ -504,6 +518,21 @@
                                 &:hover {
                                     transform: scale(1.05);
                                 }
+                            }
+                        }
+                    }
+                }
+
+                &#news {
+                    .container {
+                        #news_container {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 4%;
+
+                            .rss-news-item {
+                                width: 48%;
+                                margin-bottom: 1rem;
                             }
                         }
                     }

@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.6.0
+  Version: 2.7.1
 */
 
 @import '../plugins/css/normalize';
@@ -554,8 +554,17 @@ html {
           }
 
           .content {
+            .post-details {
+              margin: .5rem 0 1rem 0;
+            }
+
             h2 {
-              margin-top: .5rem;
+              margin-top: 0;
+              margin-bottom: .5rem;
+            }
+
+            p {
+              margin-bottom: 0;
             }
           }
         }
@@ -970,6 +979,10 @@ html {
 
       &#reviews {
         padding: 1rem 0 3rem 0;
+
+        .container {
+          width: 100%;
+        }
       }
 
       &#podcast_category_highlight {
@@ -997,101 +1010,167 @@ html {
       &#esports {
         padding: 2rem 0;
 
-        .loader-container {
-          display: grid;
-          place-items: center;
-          height: 15vh;
-
-          .loader {
-            .lds-dual-ring {
-              &:after {
-                height: 2rem;
-                width: 2rem;
-              }
-            }
-          }
-        }
-
-        .game-selector {
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
-
-          .game {
-            padding: .5rem 1rem;
-            border: solid 2px var(--orange);
-            background-color: transparent;
-            color: white;
-            border-radius: 2rem;
-            cursor: pointer;
-
-            &.active {
-              border-color: var(--pink);
-            }
-          }
-        }
-
-        table {
-          margin: 0;
+        .container {
           width: 100%;
 
-          tr {
+          .loader-container {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 15vh;
+
+            .loader {
+              .lds-dual-ring {
+                &:after {
+                  height: 2rem;
+                  width: 2rem;
+                }
+              }
+            }
+          }
+
+          .game-selector {
             display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
 
-            td {
+            .game {
+              padding: .5rem 1rem;
+              border: solid 2px var(--orange);
+              background-color: transparent;
+              color: white;
+              border-radius: 2rem;
+              cursor: pointer;
+
+              &.active {
+                border-color: var(--pink);
+              }
+            }
+          }
+
+          table {
+            margin: 0;
+            width: 100%;
+
+            tr {
               display: flex;
-              align-items: center;
-              justify-content: center;
-              width: 50%;
 
-              &.x {
-                svg {
-                  fill: #aaa;
+              td {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+
+                &.x {
+                  svg {
+                    fill: #aaa;
+                  }
                 }
-              }
 
-              &.winner {
+                &.winner {
+                  span {
+                    color: var(--orange);
+                  }
+                }
+
                 span {
-                  color: var(--orange);
+                  font-size: 120%;
+                }
+
+                p {
+                  text-align: center;
+                  font-size: 85%;
+                  padding: .5rem;
+                }
+
+                img {
+                  width: 3rem;
+                  margin: 0 .5rem;
                 }
               }
 
-              span {
-                font-size: 120%;
+              .full {
+                width: 100%;
               }
 
-              p {
-                text-align: center;
-                font-size: 85%;
-                padding: .5rem;
+              .date {
+                width: 100%;
+
+                p {
+                  margin: 0;
+                  margin-bottom: 1rem;
+                  color: #6a6a6a;
+                }
               }
+
+              .title {
+                width: 100%;
+
+                h3 {
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &#news {
+        padding-top: 2rem;
+
+        .container {
+          .loader-container {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 15vh;
+
+            .loader {
+              .lds-dual-ring {
+                &:after {
+                  height: 2rem;
+                  width: 2rem;
+                }
+              }
+            }
+          }
+
+          #news_container {
+            .rss-news-item {
+              display: flex;
+              justify-content: space-between;
+              font-size: 90%;
+              margin-bottom: 1rem;
 
               img {
-                width: 3rem;
-                margin: 0 .5rem;
+                width: 34%;
+                height: 6rem;
+                object-fit: cover;
+                border-radius: .5rem;
               }
-            }
 
-            .full {
-              width: 100%;
-            }
+              .content {
+                width: 64%;
+                padding-top: 0;
 
-            .date {
-              width: 100%;
+                h3 {
+                  margin-top: 0;
+                  margin-bottom: .5rem;
+                  color: white;
+                }
 
-              p {
-                margin: 0;
-                margin-bottom: 1rem;
-                color: #6a6a6a;
-              }
-            }
+                p {
+                  margin-bottom: .5rem;
+                  font-size: 90%;
+                  color: #aaa;
+                }
 
-            .title {
-              width: 100%;
-
-              h3 {
-                text-align: center;
+                a {
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
               }
             }
           }

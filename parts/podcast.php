@@ -56,7 +56,7 @@
                 'post_type' => 'post',
                 'category_name' => 'podcast',
                 'order' => 'DESC',
-                'posts_per_page' => 15
+                'posts_per_page' => 7
             ];
 
             wp_reset_query();

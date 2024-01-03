@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.6.0');
+define('ONE_VERSION', '2.7.1');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -801,3 +801,92 @@ function one_esports_load() {
 }
 add_action('wp_ajax_one_esports_load', 'one_esports_load');
 add_action('wp_ajax_nopriv_one_esports_load', 'one_esports_load');
+
+if ( !function_exists('one_news_page') ) {
+  function one_news_page() {
+    // user permissions
+    if (!current_user_can('manage_options')) {
+      return;
+    }
+
+    wp_add_inline_script(
+      'map-scripts',
+      'const ajax_info = ' . json_encode(array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('one_news_nonce_handler')
+       )),
+      'before'
+    );
+
+    wp_enqueue_script(
+      'one_news_admin_js',
+      get_template_directory_uri() . '/admin/js/admin.js',
+      [],
+      '1.0.0',
+      true
+    );
+
+    $options = [
+      'feed_url' => get_option('one_news_feed_url', '')
+    ];
+
+    // settings 
+    include_once('admin/templates/news_settings.php');
+  }
+}
+
+function one_news_save() {
+  try {
+    update_option('one_news_feed_url', sanitize_text_field($_POST['one_news_feed_url']));
+
+    echo 'Saved!';
+  } catch (\Throwable $th) {
+    echo 'Error during save... ' . $th;
+  }
+
+  die();
+}
+add_action('wp_ajax_one_news_save', 'one_news_save');
+add_action('wp_ajax_nopriv_one_news_save', 'one_news_save');
+
+if ( !function_exists('one_news_menu') ) {
+  function one_news_menu() {    
+    add_menu_page(
+      'One RSS News',
+      'RSS News',
+      'manage_options',
+      'one_news',
+      'one_news_page',
+      'dashicons-media-document',
+      28
+    );
+  }
+}
+add_action( 'admin_menu', 'one_news_menu' );
+
+function one_news_load() {
+  $feedUrl = get_option('one_news_feed_url', '');
+  if (!empty($feedUrl)) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $feedUrl);
+  
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    $rss = simplexml_load_string($data);    
+    if ($rss && !empty($rss)) {
+      // limited to 3 itens
+      for ($i = 0; $i < 4; $i++) { 
+        get_template_part('elements/rss_news_item', null, [
+          'item' => $rss->channel->item[$i]
+        ]);
+      }
+    }
+  }
+
+  die();
+}
+add_action('wp_ajax_one_news_load', 'one_news_load');
+add_action('wp_ajax_nopriv_one_news_load', 'one_news_load');
