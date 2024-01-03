@@ -10,6 +10,16 @@
 
     <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css?v=<?= ONE_VERSION ?>">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53835272-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-53835272-1');
+    </script>
+
     <script type="text/javascript">
       const siteUrl = '<?= get_site_url() ?>';
       const apiUrl = '<?= get_site_url() ?>/wp-admin/admin-ajax.php';
