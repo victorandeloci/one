@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.6.0');
+define('ONE_VERSION', '2.7.1');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
