@@ -11,11 +11,13 @@
                 }
             }
         ?>
-        <img src="<?= (!empty($imageUrl)) ? $imageUrl : get_template_directory_uri() . '/assets/img/default-image.png' ?>" alt="<?= $args['item']->title ?>">
+        <a href="<?= $args['item']->link ?>" target="_blank" rel="noopener noreferrer" title="<?= $args['item']->title ?>">
+            <img src="<?= (!empty($imageUrl)) ? $imageUrl : get_template_directory_uri() . '/assets/img/default-image.png' ?>" alt="<?= $args['item']->title ?>">
+        </a>
         <div class="content">
             <a href="<?= $args['item']->link ?>" target="_blank" rel="noopener noreferrer" title="<?= $args['item']->title ?>">
                 <h3><?= $args['item']->title ?></h3>
-            </a>            
+            </a>
             <p><?= substr(strip_tags($args['item']->description), 0, 96) . '...' ?></p>
             <a href="<?= $args['item']->link ?>" target="_blank" rel="noopener noreferrer" title="<?= $args['item']->title ?>">Leia mais</a>
         </div>

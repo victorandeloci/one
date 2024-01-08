@@ -58,6 +58,12 @@ docReady(function () {
       podcastLoadMoreBtn.innerHTML = '<div class="loader"><div class="lds-dual-ring"></div></div>';
 
       page++;
+
+      // tracking
+      gtag('event', 'podcast_load_more', {
+        'page': page
+      });
+
       fetch((siteUrl + '/wp-json/wp/v2/posts?page=' + page + '&category_slug=podcast&per_page=6'), {
         method: 'GET'
       })
@@ -158,7 +164,7 @@ docReady(function () {
     this.querySelector('img').setAttribute('src', '');
   });
 
-  // esports load
+  // esports
   if (document.getElementById('esports')) {
     let selector = document.querySelector('#esports .game-selector');
     let container = document.getElementById('eSportsContainer');
@@ -181,6 +187,11 @@ docReady(function () {
       let slug = selector.value;
       container.innerHTML = '<div class="loader-container"><div class="loader"><div class="lds-dual-ring"></div></div></div>';
 
+      // tracking
+      gtag('event', 'esports_stats_selector', {
+        'game_slug': slug
+      });
+
       fetch((apiUrl + '?action=one_esports_load&slug=' + slug), {
         method: 'GET'
       })
@@ -195,7 +206,7 @@ docReady(function () {
     });
   }
 
-  // news load
+  // news
   if (document.getElementById('news')) {
     let container = document.getElementById('news_container');
 
@@ -209,6 +220,15 @@ docReady(function () {
       .then(function (text) {
         if (text != null && text != '') {
           container.innerHTML = text;
+
+          // event tracking
+          container.querySelectorAll('a').forEach(newsLink => {
+            newsLink.addEventListener('click', function (e) {
+              gtag('event', 'rss_news_link_click', {
+                'link': newsLink.getAttribute('href')
+              });
+            });
+          });
         }
       });
   }
