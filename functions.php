@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.7.2');
+define('ONE_VERSION', '2.8.0');
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -890,3 +890,43 @@ function one_news_load() {
 }
 add_action('wp_ajax_one_news_load', 'one_news_load');
 add_action('wp_ajax_nopriv_one_news_load', 'one_news_load');
+
+function one_featured_content() {
+  $livePage = get_page_by_path('live', OBJECT, 'page');
+  if (!empty($livePage)) {
+    $ytApiKey = get_post_meta($livePage->ID, 'youtube_api_key', true);
+    $ytChannelId = get_post_meta($livePage->ID, 'youtube_channel_id', true);
+
+    if (!empty($ytApiKey) && !empty($ytChannelId)) {
+      $url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' . $ytChannelId . '&type=video&eventType=live&key=' . $ytApiKey;
+
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_URL, $url);
+    
+      $data = curl_exec($ch);
+      curl_close($ch);
+
+      if (!empty($data)) {
+        $liveData = json_decode($data);
+        if (count($liveData->items) > 0) {
+          $liveVideoId = $liveData->items[0]->id->videoId;
+          if (!empty($liveVideoId)) {
+            get_template_part('parts/live_video', null, [
+              'live_video_id' => $liveVideoId,
+              'title' => $liveData->items[0]->snippet->title,
+              'description' => get_the_excerpt($livePage->ID)
+            ]);
+            die();
+          }
+        }
+      }
+    }
+  }
+
+  get_template_part('parts/highlight_event');
+  die();
+}
+add_action('wp_ajax_one_featured_content', 'one_featured_content');
+add_action('wp_ajax_nopriv_one_featured_content', 'one_featured_content');

@@ -1,6 +1,4 @@
-<?php
-    $obj = $args['obj'];
-?>
+<?php $obj = $args['obj']; ?>
 
 <table>
     <?php

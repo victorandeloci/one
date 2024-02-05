@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.7.2
+  Version: 2.8.0
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2900,7 +2900,7 @@ html body section#highlights .highlight-container .items .highlight-item .conten
 }
 
 html body section#podcast {
-  padding: 1rem 0 3rem 0;
+  padding: 2rem 0 3rem 0;
 }
 
 html body section#podcast .container .pagination-container {
@@ -2986,7 +2986,7 @@ html body section#social {
 }
 
 html body section#videos {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 html body section#videos .container .sb_youtube .sby_items_wrap {
@@ -3047,7 +3047,10 @@ html body section#podcast_category_highlight .container .category-description {
 }
 
 html body section#esports {
-  padding: 2rem 0;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem 0 1rem;
+  background-color: #282828;
+  border-radius: .5rem;
 }
 
 html body section#esports .container {
@@ -3066,14 +3069,18 @@ html body section#esports .container .loader-container .loader .lds-dual-ring:af
   width: 2rem;
 }
 
-html body section#esports .container .game-selector {
+html body section#esports .container .selector {
+  background-color: var(--darkGrey);
+}
+
+html body section#esports .container .selector .game-selector {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
 
-html body section#esports .container .game-selector .game {
+html body section#esports .container .selector .game-selector .game {
   padding: .5rem 1rem;
   border: solid 2px var(--orange);
   background-color: transparent;
@@ -3082,7 +3089,7 @@ html body section#esports .container .game-selector .game {
   cursor: pointer;
 }
 
-html body section#esports .container .game-selector .game.active {
+html body section#esports .container .selector .game-selector .game.active {
   border-color: var(--pink);
 }
 
@@ -3147,10 +3154,6 @@ html body section#esports .container table tr .title h3 {
   text-align: center;
 }
 
-html body section#news {
-  padding-top: 2rem;
-}
-
 html body section#news .container .loader-container {
   display: grid;
   place-items: center;
@@ -3203,6 +3206,26 @@ html body section#news .container #news_container .rss-news-item .content p {
 
 html body section#news .container #news_container .rss-news-item .content a:hover {
   text-decoration: underline;
+}
+
+html body section#featured .container .loader-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 15vh;
+}
+
+html body section#featured .container .loader-container .loader .lds-dual-ring:after {
+  height: 2rem;
+  width: 2rem;
+}
+
+html body section#featured .container iframe {
+  width: 100% !important;
+  max-width: unset !important;
+  min-width: unset !important;
+  height: 14rem !important;
+  border-radius: .5rem;
 }
 
 html body main.post,
@@ -3987,7 +4010,7 @@ html body footer .container .social-container .social-links {
     justify-content: space-between;
   }
   html body .esports-reviews-container > .container #esports {
-    width: 28%;
+    width: 32%;
   }
   html body .esports-reviews-container > .container #esports .container {
     width: 100%;
@@ -4128,6 +4151,9 @@ html body footer .container .social-container .social-links {
   html body section#news .container #news_container .rss-news-item {
     width: 48%;
     margin-bottom: 1rem;
+  }
+  html body section#featured .container iframe {
+    height: 38rem !important;
   }
   html body main {
     min-height: 60vh;
@@ -4335,6 +4361,9 @@ html body footer .container .social-container .social-links {
   }
   html body section#videos .container .yotu-playlist > div {
     height: 28rem;
+  }
+  html body section#featured .container iframe {
+    height: 40rem !important;
   }
   html body main.post.about-team #team .thumb {
     height: 40rem;

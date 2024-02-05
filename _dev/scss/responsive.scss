@@ -320,7 +320,7 @@
                     justify-content: space-between;
 
                     #esports {
-                        width: 28%;
+                        width: 32%;
 
                         .container {
                             width: 100%;
@@ -534,6 +534,14 @@
                                 width: 48%;
                                 margin-bottom: 1rem;
                             }
+                        }
+                    }
+                }
+
+                &#featured {
+                    .container {
+                        iframe {
+                            height: 38rem !important;
                         }
                     }
                 }
@@ -825,6 +833,14 @@
                             >div {
                                 height: 28rem;
                             }
+                        }
+                    }
+                }
+
+                &#featured {
+                    .container {
+                        iframe {
+                            height: 40rem !important;
                         }
                     }
                 }
