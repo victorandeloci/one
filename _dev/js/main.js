@@ -232,4 +232,20 @@ docReady(function () {
         }
       });
   }
+
+  // live streaming verify
+  let featuredContainer = document.getElementById('featured');
+  if (featuredContainer) {
+    fetch((apiUrl + '?action=one_featured_content'), {
+      method: 'GET'
+    })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (text) {
+        if (text != null && text != '') {
+          featuredContainer.innerHTML = text;
+        }
+      });
+  }
 });

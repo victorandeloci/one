@@ -20,10 +20,8 @@
       <a class="event-container" href="<?= get_permalink($post->ID) ?>" style="background-image: url(<?= get_the_post_thumbnail_url($post->ID) ?>);">
         <h2><i class="fas fa-map-marker-alt"></i> <?= $post->post_title ?></h2>
         <hr>
-        <p class="description">Acompanhe a cobertura do evento!</p>
+        <p class="description">Acompanhe nossa cobertura!</p>
       </a>
     </div>    
   </section>
-<?php
-  endif;
-?>
+<?php endif; ?>
