@@ -666,6 +666,10 @@
                     }
 
                     &.page {
+                        &.not-found {
+                            min-height: 80vh;
+                        }
+
                         .container {
                             background-color: transparent;
 
