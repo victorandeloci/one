@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.8.0
+  Version: 2.8.1
 */
 
 @import '../plugins/css/normalize';
@@ -82,6 +82,23 @@ html {
 
     a {
       color: var(--orange);
+
+      &.btn {
+        min-width: 10rem;
+        padding: .5rem 1rem;
+        border: solid 2px var(--orange);
+        background-color: transparent;
+        border-radius: 2rem;
+        color: var(--white);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: ease-in-out .3s;
+
+        &:hover {
+          background-color: var(--orange);
+        }
+      }
     }
 
     .subtitle {
@@ -1227,9 +1244,23 @@ html {
 
         &.page {
           &.not-found {
-            #highlights {
-              .subtitle {
-                color: var(--darkGrey);
+            min-height: 70vh;
+            background-image: url(assets/img/travolta.webp);
+            background-size: cover;
+            background-position: center;
+
+            .container {
+              .content {
+                h1, p {
+                  color: white;
+                  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+                }
+
+                a {
+                  color: white;
+                  min-width: unset;
+                  width: 12rem;
+                }
               }
             }
           }

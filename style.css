@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.8.0
+  Version: 2.8.1
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2190,6 +2190,23 @@ html body a {
   color: var(--orange);
 }
 
+html body a.btn {
+  min-width: 10rem;
+  padding: .5rem 1rem;
+  border: solid 2px var(--orange);
+  background-color: transparent;
+  border-radius: 2rem;
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+}
+
+html body a.btn:hover {
+  background-color: var(--orange);
+}
+
 html body .subtitle {
   font-family: Agency;
   font-weight: lighter;
@@ -3234,9 +3251,26 @@ html body main .page-content {
   padding: 2rem 0 1rem 0;
 }
 
-html body main.post.page.not-found #highlights .subtitle,
-html body main .page-content.page.not-found #highlights .subtitle {
-  color: var(--darkGrey);
+html body main.post.page.not-found,
+html body main .page-content.page.not-found {
+  min-height: 70vh;
+  background-image: url(assets/img/travolta.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+html body main.post.page.not-found .container .content h1, html body main.post.page.not-found .container .content p,
+html body main .page-content.page.not-found .container .content h1,
+html body main .page-content.page.not-found .container .content p {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+html body main.post.page.not-found .container .content a,
+html body main .page-content.page.not-found .container .content a {
+  color: white;
+  min-width: unset;
+  width: 12rem;
 }
 
 html body main.post.page .container .content,
@@ -4256,6 +4290,10 @@ html body footer .container .social-container .social-links {
     width: 45%;
     top: 0;
     background-color: #000;
+  }
+  html body main.post.page.not-found,
+  html body main .page-content.page.not-found {
+    min-height: 80vh;
   }
   html body main.post.page .container,
   html body main .page-content.page .container {
