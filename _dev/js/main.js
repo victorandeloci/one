@@ -37,7 +37,30 @@ async function sendByAction(method, action, formData = null, params = null) {
   return response;
 }
 
+const keySequenceListener = (keySequence, callback) => {
+  let keys = '';
+
+  return (e) => {
+    // Add the current key to the chain
+    keys += e.key;
+    // If we matched the target key sequence, invoke callback
+
+    console.log(keys);
+
+    if (keys === keySequence) {
+      callback();
+      // Reset so we can loop back around again
+      keys = '';
+    } else if (!keySequence.startsWith(keys)) {
+      // Key sequence doesn't match, reset
+      keys = '';
+    }
+  };
+}
+
 docReady(function () {
+  console.log("Where's Everyone Going? Bingo?");
+
   // podcast selector
   let podcastSelectors = document.querySelectorAll('.podcast-select');
   if (podcastSelectors != null && podcastSelectors.length > 0) {
@@ -248,4 +271,9 @@ docReady(function () {
         }
       });
   }
+
+  // konami code
+  document.addEventListener('keyup', keySequenceListener('ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba', () => {
+    window.open('https://www.youtube.com/watch?v=E0cIuHhurVg', '_blank').focus();
+  }));
 });
