@@ -44,9 +44,6 @@ const keySequenceListener = (keySequence, callback) => {
     // Add the current key to the chain
     keys += e.key;
     // If we matched the target key sequence, invoke callback
-
-    console.log(keys);
-
     if (keys === keySequence) {
       callback();
       // Reset so we can loop back around again
