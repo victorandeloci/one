@@ -1,6 +1,17 @@
 <?php
 
-define('ONE_VERSION', '2.8.2');
+define('ONE_VERSION', '2.8.3');
+
+define('ONE_GRSD', [
+  0 => 'No começo tava ruim, aí depois parece que piorou!',
+  2.5 => 'Era melhor ter ido ver o pelé!',
+  4.5 => 'Tá ruim, mas tá bom...',
+  6 => 'Passou de ano!',
+  8 => 'Jogo bonito, jogo formoso!',
+  9.5 => 'Esse só perde para Chrono Trigger...'
+]);
+
+define('EXCLUDED_TAGS', ['podcast', 'podcastbrasil', 'games', 'game', 'videogames', 'videogame', 'playercast', 'player-select', 'player select', 'psnews', 'noticias', 'notícias', 'news', 'review', 'analise', 'jogos', 'critica']);
 
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo');
@@ -51,15 +62,6 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
   }
   return $urls;
 }
-
-define('ONE_GRSD', [
-  0 => 'No começo tava ruim, aí depois parece que piorou!',
-  2.5 => 'Era melhor ter ido ver o pelé!',
-  4.5 => 'Tá ruim, mas tá bom...',
-  6 => 'Passou de ano!',
-  8 => 'Jogo bonito, jogo formoso!',
-  9.5 => 'Esse só perde para Chrono Trigger...'
-]);
 
 function getGRSD($score) {
   $finalDefinition = '';
