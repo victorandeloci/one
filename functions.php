@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.8.3');
+define('ONE_VERSION', '2.9.0');
 
 define('ONE_GRSD', [
   0 => 'No começo tava ruim, aí depois parece que piorou!',
@@ -932,3 +932,29 @@ function one_featured_content() {
 }
 add_action('wp_ajax_one_featured_content', 'one_featured_content');
 add_action('wp_ajax_nopriv_one_featured_content', 'one_featured_content');
+
+function one_save_lottery_entry() {
+  $name = sanitize_text_field($_POST['name']);
+  $email = sanitize_text_field($_POST['email']);
+  $insta = sanitize_text_field($_POST['insta']);
+
+  if (!empty($name) && !empty($email)) {
+    $newUserId = wp_insert_user((object) [
+      'display_name' => $name,
+      'user_email' => $email,
+      'user_pass' => substr(md5(mt_rand()), 0, 7),
+      'user_login' => sanitize_title($name),
+      'description' => $insta
+    ]);
+
+    if (!empty($newUserId)) {
+      echo 'Pronto, você já está participando do sorteio!';
+    } else {
+      echo 'Não conseguimos salvar suas informações... Pode tentar novamente depois?';
+    }
+  }
+
+  die();
+}
+add_action('wp_ajax_one_save_lottery_entry', 'one_save_lottery_entry');
+add_action('wp_ajax_nopriv_one_save_lottery_entry', 'one_save_lottery_entry');
