@@ -269,6 +269,36 @@ docReady(function () {
       });
   }
 
+  // lottery form
+  let lotteryForm = document.getElementById('lotteryForm');
+  if (lotteryForm) {
+    lotteryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      var submitBtn = lotteryForm.querySelector('#lotterySubmitBtn');
+      submitBtn.innerHTML = 'Enviando...';
+
+      let formData = new FormData();
+      formData.append('name', lotteryForm.querySelector('#name').value);
+      formData.append('email', lotteryForm.querySelector('#email').value);
+      formData.append('insta', lotteryForm.querySelector('#insta').value);
+
+      fetch(apiUrl + '?action=one_save_lottery_entry', {
+        method: 'post',
+        body: formData
+      })
+        .then(function (response) {
+          return response.text();
+        })
+        .then(function (text) {
+          submitBtn.innerHTML = 'Enviado';
+          submitBtn.setAttribute('disabled', true);
+          submitBtn.classList.add('disabled');
+          alert(text);
+        });
+    });
+  }
+
   // konami code
   document.addEventListener('keyup', keySequenceListener('ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba', () => {
     window.open('https://www.youtube.com/watch?v=E0cIuHhurVg', '_blank').focus();

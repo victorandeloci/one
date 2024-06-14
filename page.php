@@ -7,7 +7,7 @@
     <div class="container">
         <div class="content">
             <h1><?= get_the_title() ?></h1>
-            <?= get_the_content() ?>            
+            <?php the_content(); ?>
         </div>
     </div>
 </main>

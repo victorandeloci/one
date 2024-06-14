@@ -3,7 +3,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.8.3
+  Version: 2.9.0
 */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2186,11 +2186,7 @@ html body .plyr .plyr__controls {
   background-color: transparent;
 }
 
-html body a {
-  color: var(--orange);
-}
-
-html body a.btn {
+html body .btn {
   min-width: 10rem;
   padding: .5rem 1rem;
   border: solid 2px var(--orange);
@@ -2203,9 +2199,39 @@ html body a.btn {
   transition: ease-in-out .3s;
 }
 
-html body a.btn:hover {
+html body .btn.orange {
+  border: solid 2px var(--orange);
+  background-color: var(--orange);
+  color: #fff;
+}
+
+html body .btn.orange:hover {
+  border-color: #d17243;
+  background-color: #d17243;
+}
+
+html body .btn.pink {
+  border-color: var(--pink);
+  background-color: var(--pink);
+  color: #fff;
+}
+
+html body .btn.pink:hover {
+  border-color: #be5a62;
+  background-color: #be5a62;
+}
+
+html body .btn.disabled {
+  opacity: .5;
+}
+
+html body .btn:hover {
   background-color: var(--orange);
   text-decoration: none !important;
+}
+
+html body a {
+  color: var(--orange);
 }
 
 html body .subtitle {
@@ -2799,6 +2825,20 @@ html body #mainNav a.active svg {
 html body #mainNav a svg {
   fill: #5e5e5e;
   height: 1.5rem;
+}
+
+html body .wpforms-container .wpforms-field-label {
+  font-size: 90%;
+  opacity: .75;
+}
+
+html body .wpforms-container .wpforms-field-medium:focus {
+  border-color: var(--orange) !important;
+  box-shadow: 0 0 0 1px var(--orange), 0px 1px 2px rgba(0, 0, 0, 0.15) !important;
+}
+
+html body .wpforms-container .wpforms-submit {
+  background-color: var(--pink) !important;
 }
 
 html body section#highlights {
@@ -3484,6 +3524,24 @@ html body main .page-content.event .container .event-linked-posts .post-list-con
   padding: 1rem;
 }
 
+html body main.post.lottery #lotteryForm,
+html body main .page-content.lottery #lotteryForm {
+  margin: 2rem 0;
+}
+
+html body main.post.lottery #lotteryForm input,
+html body main .page-content.lottery #lotteryForm input {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  border-color: rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  outline: 0;
+  transition: ease-in-out .1s;
+}
+
 html body main.post .container img,
 html body main .page-content .container img {
   width: 100%;
@@ -4067,6 +4125,9 @@ html body footer .container .social-container .social-links {
   html body .esports-reviews-container > .container #reviews .container .post-list-container .post-card:last-child {
     display: none;
   }
+  html body .wpforms-container .wpforms-field-label {
+    color: #fff;
+  }
   html body section#highlights .title {
     display: flex;
     gap: 2rem;
@@ -4281,6 +4342,11 @@ html body footer .container .social-container .social-links {
   html body main.post.event .container .event-linked-posts .post-list-container .post-card,
   html body main .page-content.event .container .event-linked-posts .post-list-container .post-card {
     width: 48%;
+  }
+  html body main.post.lottery #lotteryForm input,
+  html body main .page-content.lottery #lotteryForm input {
+    color: #fff;
+    background-color: #2f2f2f;
   }
   html body main.post.review .container,
   html body main .page-content.review .container {

@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.8.3
+  Version: 2.9.0
 */
 
 @import '../plugins/css/normalize';
@@ -80,26 +80,52 @@ html {
       }
     }
 
-    a {
-      color: var(--orange);
+    .btn {
+      min-width: 10rem;
+      padding: .5rem 1rem;
+      border: solid 2px var(--orange);
+      background-color: transparent;
+      border-radius: 2rem;
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: ease-in-out .3s;
 
-      &.btn {
-        min-width: 10rem;
-        padding: .5rem 1rem;
+      &.orange {
         border: solid 2px var(--orange);
-        background-color: transparent;
-        border-radius: 2rem;
-        color: var(--white);
-        display: grid;
-        place-items: center;
-        cursor: pointer;
-        transition: ease-in-out .3s;
+        background-color: var(--orange);
+        color: #fff;
 
         &:hover {
-          background-color: var(--orange);
-          text-decoration: none !important;
+          border-color: #d17243;
+          background-color: #d17243;
         }
       }
+
+      &.pink {
+        border-color: var(--pink);
+        background-color: var(--pink);
+        color: #fff;
+
+        &:hover {
+          border-color: #be5a62;
+          background-color: #be5a62;
+        }
+      }
+
+      &.disabled {
+        opacity: .5;
+      }
+
+      &:hover {
+        background-color: var(--orange);
+        text-decoration: none !important;
+      }
+    }
+
+    a {
+      color: var(--orange);
     }
 
     .subtitle {
@@ -749,6 +775,24 @@ html {
       }
     }
 
+    .wpforms-container {
+      .wpforms-field-label {
+        font-size: 90%;
+        opacity: .75;
+      }
+
+      .wpforms-field-medium {
+        &:focus {
+          border-color: var(--orange) !important;
+          box-shadow: 0 0 0 1px var(--orange), 0px 1px 2px rgba(0, 0, 0, 0.15) !important;
+        }
+      }
+
+      .wpforms-submit {
+        background-color: var(--pink) !important;
+      }
+    }
+
     section {
       &#highlights {
         padding: 1rem 0 3rem 0;
@@ -1238,7 +1282,6 @@ html {
     }
 
     main {
-
       &.post,
       .page-content {
         background-color: var(--white);
@@ -1470,6 +1513,24 @@ html {
                   }
                 }
               }
+            }
+          }
+        }
+
+        &.lottery {
+          #lotteryForm {
+            margin: 2rem 0;
+
+            input {
+              width: 100%;
+              display: block;
+              margin-bottom: 1rem;
+              padding: .5rem 1rem;
+              border-radius: .5rem;
+              border-color: rgba(0, 0, 0, 0.3);
+              background-color: transparent;
+              outline: 0;
+              transition: ease-in-out .1s;
             }
           }
         }

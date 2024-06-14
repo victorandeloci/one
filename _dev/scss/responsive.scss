@@ -349,6 +349,12 @@
                 }
             }
 
+            .wpforms-container {
+                .wpforms-field-label {
+                    color: #fff;
+                }
+            }            
+
             section {
                 &#highlights {
                     .title {
@@ -647,6 +653,15 @@
                                         width: 48%;
                                     }
                                 }
+                            }
+                        }
+                    }
+
+                    &.lottery {
+                        #lotteryForm {
+                            input {
+                                color: #fff;
+                                background-color: #2f2f2f;
                             }
                         }
                     }
