@@ -1,13 +1,13 @@
 {
   "name": "one",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "main": "index.php",
   "scripts": {
-    "sass-dev": "node-sass --output-style=expanded _dev/scss/main.scss style.css",
-    "sass-prod": "node-sass --output-style=compressed _dev/scss/main.scss style.css",
+    "sass-dev": "sass --watch --update --style=expanded _dev/scss/main.scss style.css",
+    "sass-prod": "sass --no-source-map --style=compressed _dev/scss/main.scss style.css",
     "prefix": "postcss style.css --use=autoprefixer --map=false --output=style.css",
     "compile-js": "uglifyjs-folder _dev --output main.min.js --pattern '**/*.js'",
-    "dev": "watch 'npm run sass-dev && npm run compile-js' _dev/*",
+    "dev": "concurrently \"npm run sass-dev\" \"watch 'npm run compile-js' _dev\"",
     "build": "npm run sass-prod && npm run prefix && npm run compile-js"
   },
   "repository": {
@@ -22,10 +22,13 @@
   "homepage": "https://github.com/victorandeloci/one#readme",
   "dependencies": {
     "autoprefixer": "^10.4.14",
-    "node-sass": "^9.0.0",
     "postcss": "^8.4.27",
     "postcss-cli": "^10.1.0",
+    "sass": "^1.83.4",
     "uglifyjs-folder": "^3.3.0",
     "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
