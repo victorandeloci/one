@@ -939,12 +939,19 @@ function one_save_lottery_entry() {
   $insta = sanitize_text_field($_POST['insta']);
 
   if (!empty($name) && !empty($email)) {
+    // name & surname
+    $nameParts = explode(' ', $name, 2);
+    $firstName = $nameParts[0] ?? 'Usuário';
+    $lastName = $nameParts[1] ?? wp_generate_password(6, false);
+
     $newUserId = wp_insert_user((object) [
       'display_name' => $name,
       'user_email' => $email,
-      'user_pass' => substr(md5(mt_rand()), 0, 7),
+      'user_pass' => wp_generate_password(12, false),
       'user_login' => sanitize_title($name),
-      'description' => $insta
+      'description' => $insta,
+      'first_name' => $firstName,
+      'last_name' => $lastName
     ]);
 
     if (!empty($newUserId)) {
