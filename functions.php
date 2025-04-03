@@ -3,12 +3,12 @@
 define('ONE_VERSION', '2.9.1');
 
 define('ONE_GRSD', [
-  0 => 'No começo tava ruim, aí depois parece que piorou!',
-  2.5 => 'Era melhor ter ido ver o pelé!',
-  4.5 => 'Tá ruim, mas tá bom...',
-  6 => 'Passou de ano!',
-  8 => 'Jogo bonito, jogo formoso!',
-  9.5 => 'Esse só perde para Chrono Trigger...'
+  '0' => 'No começo tava ruim, aí depois parece que piorou!',
+  '2.5' => 'Era melhor ter ido ver o pelé!',
+  '4.5' => 'Tá ruim, mas tá bom...',
+  '6' => 'Passou de ano!',
+  '8' => 'Jogo bonito, jogo formoso!',
+  '9.5' => 'Esse só perde para Chrono Trigger...'
 ]);
 
 define('EXCLUDED_TAGS', ['podcast', 'podcastbrasil', 'games', 'game', 'videogames', 'videogame', 'playercast', 'player-select', 'player select', 'psnews', 'noticias', 'notícias', 'news', 'review', 'analise', 'jogos', 'critica']);
