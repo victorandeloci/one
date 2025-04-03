@@ -1009,3 +1009,28 @@ function one_save_avatar_entry() {
 }
 add_action('wp_ajax_one_save_avatar_entry', 'one_save_avatar_entry');
 add_action('wp_ajax_nopriv_one_save_avatar_entry', 'one_save_avatar_entry');
+
+function one_get_latest_avatars() {
+  $args = array(
+      'role'    => 'subscriber',
+      'number'  => 10,
+      'orderby' => 'registered',
+      'order'   => 'DESC',
+  );
+
+  $users = get_users($args);
+  $avatars = [];
+
+  foreach ($users as $user) {
+      $avatars[] = [
+          'id' => $user->ID,
+          'username' => $user->user_login,
+          'avatar_url' => get_user_meta($user->ID, 'avatar_url', true),
+      ];
+  }
+
+  wp_send_json($avatars);
+}
+
+add_action('wp_ajax_one_get_latest_avatars', 'one_get_latest_avatars');
+add_action('wp_ajax_nopriv_one_get_latest_avatars', 'one_get_latest_avatars');
