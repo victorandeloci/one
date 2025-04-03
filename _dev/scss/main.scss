@@ -41,6 +41,11 @@
   box-sizing: border-box;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 html {
   body {
     background: var(--darkGrey);
@@ -126,6 +131,16 @@ html {
 
     a {
       color: var(--orange);
+    }
+
+    .avatar-loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid var(--orange);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 10px auto;
     }
 
     .subtitle {
@@ -1519,8 +1534,8 @@ html {
           }
         }
 
-        &.lottery {
-          #lotteryForm {
+        &.lottery, &.avatar-register {
+          #lotteryForm, #userForm {
             margin: 2rem 0;
 
             input {
@@ -1530,9 +1545,34 @@ html {
               padding: .5rem 1rem;
               border-radius: .5rem;
               border-color: rgba(0, 0, 0, 0.3);
-              background-color: transparent;
+              color: #fff;
+              background-color: #2f2f2f;
               outline: 0;
               transition: ease-in-out .1s;
+            }
+          }
+
+          #userForm {
+            .row {
+              gap: 2%;
+
+              .column {
+                &:nth-child(1) {
+                  width: 69%;
+                }
+
+                &:nth-child(2) {
+                  width: 29%;
+                }
+
+                .avatar-container {
+                  padding: 1rem;
+                  background-color: #2f2f2f;
+                  border-radius: .5rem;
+                  border-color: rgba(0, 0, 0, 0.3);
+                  margin-bottom: 1rem;
+                }
+              }
             }
           }
         }

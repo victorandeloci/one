@@ -55,8 +55,12 @@ const keySequenceListener = (keySequence, callback) => {
   };
 }
 
+function generateRandomString() {
+  return Math.random().toString(36).substring(2, 12);
+}
+
 docReady(function () {
-  console.log("Where's Everyone Going? Bingo?");
+  console.log("Where's everyone going? Bingo?");
 
   // podcast selector
   let podcastSelectors = document.querySelectorAll('.podcast-select');
@@ -303,4 +307,99 @@ docReady(function () {
   document.addEventListener('keyup', keySequenceListener('ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba', () => {
     window.open('https://www.youtube.com/watch?v=E0cIuHhurVg', '_blank').focus();
   }));
+
+  // avatar
+  const avatarPreview = document.getElementById("avatarPreview");
+  const avatarInput = document.getElementById("avatar");
+  const avatarLoader = document.getElementById("avatarLoader");
+  const randomAvatarBtn = document.getElementById("randomAvatarBtn");
+  const form = document.getElementById("userForm");
+
+  function getRandomGameAvatar(seed) {
+      const avatarGenerators = [
+          `https://api.dicebear.com/8.x/adventurer/png?seed=${seed}`,
+          `https://api.dicebear.com/8.x/pixel-art/png?seed=${seed}`,
+          `https://api.dicebear.com/8.x/big-smile/png?seed=${seed}`,
+          `https://robohash.org/${seed}.png?set=set1`,
+          `https://robohash.org/${seed}.png?set=set2`,
+          `https://robohash.org/${seed}.png?set=set3`,
+          `https://avatars.dicebear.com/api/human/${seed}.svg`,
+          `https://api.multiavatar.com/${seed}.png`,
+          `https://joeschmoe.io/api/v1/${seed}`,
+          `https://api.dicebear.com/8.x/micah/png?seed=${seed}`,
+          `https://api.dicebear.com/8.x/bottts/png?seed=${seed}`,
+          `https://api.dicebear.com/8.x/identicon/png?seed=${seed}`
+      ];
+
+      return avatarGenerators[Math.floor(Math.random() * avatarGenerators.length)];
+  }
+
+  function updateAvatar(seed) {
+      avatarLoader.style.display = "block";
+      avatarPreview.style.display = "none";
+
+      const avatarURL = getRandomGameAvatar(seed);
+
+      fetch(avatarURL, { method: "HEAD" })
+          .then(response => {
+              avatarLoader.style.display = "none";
+              if (response.ok) {
+                  avatarPreview.src = avatarURL;
+                  avatarPreview.style.display = "block";
+                  avatarInput.value = avatarURL;
+              } else {
+                  console.warn("Avatar não encontrado, usando fallback.");
+                  setDefaultAvatar();
+              }
+          })
+          .catch(() => {
+              avatarLoader.style.display = "none";
+              console.warn("Erro ao carregar avatar, usando fallback.");
+              setDefaultAvatar();
+          });
+  }
+
+  function setDefaultAvatar() {
+      const fallbackURL = "https://api.dicebear.com/8.x/pixel-art/png?seed=default";
+      avatarPreview.src = fallbackURL;
+      avatarPreview.style.display = "block";
+      avatarInput.value = fallbackURL;
+  }
+
+  // initial avatar
+  updateAvatar(generateRandomString());
+
+  randomAvatarBtn.addEventListener("click", () => {
+      updateAvatar(generateRandomString()); // new random avatar
+  });
+
+  // avatar form
+  let userForm = document.getElementById('userForm');
+  if (userForm) {
+    userForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      var submitBtn = userForm.querySelector('#avatarRegisterSubmitBtn');
+      submitBtn.innerHTML = 'Enviando...';
+
+      let formData = new FormData();
+      formData.append('username', userForm.querySelector('#username').value);
+      formData.append('email', userForm.querySelector('#email').value);
+      formData.append('avatar', userForm.querySelector('#avatar').value);
+
+      fetch(apiUrl + '?action=one_save_avatar_entry', {
+        method: 'post',
+        body: formData
+      })
+        .then(function (response) {
+          return response.text();
+        })
+        .then(function (text) {
+          submitBtn.innerHTML = 'Enviado';
+          submitBtn.setAttribute('disabled', true);
+          submitBtn.classList.add('disabled');
+          alert(text);
+        });
+    });
+  }
 });

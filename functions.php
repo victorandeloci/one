@@ -957,7 +957,7 @@ function one_save_lottery_entry() {
     if (!empty($newUserId)) {
       echo 'Pronto, você já está participando do sorteio!';
     } else {
-      echo 'Não conseguimos salvar suas informações... Pode tentar novamente depois?';
+      echo 'Não conseguimos salvar suas informações... Pode tentar novamente mais tarde?';
     }
   }
 
@@ -965,3 +965,47 @@ function one_save_lottery_entry() {
 }
 add_action('wp_ajax_one_save_lottery_entry', 'one_save_lottery_entry');
 add_action('wp_ajax_nopriv_one_save_lottery_entry', 'one_save_lottery_entry');
+
+function one_save_avatar_entry() {
+  $username = sanitize_text_field($_POST['username']);
+  $email = sanitize_email($_POST['email']);
+  $avatar_url = esc_url($_POST['avatar']);
+
+  if (empty($username) || empty($email) || empty($avatar_url)) {
+      wp_send_json_error(['message' => 'Todos os campos são obrigatórios.'], 400);
+  }
+
+  if (username_exists($username)) {
+    $username = $username . time();
+  }
+
+  if (email_exists($email)) {
+    echo 'Email já está cadastrado. Por favor, recarregue a página.';
+    die();
+  }
+
+  $password = wp_generate_password();
+
+  // create wp user
+  $user_id = wp_create_user($username, $password, $email);
+
+  if (is_wp_error($user_id)) {
+      wp_send_json_error(['message' => 'Erro ao criar usuário.'], 500);
+  }
+
+  // save avatar url
+  update_user_meta($user_id, 'avatar_url', $avatar_url);
+
+  // avatar generator meta value
+  update_user_meta($user_id, 'created_by_avatar_generator', true);
+
+  if (!empty($user_id)) {
+    echo 'Avatar salvo com sucesso!';
+  } else {
+    echo 'Não conseguimos salvar suas informações... Pode tentar novamente mais tarde?';
+  }
+
+  die();
+}
+add_action('wp_ajax_one_save_avatar_entry', 'one_save_avatar_entry');
+add_action('wp_ajax_nopriv_one_save_avatar_entry', 'one_save_avatar_entry');
