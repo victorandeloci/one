@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.9.1
+  Version: 2.10.0
 */
 
 @import '../plugins/css/normalize';
@@ -1735,7 +1735,7 @@ html {
         .logo-container {
           width: 100%;
           padding-bottom: 1rem;
-          background-color: #322428;
+          background-color: #35292c;
           position: relative;
 
           h1 {
@@ -1775,7 +1775,7 @@ html {
           width: 100%;
           padding: 1rem 0 3rem 0;
           position: relative;
-          background-color: #322428;
+          background-color: #35292c;
 
           &::after {
             content: " ";
@@ -1783,8 +1783,8 @@ html {
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 1rem;
-            background: linear-gradient(to top, #000, #322428);
+            height: 2rem;
+            background: linear-gradient(to top, #000, #35292c);
           }
         }
 

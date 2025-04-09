@@ -1088,6 +1088,8 @@
 
                 &#rpg {
                     .banner {
+                        min-height: 80vh;
+
                         .decoration {
                             &.top {
                                 height: 10.5rem;
@@ -1107,6 +1109,14 @@
                         .container {
                             width: 40%;
                             margin-left: 20%;
+
+                            .content {
+                                iframe {
+                                    &[title='YouTube video player'] {
+                                        min-height: 27rem;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
