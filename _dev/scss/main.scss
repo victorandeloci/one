@@ -2,7 +2,7 @@
   Theme Name: One
   Author: Victor Andeloci
   Author URI: https://github.com/victorandeloci
-  Version: 2.9.0
+  Version: 2.10.0
 */
 
 @import '../plugins/css/normalize';
@@ -39,6 +39,11 @@
 
 * {
   box-sizing: border-box;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 html {
@@ -126,6 +131,16 @@ html {
 
     a {
       color: var(--orange);
+    }
+
+    .avatar-loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid var(--orange);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 10px auto;
     }
 
     .subtitle {
@@ -1187,6 +1202,8 @@ html {
       }
 
       &#news {
+        margin-bottom: 2rem;
+
         .container {
           .loader-container {
             display: grid;
@@ -1517,8 +1534,8 @@ html {
           }
         }
 
-        &.lottery {
-          #lotteryForm {
+        &.lottery, &.avatar-register {
+          #lotteryForm, #userForm {
             margin: 2rem 0;
 
             input {
@@ -1528,9 +1545,34 @@ html {
               padding: .5rem 1rem;
               border-radius: .5rem;
               border-color: rgba(0, 0, 0, 0.3);
-              background-color: transparent;
+              color: #fff;
+              background-color: #2f2f2f;
               outline: 0;
               transition: ease-in-out .1s;
+            }
+          }
+
+          #userForm {
+            .row {
+              gap: 2%;
+
+              .column {
+                &:nth-child(1) {
+                  width: 69%;
+                }
+
+                &:nth-child(2) {
+                  width: 29%;
+                }
+
+                .avatar-container {
+                  padding: 1rem;
+                  background-color: #2f2f2f;
+                  border-radius: .5rem;
+                  border-color: rgba(0, 0, 0, 0.3);
+                  margin-bottom: 1rem;
+                }
+              }
             }
           }
         }
@@ -1693,7 +1735,7 @@ html {
         .logo-container {
           width: 100%;
           padding-bottom: 1rem;
-          background-color: #322428;
+          background-color: #35292c;
           position: relative;
 
           h1 {
@@ -1733,7 +1775,7 @@ html {
           width: 100%;
           padding: 1rem 0 3rem 0;
           position: relative;
-          background-color: #322428;
+          background-color: #35292c;
 
           &::after {
             content: " ";
@@ -1741,8 +1783,8 @@ html {
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 1rem;
-            background: linear-gradient(to top, #000, #322428);
+            height: 2rem;
+            background: linear-gradient(to top, #000, #35292c);
           }
         }
 

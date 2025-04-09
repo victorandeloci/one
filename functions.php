@@ -1,14 +1,14 @@
 <?php
 
-define('ONE_VERSION', '2.9.0');
+define('ONE_VERSION', '2.10.0');
 
 define('ONE_GRSD', [
-  0 => 'No começo tava ruim, aí depois parece que piorou!',
-  2.5 => 'Era melhor ter ido ver o pelé!',
-  4.5 => 'Tá ruim, mas tá bom...',
-  6 => 'Passou de ano!',
-  8 => 'Jogo bonito, jogo formoso!',
-  9.5 => 'Esse só perde para Chrono Trigger...'
+  '0' => 'No começo tava ruim, aí depois parece que piorou!',
+  '2.5' => 'Era melhor ter ido ver o pelé!',
+  '4.5' => 'Tá ruim, mas tá bom...',
+  '6' => 'Passou de ano!',
+  '8' => 'Jogo bonito, jogo formoso!',
+  '9.5' => 'Esse só perde para Chrono Trigger...'
 ]);
 
 define('EXCLUDED_TAGS', ['podcast', 'podcastbrasil', 'games', 'game', 'videogames', 'videogame', 'playercast', 'player-select', 'player select', 'psnews', 'noticias', 'notícias', 'news', 'review', 'analise', 'jogos', 'critica']);
@@ -939,18 +939,25 @@ function one_save_lottery_entry() {
   $insta = sanitize_text_field($_POST['insta']);
 
   if (!empty($name) && !empty($email)) {
+    // name & surname
+    $nameParts = explode(' ', $name, 2);
+    $firstName = $nameParts[0] ?? 'Usuário';
+    $lastName = $nameParts[1] ?? wp_generate_password(6, false);
+
     $newUserId = wp_insert_user((object) [
       'display_name' => $name,
       'user_email' => $email,
-      'user_pass' => substr(md5(mt_rand()), 0, 7),
+      'user_pass' => wp_generate_password(12, false),
       'user_login' => sanitize_title($name),
-      'description' => $insta
+      'description' => $insta,
+      'first_name' => $firstName,
+      'last_name' => $lastName
     ]);
 
     if (!empty($newUserId)) {
       echo 'Pronto, você já está participando do sorteio!';
     } else {
-      echo 'Não conseguimos salvar suas informações... Pode tentar novamente depois?';
+      echo 'Não conseguimos salvar suas informações... Pode tentar novamente mais tarde?';
     }
   }
 
@@ -958,3 +965,72 @@ function one_save_lottery_entry() {
 }
 add_action('wp_ajax_one_save_lottery_entry', 'one_save_lottery_entry');
 add_action('wp_ajax_nopriv_one_save_lottery_entry', 'one_save_lottery_entry');
+
+function one_save_avatar_entry() {
+  $username = sanitize_text_field($_POST['username']);
+  $email = sanitize_email($_POST['email']);
+  $avatar_url = esc_url($_POST['avatar']);
+
+  if (empty($username) || empty($email) || empty($avatar_url)) {
+      wp_send_json_error(['message' => 'Todos os campos são obrigatórios.'], 400);
+  }
+
+  if (username_exists($username)) {
+    $username = $username . time();
+  }
+
+  if (email_exists($email)) {
+    echo 'Email já está cadastrado. Por favor, recarregue a página.';
+    die();
+  }
+
+  $password = wp_generate_password();
+
+  // create wp user
+  $user_id = wp_create_user($username, $password, $email);
+
+  if (is_wp_error($user_id)) {
+      wp_send_json_error(['message' => 'Erro ao criar usuário.'], 500);
+  }
+
+  // save avatar url
+  update_user_meta($user_id, 'avatar_url', $avatar_url);
+
+  // avatar generator meta value
+  update_user_meta($user_id, 'created_by_avatar_generator', true);
+
+  if (!empty($user_id)) {
+    echo 'Avatar salvo com sucesso!';
+  } else {
+    echo 'Não conseguimos salvar suas informações... Pode tentar novamente mais tarde?';
+  }
+
+  die();
+}
+add_action('wp_ajax_one_save_avatar_entry', 'one_save_avatar_entry');
+add_action('wp_ajax_nopriv_one_save_avatar_entry', 'one_save_avatar_entry');
+
+function one_get_latest_avatars() {
+  $args = array(
+      'role'    => 'subscriber',
+      'number'  => 10,
+      'orderby' => 'registered',
+      'order'   => 'DESC',
+  );
+
+  $users = get_users($args);
+  $avatars = [];
+
+  foreach ($users as $user) {
+      $avatars[] = [
+          'id' => $user->ID,
+          'username' => $user->user_login,
+          'avatar_url' => get_user_meta($user->ID, 'avatar_url', true),
+      ];
+  }
+
+  wp_send_json($avatars);
+}
+
+add_action('wp_ajax_one_get_latest_avatars', 'one_get_latest_avatars');
+add_action('wp_ajax_nopriv_one_get_latest_avatars', 'one_get_latest_avatars');
