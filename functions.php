@@ -1,6 +1,6 @@
 <?php
 
-define('ONE_VERSION', '2.9.1');
+define('ONE_VERSION', '2.10.0');
 
 define('ONE_GRSD', [
   '0' => 'No começo tava ruim, aí depois parece que piorou!',

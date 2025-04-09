@@ -1,6 +1,6 @@
 {
   "name": "one",
-  "version": "2.9.1",
+  "version": "2.10.0",
   "main": "index.php",
   "scripts": {
     "sass-dev": "sass --watch --update --style=expanded _dev/scss/main.scss style.css",
